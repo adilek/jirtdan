@@ -13,8 +13,9 @@ const DEFAULT_STROKE_COLOR = "#000";
  */
 class BaseControl {
 
-    constructor(paper) {
-        this.paper = paper;
+    constructor(board) {
+        this.board = board;
+        this.paper = board.paper;
         this.shapes = [];
         this.inPins = [];
         this.outPins = [];
@@ -86,6 +87,14 @@ class BaseControl {
         pin.attr("stroke", "#000");
     }
 
+    onInputPinClick(pin) {
+        this.board.finishConnection(pin);
+    }
+
+    onOutputPinClick(pin) {
+        this.board.startConnection(pin);
+    }
+
     /**
      * Set the shapes to be drawn to represent the current control visually.
      * @param {Array} shapes array of shapes.
@@ -150,6 +159,9 @@ class BaseControl {
             arguments[i].mouseout(function () {
                 _this.onInputPinHoverOut(this);
             });
+            arguments[i].click(function () {
+                _this.onInputPinClick(this);
+            });
         }
     }
 
@@ -172,6 +184,9 @@ class BaseControl {
             });
             arguments[i].mouseout(function () {
                 _this.onInputPinHoverOut(this);
+            });
+            arguments[i].click(function () {
+                _this.onOutputPinClick(this);
             });
         }
     }
