@@ -29,6 +29,14 @@ class Board {
         this.pin1 = pin;
     }
 
+    startFinishConnection(pin) {
+        if (!this.isConnecting) {
+            this.startConnection(pin);
+            return;
+        }
+        this.finishConnection(pin);
+    }
+
     finishConnection(pin) {
         if (!this.isConnecting) return;
         //TODO:
@@ -37,15 +45,7 @@ class Board {
     }
 
     createConnection(pin1, pin2) {
-        console.log(pin1);
-        let x1 = pin1.attr("cx") + pin1.matrix.e;
-        let y1 = pin1.attr("cy") + pin1.matrix.f;
-        let x2 = pin2.attr("cx") + pin2.matrix.e;
-        let y2 = pin2.attr("cy") + pin2.matrix.f;
-
-        this.paper.path("M " + x1 + "," + y1 + " L " + x2 + "," + y2);
-
-
+        new ConnectionLine(this, pin1, pin2);
     }
 
     createFilter() {
