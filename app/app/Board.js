@@ -45,7 +45,13 @@ class Board {
     }
 
     createConnection(pin1, pin2) {
-        new ConnectionLine(this, pin1, pin2);
+        this.connections.push(new ConnectionLine(this, pin1, pin2));
+    }
+
+    translateConnections(pin, x, y) {
+        for (var i = 0; i < this.connections.length; i++) {
+            this.connections[i].onPinTranslate(pin, x, y);
+        }
     }
 
     createFilter() {

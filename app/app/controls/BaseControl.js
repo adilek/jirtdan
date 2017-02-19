@@ -45,15 +45,20 @@ class BaseControl {
      * @param dy
      */
     onDrag(dx, dy) {
+        let x = dx - this.oldX;
+        let y = dy - this.oldY;
+
         for (let i = 0; i < this.shapes.length; i++) {
-            this.shapes[i].translate(dx - this.oldX, dy - this.oldY);
+            this.shapes[i].translate(x, y);
         }
         for (let i = 0; i < this.inPins.length; i++) {
-            this.inPins[i].translate(dx - this.oldX, dy - this.oldY);
+            this.inPins[i].translate(x, y);
+            this.board.translateConnections(this.inPins[i],x,y);
         }
 
         for (let i = 0; i < this.outPins.length; i++) {
-            this.outPins[i].translate(dx - this.oldX, dy - this.oldY);
+            this.outPins[i].translate(x, y);
+            this.board.translateConnections(this.outPins[i],x,y);
         }
 
         this.oldX = dx;
