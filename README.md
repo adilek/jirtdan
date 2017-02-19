@@ -1,4 +1,4 @@
-[jirtdan](http://jirtdan.org) · [![License](https://img.shields.io/github/license/adilek/jirtdan.svg)](https://github.com/adilek/jirtdan/blob/master/LICENSE)
+[jirtdan](http://jirtdan.org) · [![License](https://img.shields.io/github/license/adilek/jirtdan.svg)](https://github.com/adilek/jirtdan/blob/master/LICENSE) [![ECMA version](https://img.shields.io/badge/ECMAScript-%202015-brightgreen.svg)](https://www.ecma-international.org/ecma-262/6.0/ECMA-262.pdf)
 ======
 
 Jirtdan project.
