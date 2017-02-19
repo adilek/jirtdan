@@ -39,6 +39,7 @@ class Board {
 
     finishConnection(pin) {
         if (!this.isConnecting) return;
+        if (this.pin1 == pin) return;
         //TODO:
         this.createConnection(this.pin1, pin);
         this.isConnecting = false;

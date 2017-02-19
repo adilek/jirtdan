@@ -31,7 +31,7 @@ class ConnectionLine {
 
         this.element = this.paper.path("M " + x1 + "," + y1 + " L " + x2 + "," + y2);
         //TODO:
-        console.log(this.element);
+        BaseControl.applyDefaultAttributes(this.element);
     }
 
     onPinTranslate(pin, x, y) {
