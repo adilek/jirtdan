@@ -15,7 +15,12 @@
  * |1  |0  |0  |
  * |1  |1  |1  |
  */
+//TODO: Remove the direct dependency from raphael.
 class AndGate extends BaseControl {
+    /**
+     * Constructor for AndGate
+     * @param paper raphael paper object.
+     */
     constructor(paper) {
         super(paper);
     }

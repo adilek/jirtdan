@@ -5,6 +5,7 @@
 /*jshint esversion: 6*/
 
 //FIXME: Draft
+//TODO: Dependency from raphael needs to be removed.
 class Board {
     constructor() {
         this.initBoard();

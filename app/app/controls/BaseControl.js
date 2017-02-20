@@ -11,6 +11,7 @@ const DEFAULT_STROKE_COLOR = "#000";
  * All classes that extends BaseControl should override the initControl()
  * method.
  */
+//TODO: remove the direct dependency from raphael
 class BaseControl {
 
     constructor(board) {
