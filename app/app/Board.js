@@ -15,7 +15,7 @@ class Board {
     }
 
     initBoard() {
-        this.paper = Raphael("board", 1024, 800);
+        this.paper = Raphael("board", 1280, 800);
         this.createFilter();
     }
 
@@ -41,8 +41,11 @@ class Board {
     finishConnection(pin) {
         if (!this.isConnecting) return;
         if (this.pin1 == pin) return;
-        //TODO:
-        this.createConnection(this.pin1, pin);
+
+
+        if (this.pin1.canConnect(pin)) {
+            this.createConnection(this.pin1, pin);
+        }
         this.isConnecting = false;
     }
 

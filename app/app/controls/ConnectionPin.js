@@ -9,12 +9,20 @@ const DEFAULT_CONNECTION_PIN_RADIUS = 12.062335;
 
 class ConnectionPin {
 
-    constructor(parent, x, y) {
+    /**
+     * Constructor of ConnectionPin
+     * @param parent the parent control that the pin is used for
+     * @param x the x coordinate for pin
+     * @param y the y coordinate for pin
+     * @param type either "in" or "out"
+     */
+    constructor(parent, x, y, type) {
         this.control = parent;
         this.board = this.control.board;
         this.paper = this.board.paper;
         this.x = x;
         this.y = y;
+        this.type = (type == "in" || type == "out") ? type : null;
         this.init();
     }
 
@@ -40,6 +48,30 @@ class ConnectionPin {
         this.element.click(function () {
             _this.onClick(this);
         });
+    }
+
+    getType() {
+        return this.type;
+    }
+
+    isInputType() {
+        return this.type == "in";
+    }
+
+    isOutputType() {
+        return this.type == "out";
+    }
+
+    canConnect(pin) {
+        if (this.control == pin.getParent()) return false;
+        if (this.type == null || pin.getType() == null) return false;
+        if (this.type == pin.getType()) return false;
+        //TODO: if already connected return false
+        return true;
+    }
+
+    getParent() {
+        return this.control;
     }
 
     translate(x, y) {
