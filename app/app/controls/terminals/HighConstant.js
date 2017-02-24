@@ -11,7 +11,7 @@
 //TODO: Remove the direct dependency from raphael.
 class HighConstant extends BaseControl {
     /**
-     * Constructor for AndGate
+     * Constructor for HighConstant
      * @param paper raphael paper object.
      */
     constructor(paper) {

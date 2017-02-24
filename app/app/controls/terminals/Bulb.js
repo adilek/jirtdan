@@ -11,7 +11,7 @@
 //TODO: Remove the direct dependency from raphael.
 class Bulb extends BaseControl {
     /**
-     * Constructor for AndGate
+     * Constructor for Bulb
      * @param paper raphael paper object.
      */
     constructor(paper) {
