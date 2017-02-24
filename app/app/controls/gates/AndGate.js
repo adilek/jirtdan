@@ -23,6 +23,8 @@ class AndGate extends BaseControl {
      */
     constructor(paper) {
         super(paper);
+        this.pin1Value = 0;
+        this.pin2Value = 0;
     }
 
     initControl() {
@@ -36,5 +38,9 @@ class AndGate extends BaseControl {
         this.setShapes([componentBody]);
         this.addInputPins(componentPin1, componentPin2);
         this.addOutputPins(componentPin3);
+    }
+
+    getValue() {
+        return this.pin1Value & this.pin2Value;
     }
 }

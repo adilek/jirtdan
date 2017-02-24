@@ -28,4 +28,8 @@ class HighConstant extends BaseControl {
         this.setShapes([componentBody, componentText]);
         this.addOutputPins(componentPin3);
     }
+
+    getValue() {
+        return 1;
+    }
 }
