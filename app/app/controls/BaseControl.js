@@ -6,7 +6,10 @@ const DEFAULT_STROKE_COLOR = "#000";
 /**
  * BaseControl is the super-class of all logic controls.
  * The BaseControl class provides basic functionality that all
- * controls should have (ex. drag-drop, focus, etc.).
+ * controls should have:
+ * - drag-drop
+ * - focus
+ * - manage the input/output pins
  *
  * All classes that extends BaseControl should override the initControl()
  * method.
@@ -54,12 +57,12 @@ class BaseControl {
         }
         for (let i = 0; i < this.inPins.length; i++) {
             this.inPins[i].translate(x, y);
-            this.board.translateConnections(this.inPins[i],x,y);
+            this.board.translateConnections(this.inPins[i], x, y);
         }
 
         for (let i = 0; i < this.outPins.length; i++) {
             this.outPins[i].translate(x, y);
-            this.board.translateConnections(this.outPins[i],x,y);
+            this.board.translateConnections(this.outPins[i], x, y);
         }
 
         this.oldX = dx;

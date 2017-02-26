@@ -6,6 +6,9 @@
 /*jshint esversion: 6*/
 
 const DEFAULT_CONNECTION_PIN_RADIUS = 12.062335;
+const PIN_TYPE_IN = "in";
+const PIN_TYPE_OUT = "out";
+
 
 class ConnectionPin {
 
@@ -22,7 +25,7 @@ class ConnectionPin {
         this.paper = this.board.paper;
         this.x = x;
         this.y = y;
-        this.type = (type == "in" || type == "out") ? type : null;
+        this.type = (type === PIN_TYPE_IN || type === PIN_TYPE_OUT) ? type : null;
         this.init();
     }
 
@@ -55,11 +58,11 @@ class ConnectionPin {
     }
 
     isInputType() {
-        return this.type == "in";
+        return this.type === PIN_TYPE_IN;
     }
 
     isOutputType() {
-        return this.type == "out";
+        return this.type === PIN_TYPE_OUT;
     }
 
     canConnect(pin) {
