@@ -1,6 +1,11 @@
 dist: trusty
 sudo: required
 
+language: javascript
+
+addons:
+  branches:
+    - master
 jdk:
   - oraclejdk8
 script:
