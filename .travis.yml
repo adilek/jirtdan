@@ -1,10 +1,18 @@
 dist: trusty
 sudo: required
-language: generic
+
+addons:
+  - sonarqube
+
 jdk:
   - oraclejdk8
+
 script:
   - sonar-scanner
+
 cache:
   directories:
     - '$HOME/.sonar/cache'
+
+notifications:
+  email: false
