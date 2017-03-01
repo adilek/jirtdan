@@ -69,6 +69,10 @@ class ConnectionPin {
         if (this.control == pin.getParent()) return false;
         if (this.type == null || pin.getType() == null) return false;
         if (this.type == pin.getType()) return false;
+
+        let inputPin = this.isInputType() ? this : pin;
+
+        if (!inputPin.canConnect) return false;
         //TODO: if already connected return false
         return true;
     }
@@ -79,6 +83,10 @@ class ConnectionPin {
 
     translate(x, y) {
         this.element.translate(x, y);
+    }
+
+    setCanConnect(enable) {
+        this.canConnect = enable;
     }
 
     /**
