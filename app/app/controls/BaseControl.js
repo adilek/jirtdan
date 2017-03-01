@@ -2,6 +2,8 @@
 /*jshint esversion: 6*/
 
 const DEFAULT_STROKE_COLOR = "#000";
+const POWER_STATE_HIGH = 1;
+const POWER_STATE_LOW = 0;
 
 /**
  * BaseControl is the super-class of all logic controls.
