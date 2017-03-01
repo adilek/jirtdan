@@ -1,8 +1,6 @@
 dist: trusty
 sudo: required
 
-language: javascript
-
 addons:
   branches:
     - master
