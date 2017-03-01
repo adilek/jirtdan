@@ -25,9 +25,7 @@ class ConnectionLine {
             _this.inputPin.notifyStateChange(newState);
             _this.setState(newState);
         });
-        console.log(this.outputPin);
-
-
+        this.inputPin.setCanConnect(false);
     }
 
     init() {
