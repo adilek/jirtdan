@@ -82,6 +82,27 @@ class ConnectionPin {
     }
 
     /**
+     * Used to externally trigger the state change.
+     * @param newState
+     */
+    notifyStateChange(newState) {
+        if (this.stateChangeListener == null) return;
+        this.stateChangeListener(newState);
+    }
+
+    /**
+     * Listener is used for input/output pins and triggered when the state is changed.
+     * @param listener
+     */
+    setStateChangeListener(listener) {
+        this.stateChangeListener = listener;
+
+        if (this.isOutputType()) {
+            this.notifyStateChange(this.control.getValue());
+        }
+    }
+
+    /**
      * Event for input-pin down action.
      */
     onActionDown() {

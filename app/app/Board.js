@@ -27,7 +27,7 @@ class Board {
     startConnection(pin) {
         //TODO:
         this.isConnecting = true;
-        this.pin1 = pin;
+        this.inputPin = pin;
     }
 
     startFinishConnection(pin) {
@@ -40,11 +40,11 @@ class Board {
 
     finishConnection(pin) {
         if (!this.isConnecting) return;
-        if (this.pin1 == pin) return;
+        if (this.inputPin == pin) return;
 
 
-        if (this.pin1.canConnect(pin)) {
-            this.createConnection(this.pin1, pin);
+        if (this.inputPin.canConnect(pin)) {
+            this.createConnection(this.inputPin, pin);
         }
         this.isConnecting = false;
     }
