@@ -1,9 +1,6 @@
 dist: trusty
 sudo: required
 
-addons:
-  branches:
-    - master
 jdk:
   - oraclejdk8
 script:
