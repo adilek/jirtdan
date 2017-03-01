@@ -26,6 +26,7 @@ class ConnectionPin {
         this.x = x;
         this.y = y;
         this.type = (type === PIN_TYPE_IN || type === PIN_TYPE_OUT) ? type : null;
+        this.stateChangeListeners = [];
         this.init();
     }
 
@@ -94,16 +95,18 @@ class ConnectionPin {
      * @param newState
      */
     notifyStateChange(newState) {
-        if (this.stateChangeListener == null) return;
-        this.stateChangeListener(newState);
+        for (let i = 0; i < this.stateChangeListeners.length; i++) {
+            this.stateChangeListeners[i](newState);
+        }
     }
 
     /**
      * Listener is used for input/output pins and triggered when the state is changed.
      * @param listener
      */
-    setStateChangeListener(listener) {
-        this.stateChangeListener = listener;
+    addStateChangeListener(listener) {
+
+        this.stateChangeListeners.push(listener);
 
         if (this.isOutputType()) {
             this.notifyStateChange(this.control.getValue());

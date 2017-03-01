@@ -21,7 +21,7 @@ class ConnectionLine {
         this.init();
 
         let _this = this;
-        this.outputPin.setStateChangeListener(function (newState) {
+        this.outputPin.addStateChangeListener(function (newState) {
             _this.inputPin.notifyStateChange(newState);
             _this.setState(newState);
         });

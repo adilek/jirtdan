@@ -31,7 +31,7 @@ class Bulb extends BaseControl {
         let _this = this;
 
         // Bulb will turn on/off depending on pin value.
-        inputPin.setStateChangeListener(
+        inputPin.addStateChangeListener(
             function (newState) {
                 _this.setState(newState);
             });

@@ -35,14 +35,14 @@ class AndGate extends BaseControl {
         let componentPin2 = new ConnectionPin(this, 15, 143.00003, "in");
         let componentPin3 = new ConnectionPin(this, 415, 83, "out");
         let _this = this;
-        componentPin1.setStateChangeListener(
+        componentPin1.addStateChangeListener(
             function (newState) {
                 _this.pin1Value = newState;
                 componentPin3.notifyStateChange(_this.getValue());
 
             });
 
-        componentPin2.setStateChangeListener(
+        componentPin2.addStateChangeListener(
             function (newState) {
                 _this.pin2Value = newState;
                 componentPin3.notifyStateChange(_this.getValue());
