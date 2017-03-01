@@ -1,6 +1,6 @@
 dist: trusty
 sudo: required
-
+language: generic
 jdk:
   - oraclejdk8
 script:
