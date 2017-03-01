@@ -2,7 +2,9 @@ dist: trusty
 sudo: required
 
 addons:
-  - sonarqube
+  sonarqube:
+    token:
+      secure: "NrblsgChxURjvwOgDT6LLzB5f6d+2CLP6tkm5JHBHCOLSjrh/GGURnpjBjkRtRx6o5gc4lA21lokhVcjwOHSdZ6mJHiqcey4tpPdPHak6PfciFKu09OLh3GIoIxH50YhIaZA6i/bqNGyeBBq57XTupmZ2+NA1UVyrxyXeXr2DepEeEoKryC4Z4dHUFqCKGT6ZMzoCQTLzxG2zwSWRUT9JpjzQjMxzXDKNFhcWhkxSO8t9wQiE26EEeZ30BdmQElttwj5j6VP+HX9f3jdhTGKL+M1y47ARlK/BrdYR38Efds1NolR8gL4ZwP2je8sgXJ/rubuoxdLVlP7dTZBnpTIW6z7eZNuOGV8CBdMFjmY/7VWVOd6kBndkyPiK1oyXepFIUuKP1tDXK1yH7RccKodC6xKWye2owtkN82Y/eh4+s8jMz/oZckIHZAqk8pNyjCAE+8AWd+H0XUoWqC4j8DLREu/igxXyeHeCl+fYmvoJPx6QgHjt0Ivh6bwWHQfKqpQmKd5iBqij30Iwmba3zX/ZJSEXqZcUPqGeC+2SAIG0Bq7Ejg9ySvX0Pl5EhpH1dlDPlwHKCQEcBGaaQ8JpuqWyaY0lr3yrQb9RTr5bFIHIOserBuxkWVAJlRjJQud/h9wOPGHTyEc38+GTCzO6Wh48DQlFkGfd4KuSooH28G1sIs="
 
 jdk:
   - oraclejdk8
