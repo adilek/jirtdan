@@ -49,10 +49,17 @@ class Board {
         this.isConnecting = false;
     }
 
+    /**
+     * Create new connection and add it to the list.
+     */
     createConnection(pin1, pin2) {
         this.connections.push(new ConnectionLine(this, pin1, pin2));
     }
 
+    /**
+     * Translate all connections depending on pins they connect to.
+     * This method is fired on drag-drop of the control.
+     */
     translateConnections(pin, x, y) {
         for (var i = 0; i < this.connections.length; i++) {
             this.connections[i].onPinTranslate(pin, x, y);
