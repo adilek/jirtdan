@@ -2,6 +2,7 @@
 /*jshint esversion: 6*/
 
 const DEFAULT_STROKE_COLOR = "#000";
+const DEFAULT_FILL_COLOR = "#fff";
 const POWER_STATE_HIGH = 1;
 const POWER_STATE_LOW = 0;
 
@@ -73,7 +74,7 @@ class BaseControl {
 
     //FIXME: temporary solution
     static applyDefaultAttributes(node) {
-        node.attr("fill", "#fff");
+        node.attr("fill", DEFAULT_FILL_COLOR);
         node.attr("fill-opacity", 1);
         node.attr("fill-rule", "evenodd");
         node.attr("stroke-width", 7);

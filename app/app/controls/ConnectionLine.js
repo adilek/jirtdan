@@ -68,7 +68,7 @@ class ConnectionLine {
             this.element.attr("fill", "#fa0");
             this.element.attr("stroke", "#fa0");
         } else {
-            this.element.attr("fill", "#fff");
+            this.element.attr("fill", DEFAULT_FILL_COLOR);
             this.element.attr("stroke", DEFAULT_STROKE_COLOR);
         }
     }

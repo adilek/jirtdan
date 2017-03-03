@@ -5,6 +5,7 @@
 "use strict";
 /*jshint esversion: 6*/
 
+
 /**
  * Control for High Constant (1).
  */
@@ -41,7 +42,7 @@ class Bulb extends BaseControl {
         if (state == POWER_STATE_HIGH) {
             this.componentBody.attr("fill", "#fa0");
         } else {
-            this.componentBody.attr("fill", "#fff");
+            this.componentBody.attr("fill", DEFAULT_FILL_COLOR);
         }
     }
 }
