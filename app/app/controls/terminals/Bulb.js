@@ -22,7 +22,7 @@ class Bulb extends BaseControl {
     initControl() {
         super.initControl();
 
-        this.componentBody = this.paper.path("m 198.231,3.4333413 0,159.6333587 -122.986417,0 0,-159.6333587 122.986417,0 z M 74.386833,83.250031 l -49.87061,0 49.87061,0 z");
+        this.componentBody = this.paper.path("m 198,3 0,159 -122,0 0,-159 122,0 z M 74,83 l -49,0 49,0 z");
 
         let inputPin = new ConnectionPin(this, 20, 83, "in");
 
