@@ -40,7 +40,7 @@ class Bulb extends BaseControl {
 
     setState(state) {
         if (state == POWER_STATE_HIGH) {
-            this.componentBody.attr("fill", "#fa0");
+            this.componentBody.attr("fill", DEFAULT_SIGNAL_PRESENCE_COLOR);
         } else {
             this.componentBody.attr("fill", DEFAULT_FILL_COLOR);
         }

@@ -65,8 +65,8 @@ class ConnectionLine {
 
     setState(state) {
         if (state == POWER_STATE_HIGH) {
-            this.element.attr("fill", "#fa0");
-            this.element.attr("stroke", "#fa0");
+            this.element.attr("fill", DEFAULT_SIGNAL_PRESENCE_COLOR);
+            this.element.attr("stroke", DEFAULT_SIGNAL_PRESENCE_COLOR);
         } else {
             this.element.attr("fill", DEFAULT_FILL_COLOR);
             this.element.attr("stroke", DEFAULT_STROKE_COLOR);

@@ -5,7 +5,7 @@
 "use strict";
 /*jshint esversion: 6*/
 
-const DEFAULT_CONNECTION_PIN_RADIUS = 12.062335;
+const DEFAULT_CONNECTION_PIN_RADIUS = 12;
 const PIN_TYPE_IN = "in";
 const PIN_TYPE_OUT = "out";
 

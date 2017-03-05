@@ -3,6 +3,7 @@
 
 const DEFAULT_STROKE_COLOR = "#000";
 const DEFAULT_FILL_COLOR = "#fff";
+const DEFAULT_SIGNAL_PRESENCE_COLOR = "#fa0";
 const POWER_STATE_HIGH = 1;
 const POWER_STATE_LOW = 0;
 
