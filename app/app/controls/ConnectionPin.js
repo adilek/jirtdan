@@ -1,7 +1,3 @@
-/**
- * Created by adil on 17. 2. 19.
- */
-
 "use strict";
 /*jshint esversion: 6*/
 
@@ -30,6 +26,11 @@ class ConnectionPin {
         this.init();
     }
 
+    /**
+     * The method that initializes the pin object.
+     * This method should not be called from outside.
+     */
+    /**@hide*/
     init() {
         this.element = this.paper.circle(this.x, this.y, DEFAULT_CONNECTION_PIN_RADIUS);
 
@@ -54,18 +55,35 @@ class ConnectionPin {
         });
     }
 
+    /**
+     * Return the type of the current pin.
+     * @returns {null|*}
+     */
     getType() {
         return this.type;
     }
 
+    /**
+     * Check if the current pin is INPUT type.
+     * @returns {boolean}
+     */
     isInputType() {
         return this.type === PIN_TYPE_IN;
     }
 
+    /**
+     * Check if the current pin is OUTPUT type
+     * @returns {boolean}
+     */
     isOutputType() {
         return this.type === PIN_TYPE_OUT;
     }
 
+    /**
+     * Check if the pin represented in argument can be connected with this pin.
+     * @param pin
+     * @returns {boolean}
+     */
     canConnect(pin) {
         if (this.control == pin.getParent()) return false;
         if (this.type == null || pin.getType() == null) return false;
@@ -73,8 +91,9 @@ class ConnectionPin {
 
         let inputPin = this.isInputType() ? this : pin;
 
+        //noinspection RedundantIfStatementJS
         if (!inputPin.canConnect) return false;
-        //TODO: if already connected return false
+
         return true;
     }
 
@@ -126,7 +145,7 @@ class ConnectionPin {
      */
     onActionUp() {
         this.element.attr("stroke", "#f00");
-        this.element.attr("fill", "#fff");
+        this.element.attr("fill", DEFAULT_FILL_COLOR);
     }
 
     /**
@@ -140,7 +159,7 @@ class ConnectionPin {
      * Event for hover-out action.
      */
     onHoverOut() {
-        this.element.attr("stroke", "#000");
+        this.element.attr("stroke", DEFAULT_STROKE_COLOR);
     }
 
     onClick() {
