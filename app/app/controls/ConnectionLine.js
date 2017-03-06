@@ -1,14 +1,9 @@
-/**
- * Created by adil on 17. 2. 19.
- */
-
 "use strict";
 /*jshint esversion: 6*/
 
 class ConnectionLine {
 
     constructor(board, pin1, pin2) {
-        //TODO:
         this.board = board;
         this.paper = this.board.paper;
         this.inputPin = pin1.isInputType() ? pin1 : (pin2.isInputType() ? pin2 : null);
@@ -28,6 +23,10 @@ class ConnectionLine {
         this.inputPin.setCanConnect(false);
     }
 
+    /**
+     * Initialization of the components.
+     * The method should not be called externally.
+     */
     init() {
         //FIXME: Clean this dirty shit
 
@@ -46,6 +45,12 @@ class ConnectionLine {
         BaseControl.applyDefaultAttributes(this.element);
     }
 
+    /**
+     * The method is used to translate the pin locations during drag-drop.
+     * @param pin
+     * @param x
+     * @param y
+     */
     onPinTranslate(pin, x, y) {
         if (pin != this.inputPin && pin != this.outputPin) return;
 
@@ -63,6 +68,11 @@ class ConnectionLine {
         this.element.attr("path", pathAttr);
     }
 
+    /**
+     * Set binary state(LOW/HIGH) for the connection line.
+     * This method should not be called externally.
+     * @param state POWER_STATE_HIGH or POWER_STATE_LOW
+     */
     setState(state) {
         if (state == POWER_STATE_HIGH) {
             this.element.attr("fill", DEFAULT_SIGNAL_PRESENCE_COLOR);

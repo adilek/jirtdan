@@ -99,7 +99,7 @@ class Board {
                     result="composite2"
                     id="feComposite4523" />
                  `;
-        var element = document.createElementNS(ns, "filter");
+        let element = document.createElementNS(ns, "filter");
         element.innerHTML = filter;
         element.id = "filter1";
         element.style = "color-interpolation-filters:sRGB;";
