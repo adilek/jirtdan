@@ -23,6 +23,7 @@ class ConnectionPin {
         this.y = y;
         this.type = (type === PIN_TYPE_IN || type === PIN_TYPE_OUT) ? type : null;
         this.stateChangeListeners = [];
+        this.state = POWER_STATE_LOW;
         this.init();
     }
 
@@ -114,6 +115,7 @@ class ConnectionPin {
      * @param newState
      */
     notifyStateChange(newState) {
+        if (newState === this.state) return;
         for (let i = 0; i < this.stateChangeListeners.length; i++) {
             this.stateChangeListeners[i](newState);
         }
