@@ -38,6 +38,10 @@ class Bulb extends BaseControl {
             });
     }
 
+    /**
+     * Change the binary state(LOW/HIGH) of the component.
+     * @param state
+     */
     setState(state) {
         if (state == POWER_STATE_HIGH) {
             this.componentBody.attr("fill", DEFAULT_SIGNAL_PRESENCE_COLOR);
