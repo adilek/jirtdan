@@ -98,14 +98,27 @@ class ConnectionPin {
         return true;
     }
 
+    /**
+     * The the parent control of this pin that belongs to.
+     * @returns {*}
+     */
     getParent() {
         return this.control;
     }
 
+    /**
+     * Used to translate the element during drag-drop.
+     * @param x
+     * @param y
+     */
     translate(x, y) {
         this.element.translate(x, y);
     }
 
+    /**
+     * This sets the flag to mark it connectable or not.
+     * @param enable
+     */
     setCanConnect(enable) {
         this.canConnect = enable;
     }
