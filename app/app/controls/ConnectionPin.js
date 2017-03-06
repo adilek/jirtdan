@@ -40,19 +40,19 @@ class ConnectionPin {
         // Assign event handlers.
         let _this = this;
         this.element.mousedown(function () {
-            _this.onActionDown(this);
+            _this.onActionDown();
         });
         this.element.mouseup(function () {
-            _this.onActionUp(this);
+            _this.onActionUp();
         });
         this.element.mouseover(function () {
-            _this.onHoverIn(this);
+            _this.onHoverIn();
         });
         this.element.mouseout(function () {
-            _this.onHoverOut(this);
+            _this.onHoverOut();
         });
         this.element.click(function () {
-            _this.onClick(this);
+            _this.onClick();
         });
     }
 
