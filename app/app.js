@@ -13,4 +13,7 @@ $(document).ready(function () {
     $("#btn-add-bulb").click(function (event) {
         board.addControl(new Bulb(board));
     });
+    $("#btn-add-or").click(function (event) {
+        board.addControl(new OrGate(board));
+    });
 });
