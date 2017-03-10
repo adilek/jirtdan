@@ -1,7 +1,9 @@
 "use strict";
 /*jshint esversion: 6*/
 
-class ConnectionLine {
+import {BaseControl, POWER_STATE_HIGH, DEFAULT_SIGNAL_PRESENCE_COLOR} from './BaseControl.js'
+
+export class ConnectionLine {
 
     constructor(board, pin1, pin2) {
         this.board = board;

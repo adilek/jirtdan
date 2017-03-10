@@ -4,12 +4,13 @@
 
 "use strict";
 /*jshint esversion: 6*/
-
+import {BaseControl} from '../BaseControl.js'
+import {ConnectionPin} from '../ConnectionPin.js'
 /**
  * Control for Low Constant (0).
  */
 //TODO: Remove the direct dependency from raphael.
-class LowConstant extends BaseControl {
+export class LowConstant extends BaseControl {
     /**
      * Constructor for LowConstant
      * @param paper raphael paper object.

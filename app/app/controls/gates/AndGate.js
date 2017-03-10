@@ -4,7 +4,8 @@
 
 "use strict";
 /*jshint esversion: 6*/
-
+import {BaseControl} from '../BaseControl.js'
+import {ConnectionPin} from '../ConnectionPin.js'
 /**
  * Control for AND gate.
  *
@@ -16,7 +17,7 @@
  * |1  |1  |1  |
  */
 //TODO: Remove the direct dependency from raphael.
-class AndGate extends BaseControl {
+export class AndGate extends BaseControl {
     /**
      * Constructor for AndGate
      * @param paper raphael paper object.

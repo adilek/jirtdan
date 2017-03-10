@@ -1,6 +1,9 @@
 "use strict";
 /*jshint esversion: 6*/
 
+import {BaseControl} from '../BaseControl.js'
+import {ConnectionPin} from '../ConnectionPin.js'
+
 /**
  * Control for OR gate.
  *
@@ -11,7 +14,7 @@
  * |1  |0  |1  |
  * |1  |1  |1  |
  */
-class OrGate extends BaseControl {
+export class OrGate extends BaseControl {
     /**
      * Constructor for AndGate
      * @param paper raphael paper object.

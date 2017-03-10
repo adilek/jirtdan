@@ -5,8 +5,9 @@ const DEFAULT_CONNECTION_PIN_RADIUS = 12;
 const PIN_TYPE_IN = "in";
 const PIN_TYPE_OUT = "out";
 
+import {POWER_STATE_LOW, DEFAULT_FILL_COLOR, DEFAULT_STROKE_COLOR, BaseControl} from './BaseControl.js'
 
-class ConnectionPin {
+export class ConnectionPin {
 
     /**
      * Constructor of ConnectionPin

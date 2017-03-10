@@ -4,13 +4,19 @@
 
 "use strict";
 /*jshint esversion: 6*/
-
-
+import {
+    POWER_STATE_LOW,
+    POWER_STATE_HIGH,
+    DEFAULT_FILL_COLOR,
+    DEFAULT_SIGNAL_PRESENCE_COLOR,
+    BaseControl
+} from '../BaseControl.js'
+import {ConnectionPin} from '../ConnectionPin.js'
 /**
  * Control for High Constant (1).
  */
 //TODO: Remove the direct dependency from raphael.
-class Bulb extends BaseControl {
+export class Bulb extends BaseControl {
     /**
      * Constructor for Bulb
      * @param paper raphael paper object.

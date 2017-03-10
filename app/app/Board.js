@@ -3,10 +3,10 @@
  */
 "use strict";
 /*jshint esversion: 6*/
-
+import {ConnectionLine} from './controls/ConnectionLine.js'
 //FIXME: Draft
 //TODO: Dependency from raphael needs to be removed.
-class Board {
+export class Board {
     constructor() {
         this.initBoard();
         this.connections = [];

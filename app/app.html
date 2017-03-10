@@ -6,16 +6,53 @@
     <link rel="stylesheet" href="app.css" type="text/css" media="screen"/>
     <script src="third_party/raphael/raphael.js" type="text/javascript" charset="utf-8"></script>
     <script src="third_party/jquery/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
-    <script src="app.js" type="text/javascript" charset="utf-8"></script>
-    <script src="app/Board.js" type="text/javascript" charset="utf-8"></script>
-    <script src="app/controls/ConnectionPin.js" type="text/javascript" charset="utf-8"></script>
+    <script src="third_party/traceur/traceur.js" type="text/javascript" charset="utf-8"></script>
+    <script src="third_party/traceur/BrowserSystem.js" type="text/javascript" charset="utf-8"></script>
+    <script src="third_party/traceur/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+
+    <script type="module">
+        import {Board} from './app/Board.js';
+        import {BaseControl} from './app/controls/BaseControl.js'
+        import {AndGate} from './app/controls/gates/AndGate.js'
+        import {OrGate} from 'app/controls/gates/OrGate.js'
+        import {HighConstant} from 'app/controls/terminals/HighConstant.js'
+        import {LowConstant} from 'app/controls/terminals/LowConstant.js'
+        import {Bulb} from 'app/controls/terminals/Bulb.js'
+
+        let board = new Board();
+        $(document).ready(function () {
+
+
+            $("#btn-add-and").click(function (event) {
+                board.addControl(new AndGate(board));
+            });
+            $("#btn-add-one").click(function (event) {
+                board.addControl(new HighConstant(board));
+            });
+            $("#btn-add-zero").click(function (event) {
+                board.addControl(new LowConstant(board));
+            });
+            $("#btn-add-bulb").click(function (event) {
+                board.addControl(new Bulb(board));
+            });
+            $("#btn-add-or").click(function (event) {
+                board.addControl(new OrGate(board));
+            });
+        });
+
+    </script>
+
+    <!--script src="app.js" type="text/javascript" charset="utf-8"></script>
+    <!--script src="app/Board.js" type="text/javascript" charset="utf-8"></script-->
+    <!--script src="app/controls/ConnectionPin.js" type="text/javascript" charset="utf-8"></--script>
     <script src="app/controls/ConnectionLine.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="app/controls/BaseControl.js"></script>
     <script src="app/controls/gates/AndGate.js"></script>
     <script src="app/controls/gates/OrGate.js"></script>
     <script src="app/controls/terminals/HighConstant.js"></script>
     <script src="app/controls/terminals/LowConstant.js"></script>
-    <script src="app/controls/terminals/Bulb.js"></script>
+    <script src="app/controls/terminals/Bulb.js"></script-->
+
 </head>
 <body>
 <button id="btn-add-and">AND</button>

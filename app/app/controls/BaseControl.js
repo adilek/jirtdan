@@ -1,11 +1,11 @@
 "use strict";
 /*jshint esversion: 6*/
 
-const DEFAULT_STROKE_COLOR = "#000";
-const DEFAULT_FILL_COLOR = "#fff";
-const DEFAULT_SIGNAL_PRESENCE_COLOR = "#fa0";
-const POWER_STATE_HIGH = 1;
-const POWER_STATE_LOW = 0;
+export const DEFAULT_STROKE_COLOR = "#000";
+export const DEFAULT_FILL_COLOR = "#fff";
+export const DEFAULT_SIGNAL_PRESENCE_COLOR = "#fa0";
+export const POWER_STATE_HIGH = 1;
+export const POWER_STATE_LOW = 0;
 
 /**
  * BaseControl is the super-class of all logic controls.
@@ -19,7 +19,7 @@ const POWER_STATE_LOW = 0;
  * method.
  */
 //TODO: remove the direct dependency from raphael
-class BaseControl {
+export class BaseControl {
 
     constructor(board) {
         this.board = board;

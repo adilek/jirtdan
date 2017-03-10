@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    let board = new Board();
+
 
     $("#btn-add-and").click(function (event) {
         board.addControl(new AndGate(board));
