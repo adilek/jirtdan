@@ -4,7 +4,9 @@
 import {
     BaseControl,
     POWER_STATE_HIGH,
-    DEFAULT_SIGNAL_PRESENCE_COLOR
+    DEFAULT_SIGNAL_PRESENCE_COLOR,
+    DEFAULT_FILL_COLOR,
+    DEFAULT_STROKE_COLOR
 } from './BaseControl.js'
 
 export class ConnectionLine {
