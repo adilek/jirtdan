@@ -24,8 +24,8 @@ export class AndGate extends BaseControl {
      */
     constructor(paper) {
         super(paper);
-        this.pin1Value = 0;
-        this.pin2Value = 0;
+        this.inputPin1Value = 0;
+        this.inputPin2Value = 0;
     }
 
     initControl() {
@@ -38,14 +38,14 @@ export class AndGate extends BaseControl {
         let _this = this;
         inputPin1.addStateChangeListener(
             function (newState) {
-                _this.pin1Value = newState;
+                _this.inputPin1Value = newState;
                 outputPin3.notifyStateChange(_this.getValue());
 
             });
 
         inputPin2.addStateChangeListener(
             function (newState) {
-                _this.pin2Value = newState;
+                _this.inputPin2Value = newState;
                 outputPin3.notifyStateChange(_this.getValue());
             });
 
@@ -55,6 +55,6 @@ export class AndGate extends BaseControl {
     }
 
     getValue() {
-        return this.pin1Value & this.pin2Value;
+        return this.inputPin1Value && this.inputPin2Value;
     }
 }
