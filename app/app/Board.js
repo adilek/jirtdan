@@ -16,6 +16,7 @@ export class Board {
     }
 
     initBoard() {
+        // NOSONAR
         this.paper = Raphael("board", 1280, 800);
         this.createFilter();
     }
