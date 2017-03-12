@@ -8,34 +8,10 @@
     <script src="third_party/jquery/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
     <script src="third_party/traceur/traceur.js" type="text/javascript" charset="utf-8"></script>
     <script src="third_party/traceur/BrowserSystem.js" type="text/javascript" charset="utf-8"></script>
-    <script src="third_party/traceur/bootstrap.js" type="text/javascript" charset="utf-8"></script>
 
-    <script type="module">
-        import {Board} from './app/Board.js';
-        import {BaseControl} from './app/controls/BaseControl.js'
-        import {AndGate} from './app/controls/gates/AndGate.js'
-        import {OrGate} from 'app/controls/gates/OrGate.js'
-        import {HighConstant} from 'app/controls/terminals/HighConstant.js'
-        import {LowConstant} from 'app/controls/terminals/LowConstant.js'
-        import {Bulb} from 'app/controls/terminals/Bulb.js'
-
-        let board = new Board(Raphael("board", 1280, 800));
-        $(document).ready(function () {
-            $("#btn-add-and").click(function (event) {
-                board.addControl(new AndGate(board));
-            });
-            $("#btn-add-one").click(function (event) {
-                board.addControl(new HighConstant(board));
-            });
-            $("#btn-add-zero").click(function (event) {
-                board.addControl(new LowConstant(board));
-            });
-            $("#btn-add-bulb").click(function (event) {
-                board.addControl(new Bulb(board));
-            });
-            $("#btn-add-or").click(function (event) {
-                board.addControl(new OrGate(board));
-            });
+    <script type="text/javascript">
+        System.import('./appLoader.js').catch(function (ex) {
+            console.error('Internal Error ', ex.stack || ex);
         });
     </script>
 </head>
