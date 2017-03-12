@@ -19,7 +19,7 @@
         import {LowConstant} from 'app/controls/terminals/LowConstant.js'
         import {Bulb} from 'app/controls/terminals/Bulb.js'
 
-        let board = new Board();
+        let board = new Board(Raphael("board", 1280, 800));
         $(document).ready(function () {
             $("#btn-add-and").click(function (event) {
                 board.addControl(new AndGate(board));

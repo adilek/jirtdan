@@ -8,7 +8,8 @@ import {ConnectionLine} from './controls/ConnectionLine.js'
 //FIXME: Draft
 //TODO: Dependency from raphael needs to be removed.
 export class Board {
-    constructor() {
+    constructor(paper) {
+        this.paper = paper;
         this.initBoard();
         this.connections = [];
         this.controls = [];
@@ -16,8 +17,6 @@ export class Board {
     }
 
     initBoard() {
-        // NOSONAR
-        this.paper = Raphael("board", 1280, 800);
         this.createFilter();
     }
 
