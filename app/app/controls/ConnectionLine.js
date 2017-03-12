@@ -1,7 +1,11 @@
 "use strict";
 /*jshint esversion: 6*/
 
-import {BaseControl, POWER_STATE_HIGH, DEFAULT_SIGNAL_PRESENCE_COLOR} from './BaseControl.js'
+import {
+    BaseControl,
+    POWER_STATE_HIGH,
+    DEFAULT_SIGNAL_PRESENCE_COLOR
+} from './BaseControl.js'
 
 export class ConnectionLine {
 

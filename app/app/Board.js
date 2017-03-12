@@ -4,6 +4,7 @@
 "use strict";
 /*jshint esversion: 6*/
 import {ConnectionLine} from './controls/ConnectionLine.js'
+
 //FIXME: Draft
 //TODO: Dependency from raphael needs to be removed.
 export class Board {
