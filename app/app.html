@@ -8,12 +8,6 @@
     <script src="third_party/jquery/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
     <script src="third_party/traceur/traceur.js" type="text/javascript" charset="utf-8"></script>
     <script src="third_party/traceur/BrowserSystem.js" type="text/javascript" charset="utf-8"></script>
-
-    <script type="text/javascript">
-        System.import('./appLoader.js').catch(function (ex) {
-            console.error('Internal Error ', ex.stack || ex);
-        });
-    </script>
 </head>
 <body>
 <button id="btn-add-and">AND</button>
@@ -22,5 +16,12 @@
 <button id="btn-add-zero">0</button>
 <button id="btn-add-bulb">Bulb</button>
 <div id="board"></div>
+
+<script type="text/javascript">
+    System.import('./appLoader.js').catch(function (ex) {
+        console.error('Internal Error ', ex.stack || ex);
+    });
+</script>
+
 </body>
 </html>
