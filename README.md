@@ -3,7 +3,7 @@
 
 Jirtdan project engine for modelling and simulation of logical circuits using logical gates.
 
-The engine is written in pure is JavaScript using ECMA 2015 dialect. Can be run on any supported browser.
+The engine is written in pure JavaScript using ECMA 2015 dialect. Can be run on any supported browser.
 
 ##Bug reporting and wish-list
 If you have a bug or a feature to request, please create an issue ticket on [https://github.com/adilek/jirtdan/issues](https://github.com/adilek/jirtdan/issues).
