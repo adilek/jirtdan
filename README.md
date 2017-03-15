@@ -5,7 +5,7 @@ Jirtdan project is an engine for modelling and simulation of a logical circuits 
 
 The engine is written in pure JavaScript using ECMA 2015 dialect. Can be run on any supported browser.
 
-##Bug reporting and wish-list
+## Bug reporting and wish-list
 If you have a bug or a feature to request, please create an issue ticket on [https://github.com/adilek/jirtdan/issues](https://github.com/adilek/jirtdan/issues).
 
 ## Copyright and license
