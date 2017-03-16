@@ -50,10 +50,11 @@ export class NotGate extends BaseControl {
         super.initControl();
 
         let componentBody = this.paper.path("m 152,7 0,158 L 266,86 152,7 Z m 134,59 a 20,20 0 0 0 -20,20 20,20 0 0 0 20,20 20,20 0 0 0 20,-20 20,20 0 0 0 -20,-20 z M 36,86 l 113,0 -113,0 z m 271,0 113,0 -113,0 z");
-        let inputPin1 = new ConnectionPin(this, 20, 86, "in");
-        let outputPin3 = new ConnectionPin(this, 415, 86, "out");
+        let inputPin = new ConnectionPin(this, 20, 86, "in");
+        let outputPin = new ConnectionPin(this, 415, 86, "out");
         let _this = this;
-        inputPin1.addStateChangeListener(
+
+        inputPin.addStateChangeListener(
             function (newState) {
                 _this.inputPin1Value = newState;
                 outputPin3.notifyStateChange(_this.getValue());
@@ -61,8 +62,8 @@ export class NotGate extends BaseControl {
             });
 
         this.setShapes([componentBody]);
-        this.addInputPins(inputPin1);
-        this.addOutputPins(outputPin3);
+        this.addInputPins(inputPin);
+        this.addOutputPins(outputPin);
     }
 
     getValue() {
