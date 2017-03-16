@@ -57,7 +57,7 @@ export class NotGate extends BaseControl {
         inputPin.addStateChangeListener(
             function (newState) {
                 _this.inputPin1Value = newState;
-                outputPin3.notifyStateChange(_this.getValue());
+                outputPin.notifyStateChange(_this.getValue());
 
             });
 
