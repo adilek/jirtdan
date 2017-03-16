@@ -28,6 +28,7 @@ import {OrGate} from 'app/controls/gates/OrGate.js'
 import {HighConstant} from 'app/controls/terminals/HighConstant.js'
 import {LowConstant} from 'app/controls/terminals/LowConstant.js'
 import {Bulb} from 'app/controls/terminals/Bulb.js'
+import {NotGate} from 'app/controls/gates/NotGate.js'
 
 let board = new Board(Raphael("board", 1280, 800));
 
@@ -46,5 +47,8 @@ $(document).ready(function () {
     });
     $("#btn-add-or").click(function (event) {
         board.addControl(new OrGate(board));
+    });
+    $("#btn-add-not").click(function (event) {
+        board.addControl(new NotGate(board));
     });
 });
