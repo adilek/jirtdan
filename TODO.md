@@ -3,9 +3,14 @@
 ## Features
 ### Basic
 * Better design look is needed for components
-### Switch component
+### Controls
 * Switch component is needed
 * Push button component is needed
+* XorGate is needed
+* NandGate is needed
+* Nor gate is needed
+* Buffer is needed
+
 ### ConnectionLine
 * Better looking connection lines are needed for components(bezier curves probably)
 * Connection lines needs to be able to have several curve points like paths' in vector images. It will be used to "bend" the wires on different points
