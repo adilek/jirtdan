@@ -158,7 +158,9 @@ export class ConnectionPin {
      * @param newState
      */
     notifyStateChange(newState) {
-        if (newState === this.state) return;
+        // Prevent loop.
+        if (newState === this.state && this.type == PIN_TYPE_IN) return;
+        this.state = newState;
         for (let i = 0; i < this.stateChangeListeners.length; i++) {
             this.stateChangeListeners[i](newState);
         }
