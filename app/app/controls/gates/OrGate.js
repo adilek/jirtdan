@@ -40,7 +40,7 @@ import {ConnectionPin} from '../ConnectionPin.js'
  */
 export class OrGate extends BaseControl {
     /**
-     * Constructor for AndGate
+     * Constructor for OrGate
      * @param paper raphael paper object.
      */
     constructor(paper) {

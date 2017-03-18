@@ -29,6 +29,7 @@ import {HighConstant} from 'app/controls/terminals/HighConstant.js'
 import {LowConstant} from 'app/controls/terminals/LowConstant.js'
 import {Bulb} from 'app/controls/terminals/Bulb.js'
 import {NotGate} from 'app/controls/gates/NotGate.js'
+import {XorGate} from 'app/controls/gates/XorGate.js'
 
 let board = new Board(Raphael("board", 1280, 800));
 
@@ -50,5 +51,8 @@ $(document).ready(function () {
     });
     $("#btn-add-not").click(function (event) {
         board.addControl(new NotGate(board));
+    });
+    $("#btn-add-xor").click(function (event) {
+        board.addControl(new XorGate(board));
     });
 });
