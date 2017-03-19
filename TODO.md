@@ -6,7 +6,6 @@
 ### Controls
 * Switch component is needed
 * Push button component is needed
-* XorGate is needed
 * NandGate is needed
 * Nor gate is needed
 * Buffer is needed
@@ -16,7 +15,7 @@
 * Connection lines needs to be able to have several curve points like paths' in vector images. It will be used to "bend" the wires on different points
 * Click and select the ConnectionLine
 * Delete the connection line
-### AndGate
+### AndGate, OrGate
 * Multi input feature is needed
 
 ## Infrastructure
