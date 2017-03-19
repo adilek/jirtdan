@@ -53,6 +53,7 @@ export class ConnectionPin {
         this.y = y;
         this.type = (type === PIN_TYPE_IN || type === PIN_TYPE_OUT) ? type : null;
         this.stateChangeListeners = [];
+        this.isConnectionAllowed = true;
         this.state = POWER_STATE_LOW;
         this.init();
     }
@@ -123,7 +124,7 @@ export class ConnectionPin {
         let inputPin = this.isInputType() ? this : pin;
 
         //noinspection RedundantIfStatementJS
-        if (!inputPin.canConnect) return false;
+        if (!inputPin.isConnectionAllowed) return false;
 
         return true;
     }
@@ -150,7 +151,7 @@ export class ConnectionPin {
      * @param enable
      */
     setCanConnect(enable) {
-        this.canConnect = enable;
+        this.isConnectionAllowed = enable;
     }
 
     /**

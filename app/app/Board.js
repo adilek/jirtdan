@@ -47,6 +47,7 @@ export class Board {
     }
 
     startConnection(pin) {
+        console.log(pin);
         //TODO:
         this.isConnecting = true;
         this.inputPin = pin;
@@ -61,6 +62,7 @@ export class Board {
     }
 
     finishConnection(pin) {
+        console.log(pin);
         if (!this.isConnecting) return;
         if (this.inputPin == pin) return;
 
