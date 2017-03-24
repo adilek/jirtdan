@@ -35,7 +35,7 @@ import {ConnectionPin} from '../ConnectionPin.js'
 //TODO: Remove the direct dependency from raphael.
 export class SwitchButton extends BaseControl {
     /**
-     * Constructor for HighConstant
+     * Constructor for SwitchButton
      * @param paper raphael paper object.
      */
     constructor(paper) {
@@ -47,16 +47,16 @@ export class SwitchButton extends BaseControl {
 
         let componentBody = this.paper.path("m 2,3 0,159 122,0 0,-159 -122,0 z M 126,83 l 49,0 -49,0 z");
 
-        let outputPin3 = new ConnectionPin(this, 186, 83, "out");
+        let outputPin = new ConnectionPin(this, 186, 83, "out");
         this.value = 0;
         this.setShapes([componentBody]);
-        this.addOutputPins(outputPin3);
+        this.addOutputPins(outputPin);
 
         let _this = this;
         componentBody.click(function () {
             _this.value = !_this.value;
             componentBody.attr("fill", _this.value ? "#0000ff" : DEFAULT_FILL_COLOR);
-            outputPin3.notifyStateChange(_this.getValue());
+            outputPin.notifyStateChange(_this.getValue());
         });
     }
 
