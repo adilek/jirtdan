@@ -4,8 +4,6 @@
 ### Basic
 * Better design look is needed for components
 ### Controls
-* Switch component is needed
-* Push button component is needed
 * NandGate is needed
 * Nor gate is needed
 * Buffer is needed
