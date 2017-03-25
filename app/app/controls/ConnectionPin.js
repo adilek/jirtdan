@@ -25,7 +25,7 @@
 "use strict";
 /*jshint esversion: 6*/
 
-const DEFAULT_CONNECTION_PIN_RADIUS = 12;
+const DEFAULT_CONNECTION_PIN_RADIUS = 5;
 const PIN_TYPE_IN = "in";
 const PIN_TYPE_OUT = "out";
 
@@ -33,7 +33,7 @@ import {
     POWER_STATE_LOW,
     DEFAULT_FILL_COLOR,
     DEFAULT_STROKE_COLOR,
-    BaseControl
+    DEFAULT_STROKE_WIDTH
 } from './BaseControl.js'
 
 export class ConnectionPin {
@@ -65,8 +65,9 @@ export class ConnectionPin {
     /**@hide*/
     init() {
         this.element = this.paper.circle(this.x, this.y, DEFAULT_CONNECTION_PIN_RADIUS);
-
-        BaseControl.applyDefaultAttributes(this.element);
+        this.element.attr("stroke", DEFAULT_STROKE_COLOR);
+        this.element.attr("stroke-width", DEFAULT_STROKE_WIDTH);
+        this.element.attr("fill", "#fff");
 
         // Assign event handlers.
         let _this = this;
@@ -193,7 +194,7 @@ export class ConnectionPin {
      */
     onActionUp() {
         this.element.attr("stroke", "#f00");
-        this.element.attr("fill", DEFAULT_FILL_COLOR);
+        this.element.attr("fill", "#fff");
     }
 
     /**
