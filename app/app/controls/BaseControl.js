@@ -26,7 +26,8 @@
 /*jshint esversion: 6*/
 
 export const DEFAULT_STROKE_COLOR = "#000";
-export const DEFAULT_FILL_COLOR = "#fff";
+export const DEFAULT_FILL_COLOR = "#0000ff";
+export const DEFAULT_STROKE_WIDTH = 2;
 export const DEFAULT_SIGNAL_PRESENCE_COLOR = "#fa0";
 export const POWER_STATE_HIGH = 1;
 export const POWER_STATE_LOW = 0;
@@ -97,20 +98,6 @@ export class BaseControl {
         this.oldY = dy;
     }
 
-    //FIXME: temporary solution
-    static applyDefaultAttributes(node) {
-        node.attr("fill", DEFAULT_FILL_COLOR);
-        node.attr("fill-opacity", 1);
-        node.attr("fill-rule", "evenodd");
-        node.attr("stroke-width", 7);
-        node.attr("stroke-linecap", "butt");
-        node.attr("stroke-linejoin", "round");
-        node.attr("stroke-miterlimit", 4);
-        node.attr("stroke-dashoffset", 0);
-        node.attr("stroke-opacity", 1);
-        node.attr("stroke", DEFAULT_STROKE_COLOR);
-    }
-
     /**
      * Set the shapes to be drawn to represent the current control visually.
      * @param {Array} shapes array of shapes.
@@ -120,9 +107,6 @@ export class BaseControl {
 
         //FIXME: Design needs to be fixed.
         let obj = this.paper.set(this.shapes);
-
-        BaseControl.applyDefaultAttributes(obj);
-
 
         let _this = this;
 
@@ -134,13 +118,13 @@ export class BaseControl {
 
         obj.mousedown(function () {
             for (let i = 0; i < _this.shapes.length; i++) {
-                _this.shapes[i].node.setAttribute("filter", "url(#filter1)");
+                //_this.shapes[i].node.setAttribute("filter", "url(#filter1)");
             }
         });
 
         obj.mouseup(function () {
             for (let i = 0; i < _this.shapes.length; i++) {
-                _this.shapes[i].node.removeAttribute("filter");
+                //_this.shapes[i].node.removeAttribute("filter");
             }
         });
 
