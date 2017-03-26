@@ -73,6 +73,7 @@ export class ConnectionLine {
         this.end = [x2, y2];
 
         this.element = this.paper.path("M " + x1 + "," + y1 + " L " + x2 + "," + y2);
+        this.element.attr("stroke-width", 2);
     }
 
     /**
