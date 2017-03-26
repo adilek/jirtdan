@@ -61,6 +61,8 @@ export class AndGate extends BaseControl {
         let componentBodyShape = this.paper.path("m 58.611201,1.1397665 c 9.55485,0.18892 20.16562,5.82395 24.0335,17.2506995 4.9232,15.87108 -9.03622,29.35593 -20.8054,30.21669 -3.85823,0.45079 -7.74776,0.13486 -11.62055,0.22897 -6.74559,0 -13.49119,0 -20.23678,0 0,-15.89882 0,-31.79764 0,-47.6964595 9.54305,6e-5 19.08632,-1.4e-4 28.62923,10e-5 z");
         componentBodyShape.attr("stroke", DEFAULT_STROKE_COLOR);
         componentBodyShape.attr("stroke-width", DEFAULT_STROKE_WIDTH);
+        componentBodyShape.attr("stroke-linejoin", "round");
+        componentBodyShape.attr("stroke-miterlimit", 4);
 
         let componentBodyFill = this.paper.path("m 31.061892,2.5815355 c 9.19315,5e-5 18.38665,-2.3e-4 27.579611,0 9.22798,0.18246 19.421691,5.6541 23.087521,16.4532025 2.30565,7.451782 0.22309,14.191732 -3.92241,19.402882 -4.14843,5.21484 -10.395901,8.69029 -15.982541,9.09888 a 1.0330703,1.2574718 0 0 0 -0.0365,0.004 c -3.7468,0.43777 -7.609851,0.12826 -11.542571,0.22383 l 0.0204,-4.7e-4 -19.2035,0 0,-45.1816745 z");
         componentBodyFill.attr("stroke-width", 1);
