@@ -31,14 +31,9 @@ import {ConnectionLine} from './controls/ConnectionLine.js'
 export class Board {
     constructor(paper) {
         this.paper = paper;
-        this.initBoard();
         this.connections = [];
         this.controls = [];
         this.isConnecting = false;
-    }
-
-    initBoard() {
-        this.createFilter();
     }
 
     addControl(control) {
@@ -47,7 +42,6 @@ export class Board {
     }
 
     startConnection(pin) {
-        console.log(pin);
         //TODO:
         this.isConnecting = true;
         this.inputPin = pin;
@@ -88,45 +82,5 @@ export class Board {
         for (var i = 0; i < this.connections.length; i++) {
             this.connections[i].onPinTranslate(pin, x, y);
         }
-    }
-
-    createFilter() {
-        //FIXME: Clean this bullshit.
-        var ns = "http://www.w3.org/2000/svg";
-        var filter = `
-              
-                    <feFlood
-                    flood-opacity="1"
-                    flood-color="rgb(0,0,248)"
-                    result="flood"
-                    id="feFlood4515" />
-                    <feComposite
-                    in="flood"
-                    in2="SourceGraphic"
-                    operator="in"
-                    result="composite1"
-                    id="feComposite4517" />
-                    <feGaussianBlur
-                    in="composite1"
-                    stdDeviation="10"
-                    result="blur"
-                    id="feGaussianBlur4519" />
-                    <feOffset
-                    dx="0"
-                    dy="0"
-                    result="offset"
-                    id="feOffset4521" />
-                    <feComposite
-                    in="SourceGraphic"
-                    in2="offset"
-                    operator="over"
-                    result="composite2"
-                    id="feComposite4523" />
-                 `;
-        let element = document.createElementNS(ns, "filter");
-        element.innerHTML = filter;
-        element.id = "filter1";
-        element.style = "color-interpolation-filters:sRGB;";
-        this.paper.defs.appendChild(element);
     }
 }
