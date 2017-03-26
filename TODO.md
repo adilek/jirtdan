@@ -19,7 +19,6 @@
 
 ## Infrastructure
 * Add automation tools (perhaps Grunt)
-* Boilerplate text
 * Documentation for installation
 * Demo page
 
