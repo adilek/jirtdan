@@ -201,6 +201,7 @@ export class ConnectionPin {
      * Event for hover-in action.
      */
     onHoverIn() {
+        this.element.attr("r", 7);
         this.element.attr("stroke", "#f00");
     }
 
@@ -208,6 +209,7 @@ export class ConnectionPin {
      * Event for hover-out action.
      */
     onHoverOut() {
+        this.element.attr("r", 5);
         this.element.attr("stroke", DEFAULT_STROKE_COLOR);
     }
 
