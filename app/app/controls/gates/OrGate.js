@@ -57,6 +57,18 @@ export class OrGate extends BaseControl {
     initControl() {
         super.initControl();
         const _this = this;
+        
+        let componentInputWire1 = this.paper.path("m 10,11.233446 19.55419,0");
+        componentInputWire1.attr("stroke", DEFAULT_STROKE_COLOR);
+        componentInputWire1.attr("stroke-width", DEFAULT_STROKE_WIDTH);
+
+        let componentInputWire2 = this.paper.path("m 10,38.765748 19.55419,0");
+        componentInputWire2.attr("stroke", DEFAULT_STROKE_COLOR);
+        componentInputWire2.attr("stroke-width", DEFAULT_STROKE_WIDTH);
+
+        let componentOutputWire = this.paper.path("m 76.907772,24.999597 19.554188,0");
+        componentOutputWire.attr("stroke", DEFAULT_STROKE_COLOR);
+        componentOutputWire.attr("stroke-width", DEFAULT_STROKE_WIDTH);
 
         let componentBodyShape = this.paper.path("M 23.884294,0.98165499 A 6.6318398,24.254708 0 0 1 29.647279,24.999109 6.6318398,24.254708 0 0 1 23.93612,48.992974 l 13.940289,0 c 2.854669,-0.09472 5.720639,0.223753 8.564575,-0.230024 0.152743,-0.01531 0.307035,-0.04378 0.460694,-0.06684 A 35.091661,36.015432 0 0 0 77.284394,24.983385 35.091661,36.015432 0 0 0 46.626701,1.2922936 C 45.767476,1.1103691 44.909376,1.0045184 44.062656,0.98165499 c -6.725618,-2.3055e-4 -13.452632,3.721e-5 -20.178362,0 z");
         componentBodyShape.attr("stroke", DEFAULT_STROKE_COLOR);
@@ -73,17 +85,6 @@ export class OrGate extends BaseControl {
         componentBodyGradient.attr("stroke-width", 0);
         componentBodyGradient.attr("fill", "90-#0066ff-#fff");
 
-        let componentInputWire1 = this.paper.path("m 10,11.233446 19.55419,0");
-        componentInputWire1.attr("stroke", DEFAULT_STROKE_COLOR);
-        componentInputWire1.attr("stroke-width", DEFAULT_STROKE_WIDTH);
-
-        let componentInputWire2 = this.paper.path("m 10,38.765748 19.55419,0");
-        componentInputWire2.attr("stroke", DEFAULT_STROKE_COLOR);
-        componentInputWire2.attr("stroke-width", DEFAULT_STROKE_WIDTH);
-
-        let componentOutputWire = this.paper.path("m 76.907772,24.999597 19.554188,0");
-        componentOutputWire.attr("stroke", DEFAULT_STROKE_COLOR);
-        componentOutputWire.attr("stroke-width", DEFAULT_STROKE_WIDTH);
 
         let inputPin1 = new ConnectionPin(this, 5, 11, "in");
         let inputPin2 = new ConnectionPin(this, 5, 39, "in");
