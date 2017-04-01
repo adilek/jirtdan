@@ -154,12 +154,12 @@ export class Bulb extends BaseControl {
         if (state == POWER_STATE_HIGH) {
             this.bulbSpiral.attr("stroke", "#fff");
             this.bulbSpiral.attr("stroke-width", 2);
-            this.bulbFillGradient.attr("fill", "90-#ff9955-#fff");
+            this.changeGradient(this.bulbFillGradient, "90-#ff9955-#fff");
             this.bulbFill.attr("fill", "#ff6600");
         } else {
             this.bulbSpiral.attr("stroke", "#000");
             this.bulbSpiral.attr("stroke-width", 0.5);
-            this.bulbFillGradient.attr("fill", "90-#0066ff-#fff");
+            this.changeGradient(this.bulbFillGradient, "90-#0066ff-#fff");
             this.bulbFill.attr("fill", DEFAULT_FILL_COLOR);
         }
     }

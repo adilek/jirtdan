@@ -99,6 +99,19 @@ export class BaseControl {
     }
 
     /**
+     * Due to bug in raphael gradient is lost after transformations.
+     * We do some workaround to bypass the issue.
+     * @param obj
+     * @param newGradient
+     */
+    changeGradient(obj, newGradient) {
+        let tr = obj.transform();
+        obj.transform("");
+        obj.attr("fill", newGradient);
+        obj.transform(tr);
+    }
+
+    /**
      * Set the shapes to be drawn to represent the current control visually.
      * @param {Array} shapes array of shapes.
      */

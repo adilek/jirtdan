@@ -119,7 +119,7 @@ export class PushButton extends BaseControl {
             buttonShape.attr("stroke", DEFAULT_STROKE_COLOR);
             buttonShape.attr("stroke-width", 1);
 
-            buttonGradient.attr("fill", "90-#803300-#e9c6af");
+            _this.changeGradient(buttonGradient, "90-#803300-#e9c6af");
             buttonGradient.attr("stroke", "#803300");
             buttonGradient.attr("stroke-width", 1);
 
@@ -135,7 +135,7 @@ export class PushButton extends BaseControl {
             buttonShape.attr("stroke", DEFAULT_STROKE_COLOR);
             buttonShape.attr("stroke-width", 2.5);
 
-            buttonGradient.attr("fill", "90-#aa4400-#fff");
+            _this.changeGradient(buttonGradient, "90-#aa4400-#fff");
             buttonGradient.attr("stroke", "#aa4400");
             buttonGradient.attr("stroke-width", 1);
 
