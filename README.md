@@ -11,7 +11,8 @@ The application is using some AJAX requests internally, due to that reason it is
 
 You may use any http server software ([Apache HTTP Server](https://httpd.apache.org/), [lighttpd](https://www.lighttpd.net/), [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en) etc.) to launch jirtdan project successfully.
 
-Copy the contents of this repository into certain directory of web server, navigate to http://hostname/&lt;directory&gt;/app/app.html.
+Copy the contents of this repository into certain directory of web server, navigate to `http://hostname/<directory>/app/app.html`.
+>>>>>>> Update readme
 
 ## Bug reporting and wish-list
 If you have a bug or a feature to request, please create an issue ticket on [https://github.com/adilek/jirtdan/issues](https://github.com/adilek/jirtdan/issues).
