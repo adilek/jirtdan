@@ -57,6 +57,18 @@ export class XorGate extends BaseControl {
     initControl() {
         super.initControl();
 
+        let componentInputWire1 = this.paper.path("m 10.000001,11.23345 29.55419,0");
+        componentInputWire1.attr("stroke", DEFAULT_STROKE_COLOR);
+        componentInputWire1.attr("stroke-width", DEFAULT_STROKE_WIDTH);
+
+        let componentInputWire2 = this.paper.path("m 10.000001,38.765752 29.55419,0");
+        componentInputWire2.attr("stroke", DEFAULT_STROKE_COLOR);
+        componentInputWire2.attr("stroke-width", DEFAULT_STROKE_WIDTH);
+
+        let componentOutputWire = this.paper.path("m 88.90777,24.999601 19.55419,0");
+        componentOutputWire.attr("stroke", DEFAULT_STROKE_COLOR);
+        componentOutputWire.attr("stroke-width", DEFAULT_STROKE_WIDTH);
+
         let componentBodyShape = this.paper.path("m 35.56462,0.981667 a 6.6318406,24.254712 0 0 1 5.76298,24.017459 6.6318406,24.254712 0 0 1 -5.71116,23.993868 l 13.94029,0 c 2.85467,-0.09472 5.72064,0.223753 8.56458,-0.230024 0.15274,-0.01531 0.30704,-0.04378 0.46069,-0.06684 A 35.091665,36.015438 0 0 0 88.96472,24.983402 35.091665,36.015438 0 0 0 58.30703,1.292305 C 57.4478,1.110381 56.5897,1.00453 55.74298,0.981667 c -6.72562,-2.31e-4 -13.45263,3.7e-5 -20.17836,0 z");
         componentBodyShape.attr("stroke", DEFAULT_STROKE_COLOR);
         componentBodyShape.attr("stroke-width", DEFAULT_STROKE_WIDTH);
@@ -87,19 +99,7 @@ export class XorGate extends BaseControl {
         let componentRearShapeGradient = this.paper.path("m 28.890286,1.8988889 c 0.930247,1.6086509 1.690677,3.8253367 2.293131,6.5535229 0.673964,3.0520142 1.149273,6.7098672 1.385433,10.7026442 0.0074,-0.0045 0.02383,-0.01477 0.0292,-0.01772 0.306614,-0.162034 0.630581,-0.09389 0.947509,-0.06892 0.236802,0.01865 0.149154,0.04507 0.30522,-0.03545 0.07131,-0.02228 0.142888,-0.04113 0.213654,-0.06696 0.323177,-0.117963 0.166719,-0.110328 0.581245,-0.17526 0.105111,-0.01647 0.210619,-0.0068 0.315837,-0.02166 0.03479,-0.0049 0.06848,-0.02299 0.102182,-0.03742 C 34.823572,15.130848 34.382175,11.85609 33.788404,9.1672277 32.892787,5.1114712 31.610832,2.5376719 30.541128,1.8988819 l -1.650842,0 z");
         componentRearShapeGradient.attr("stroke-width", 0);
         componentRearShapeGradient.attr("fill", "90-#0066ff-#fff");
-
-        let componentInputWire1 = this.paper.path("m 10.000001,11.23345 29.55419,0");
-        componentInputWire1.attr("stroke", DEFAULT_STROKE_COLOR);
-        componentInputWire1.attr("stroke-width", DEFAULT_STROKE_WIDTH);
-
-        let componentInputWire2 = this.paper.path("m 10.000001,38.765752 29.55419,0");
-        componentInputWire2.attr("stroke", DEFAULT_STROKE_COLOR);
-        componentInputWire2.attr("stroke-width", DEFAULT_STROKE_WIDTH);
-
-        let componentOutputWire = this.paper.path("m 88.90777,24.999601 19.55419,0");
-        componentOutputWire.attr("stroke", DEFAULT_STROKE_COLOR);
-        componentOutputWire.attr("stroke-width", DEFAULT_STROKE_WIDTH);
-
+        
         let inputPin1 = new ConnectionPin(this, 5, 11, "in");
         let inputPin2 = new ConnectionPin(this, 5, 39, "in");
         let outputPin = new ConnectionPin(this, 114, 25, "out");
