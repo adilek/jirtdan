@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="75.661163"
+   height="47.183434"
+   viewBox="0 0 75.661168 47.183432"
+   id="svg4291"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="HighConstant.svg">
+  <defs
+     id="defs4293">
+    <linearGradient
+       id="jcify90-_0066ff-_fff"
+       x1="22.471123"
+       y1="40.427212"
+       x2="22.471123"
+       y2="3.1156476"
+       gradientTransform="matrix(1.7335883,0,0,0.72774179,-1085.5663,357.36028)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0%"
+         stop-color="#0066ff"
+         stop-opacity="1"
+         style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+         id="stop5" />
+      <stop
+         offset="100%"
+         stop-color="#ffffff"
+         stop-opacity="1"
+         style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+         id="stop7" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#jcify90-_0066ff-_fff"
+       id="linearGradient4263"
+       x1="-906.75"
+       y1="400.86627"
+       x2="-906.21808"
+       y2="380.41687"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,1.6318167,929.38269,-625.79095)" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.9795919"
+     inkscape:cx="223.91358"
+     inkscape:cy="95.931062"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-left="0"
+     fit-margin-right="10"
+     fit-margin-top="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1855"
+     inkscape:window-height="1056"
+     inkscape:window-x="1985"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     units="px" />
+  <metadata
+     id="metadata4296">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="opacity:1;fill:#0000ff;fill-opacity:1;stroke:#000000;stroke-width:2.00000024;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4155"
+       width="45.183437"
+       height="45.183437"
+       x="1.0000001"
+       y="1.0000007" />
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:url(#linearGradient4263);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2.27929544;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 1.9885,2.1222325 0,18.3451895 c 2.38846,-1.62726 4.94603,-2.93244 7.75586,-3.60465 4.13269,-0.67466 8.468022,1.0912 11.023432,4.59905 2.58172,2.80852 4.72301,6.47002 8.33594,7.89135 3.11906,0.71555 6.38197,0.40939 9.5332,0.0574 2.20797,-0.39356 4.38045,-0.94273 6.53516,-1.5617 l 0,-25.7266095 -43.183592,0 z"
+       id="path4218"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.50293589;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 46.106981,23.591722 19.55419,0"
+       id="path4460"
+       inkscape:connector-curvature="0" />
+    <rect
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.56949139;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4151"
+       width="26.775843"
+       height="34.557987"
+       x="10.203797"
+       y="6.312726" />
+    <path
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:125%;font-family:'Digital LCD';-inkscape-font-specification:'Digital LCD';letter-spacing:0px;word-spacing:0px;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 17.747701,37.686115 -0.687531,-0.687532 2.750126,-2.750126 7.562846,0 2.750126,2.750126 -0.687532,0.687532 -11.688035,0 z"
+       id="path4174" />
+    <path
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:125%;font-family:'Digital LCD';-inkscape-font-specification:'Digital LCD';letter-spacing:0px;word-spacing:0px;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 16.372638,36.311052 -0.687531,-0.687532 0,-10.312972 0.687531,-0.687531 2.750126,2.750126 0,6.187783 -2.750126,2.750126 0,0 z"
+       id="path4172" />
+    <path
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:125%;font-family:'Digital LCD';-inkscape-font-specification:'Digital LCD';letter-spacing:0px;word-spacing:0px;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 30.810799,36.311052 -2.750126,-2.750126 0,-6.187783 2.750126,-2.750126 0.687532,0.687531 0,10.312972 -0.687532,0.687532 0,0 z"
+       id="path4170" />
+    <path
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:125%;font-family:'Digital LCD';-inkscape-font-specification:'Digital LCD';letter-spacing:0px;word-spacing:0px;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 19.122764,25.310548 -1.718829,-1.718828 1.718829,-1.718829 8.937909,0 1.718829,1.718829 -1.718829,1.718828 -8.937909,0 z"
+       id="path4168" />
+    <path
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:125%;font-family:'Digital LCD';-inkscape-font-specification:'Digital LCD';letter-spacing:0px;word-spacing:0px;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 16.372638,22.560422 -0.687531,-0.687531 0,-10.312972 0.687531,-0.687532 2.750126,2.750126 0,6.187783 -2.750126,2.750126 0,0 z"
+       id="path4166" />
+    <path
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:125%;font-family:'Digital LCD';-inkscape-font-specification:'Digital LCD';letter-spacing:0px;word-spacing:0px;fill:#00ff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 30.810799,22.560422 -2.750126,-2.750126 0,-6.187783 2.750126,-2.750126 0.687532,0.687532 0,10.312972 -0.687532,0.687531 0,0 z"
+       id="path4164" />
+    <path
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:125%;font-family:'Digital LCD';-inkscape-font-specification:'Digital LCD';letter-spacing:0px;word-spacing:0px;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 19.810296,12.934982 -2.750126,-2.750126 0.687531,-0.6875321 11.688035,0 0.687532,0.6875321 -2.750126,2.750126 -7.562846,0 z"
+       id="path4151" />
+  </g>
+</svg>
