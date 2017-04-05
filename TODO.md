@@ -1,8 +1,7 @@
 # TODO
 
 ## Features
-### Basic
-* Better design look is needed for components
+
 ### Controls
 * NandGate is needed
 * Nor gate is needed
