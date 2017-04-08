@@ -103,7 +103,7 @@ export class XorGate extends BaseControl {
         const inputPin1 = new ConnectionPin(this, 5, 11, "in");
         const inputPin2 = new ConnectionPin(this, 5, 39, "in");
         const outputPin = new ConnectionPin(this, 114, 25, "out");
-        
+
         const _this = this;
         inputPin1.addStateChangeListener(
             function (newState) {
