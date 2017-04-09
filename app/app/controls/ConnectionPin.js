@@ -70,7 +70,7 @@ export class ConnectionPin {
         this.element.attr("fill", "#fff");
 
         // Assign event handlers.
-        let _this = this;
+        const _this = this;
         this.element.mousedown(function () {
             _this.onActionDown();
         });
@@ -122,7 +122,7 @@ export class ConnectionPin {
         if (this.type == null || pin.getType() == null) return false;
         if (this.type == pin.getType()) return false;
 
-        let inputPin = this.isInputType() ? this : pin;
+        const inputPin = this.isInputType() ? this : pin;
 
         //noinspection RedundantIfStatementJS
         if (!inputPin.isConnectionAllowed) return false;
