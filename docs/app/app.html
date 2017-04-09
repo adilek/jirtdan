@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Jirtdan</title>
+    <link rel="stylesheet" href="app.css" type="text/css" media="screen"/>
+    <script src="third_party/raphael/raphael.js" type="text/javascript" charset="utf-8"></script>
+    <script src="third_party/jquery/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="third_party/traceur/traceur.js" type="text/javascript" charset="utf-8"></script>
+    <script src="third_party/traceur/BrowserSystem.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<button id="btn-add-and">AND</button>
+<button id="btn-add-or">OR</button>
+<button id="btn-add-one">1</button>
+<button id="btn-add-zero">0</button>
+<button id="btn-add-bulb">Bulb</button>
+<button id="btn-add-not">NOT</button>
+<button id="btn-add-xor">XOR</button>
+<button id="btn-add-switch">Switch</button>
+<button id="btn-add-push">Push</button>
+
+<div id="board"></div>
+
+<script type="text/javascript">
+    System.import('./appLoader.js').catch(function (ex) {
+        console.error('Internal Error ', ex.stack || ex);
+    });
+</script>
+
+</body>
+</html>
