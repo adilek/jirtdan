@@ -78,8 +78,8 @@ export class BaseControl {
      * @param dy
      */
     onDrag(dx, dy) {
-        let x = dx - this.oldX;
-        let y = dy - this.oldY;
+        const x = dx - this.oldX;
+        const y = dy - this.oldY;
 
         for (let i = 0; i < this.shapes.length; i++) {
             this.shapes[i].translate(x, y);
@@ -105,7 +105,7 @@ export class BaseControl {
      * @param newGradient
      */
     changeGradient(obj, newGradient) {
-        let tr = obj.transform();
+        const tr = obj.transform();
         obj.transform("");
         obj.attr("fill", newGradient);
         obj.transform(tr);
@@ -118,29 +118,15 @@ export class BaseControl {
     setShapes(shapes) {
         this.shapes = shapes;
 
-        //FIXME: Design needs to be fixed.
-        let obj = this.paper.set(this.shapes);
+        const obj = this.paper.set(this.shapes);
 
-        let _this = this;
+        const _this = this;
 
         obj.drag(function (dx, dy) {
             _this.onDrag(dx, dy);
         }, function () {
             _this.onDragStart();
         });
-
-        obj.mousedown(function () {
-            for (let i = 0; i < _this.shapes.length; i++) {
-                //_this.shapes[i].node.setAttribute("filter", "url(#filter1)");
-            }
-        });
-
-        obj.mouseup(function () {
-            for (let i = 0; i < _this.shapes.length; i++) {
-                //_this.shapes[i].node.removeAttribute("filter");
-            }
-        });
-
     }
 
     /**
