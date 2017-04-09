@@ -57,6 +57,10 @@ export class SwitchButton extends BaseControl {
         componentBodyShape.attr("fill", DEFAULT_FILL_COLOR);
         componentBodyShape.attr("stroke-linejoin", "round");
 
+        const componentBodyGradient = this.paper.path("m 1.7234929,1.7200376 0,10.6074104 c 1.526046,-0.868787 3.147822,-1.555409 4.90039,-1.941406 3.061362,-0.4600704 6.2750111,0.746512 8.1679691,3.138672 1.91245,1.915255 3.497508,4.411588 6.173828,5.38086 2.310502,0.487962 4.728173,0.277131 7.0625,0.03711 1.788763,-0.293529 3.547676,-0.705442 5.289063,-1.181641 l 0,-16.0410044 -31.5937501,0 z");
+        componentBodyGradient.attr("stroke", "none");
+        componentBodyGradient.attr("fill", "90-#0066ff-#8fbcff");
+
         const ledIndicator = this.paper.circle(29.25, 6.7, 2.1);
         ledIndicator.attr("stroke", DEFAULT_STROKE_COLOR);
         ledIndicator.attr("stroke-width", 0.25);
@@ -123,7 +127,8 @@ export class SwitchButton extends BaseControl {
             onTextOLetter,
             onTextNLetter,
             knobHandleOff,
-            knobHandleOn
+            knobHandleOn,
+            componentBodyGradient
         ]);
         this.addOutputPins(outputPin);
 
