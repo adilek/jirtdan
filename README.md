@@ -13,6 +13,9 @@ You may use any http server software ([Apache HTTP Server](https://httpd.apache.
 
 Copy the contents of this repository into certain directory of web server, navigate to `http://hostname/<directory>/app/app.html`.
 
+## Demo
+
+You can see the current demo [here](http://jirtdan.org/app/app.html).
 
 ## Bug reporting and wish-list
 If you have a bug or a feature to request, please create an issue ticket on [https://github.com/adilek/jirtdan/issues](https://github.com/adilek/jirtdan/issues).
