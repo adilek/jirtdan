@@ -112,7 +112,7 @@ export class SwitchButton extends BaseControl {
         knobHandleOn.hide();
 
 
-        let outputPin = new ConnectionPin(this, 59, 23, "out");
+        const outputPin = new ConnectionPin(this, 59, 23, "out");
         this.value = 0;
         this.setShapes([
             componentBodyShape,
