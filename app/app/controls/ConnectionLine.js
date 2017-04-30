@@ -47,7 +47,7 @@ export class ConnectionLine {
 
         this.init();
 
-        let _this = this;
+        const _this = this;
         this.outputPin.addStateChangeListener(function (newState) {
             _this.inputPin.notifyStateChange(newState);
             _this.setState(newState);
@@ -62,13 +62,13 @@ export class ConnectionLine {
     init() {
         //FIXME: Clean this dirty shit
 
-        let x1 = this.inputPin.element.attr("cx") + this.inputPin.element.matrix.e;
-        let y1 = this.inputPin.element.attr("cy") + this.inputPin.element.matrix.f;
+        const x1 = this.inputPin.element.attr("cx") + this.inputPin.element.matrix.e;
+        const y1 = this.inputPin.element.attr("cy") + this.inputPin.element.matrix.f;
 
         this.start = [x1, y1];
 
-        let x2 = this.outputPin.element.attr("cx") + this.outputPin.element.matrix.e;
-        let y2 = this.outputPin.element.attr("cy") + this.outputPin.element.matrix.f;
+        const x2 = this.outputPin.element.attr("cx") + this.outputPin.element.matrix.e;
+        const y2 = this.outputPin.element.attr("cy") + this.outputPin.element.matrix.f;
 
         this.end = [x2, y2];
 
@@ -85,7 +85,7 @@ export class ConnectionLine {
     onPinTranslate(pin, x, y) {
         if (pin != this.inputPin && pin != this.outputPin) return;
 
-        let pathAttr = this.element.attr("path");
+        const pathAttr = this.element.attr("path");
         if (pin == this.inputPin) {
             //TODO:
             pathAttr[0][1] += x;
