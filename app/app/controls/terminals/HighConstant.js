@@ -32,6 +32,9 @@ import {
     DEBUG
 } from '../BaseControl.js'
 import {ConnectionPin} from '../ConnectionPin.js'
+
+const LOGTAG = "HighConstant";
+
 /**
  * Control for High Constant (1).
  */

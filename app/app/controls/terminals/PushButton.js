@@ -32,6 +32,8 @@ import {
     DEBUG
 } from '../BaseControl.js'
 import {ConnectionPin} from '../ConnectionPin.js'
+
+const LOGTAG = "PushButton";
 /**
  * Control for Push Button.
  */

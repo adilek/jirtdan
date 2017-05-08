@@ -35,6 +35,8 @@ import {
     BaseControl
 } from '../BaseControl.js'
 import {ConnectionPin} from '../ConnectionPin.js'
+
+const LOGTAG = "Bulb";
 /**
  * Control for High Constant (1).
  */

@@ -32,6 +32,8 @@ import {
     DEBUG
 } from '../BaseControl.js'
 import {ConnectionPin} from '../ConnectionPin.js'
+
+const LOGTAG = "LowConstant";
 /**
  * Control for Low Constant (0).
  */
