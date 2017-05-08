@@ -33,6 +33,7 @@ export const POWER_STATE_HIGH = 1;
 export const POWER_STATE_LOW = 0;
 export const DEBUG = true;
 
+const LOGTAG = "BaseControl";
 /**
  * BaseControl is the super-class of all logic controls.
  * The BaseControl class provides basic functionality that all

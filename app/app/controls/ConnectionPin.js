@@ -37,6 +37,8 @@ import {
     DEBUG
 } from './BaseControl.js'
 
+const LOGTAG = "ConnectionPin";
+
 export class ConnectionPin {
 
     /**

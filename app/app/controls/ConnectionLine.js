@@ -34,6 +34,8 @@ import {
     DEBUG
 } from './BaseControl.js'
 
+const LOGTAG = "ConnectionLine";
+
 export class ConnectionLine {
 
     constructor(board, pin1, pin2) {
