@@ -54,7 +54,16 @@ export class BaseControl {
         this.shapes = [];
         this.inPins = [];
         this.outPins = [];
+        this.draw();
         this.initControl();
+    }
+
+    /**
+     * This method needs to be overridden in subclass.
+     * It is aim is to draw the component.
+     */
+    draw() {
+        // Empty
     }
 
     /**
