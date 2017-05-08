@@ -31,7 +31,7 @@ import {
     DEFAULT_SIGNAL_PRESENCE_COLOR,
     DEFAULT_STROKE_COLOR,
     DEFAULT_STROKE_WIDTH,
-    DEBUG
+    DEBUG,
     BaseControl
 } from '../BaseControl.js'
 import {ConnectionPin} from '../ConnectionPin.js'
