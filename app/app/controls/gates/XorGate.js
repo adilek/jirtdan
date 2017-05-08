@@ -34,6 +34,8 @@ import {
 } from '../BaseControl.js'
 import {ConnectionPin} from '../ConnectionPin.js'
 
+const LOGTAG = "XorGate";
+
 /**
  * Control for XOR gate.
  *

@@ -33,6 +33,9 @@ import {
     DEBUG
 } from '../BaseControl.js'
 import {ConnectionPin} from '../ConnectionPin.js'
+
+const LOGTAG = "NotGate";
+
 /**
  * Control for NOT gate.
  *

@@ -33,6 +33,8 @@ import {
 } from '../BaseControl.js'
 import {ConnectionPin} from '../ConnectionPin.js'
 
+const LOGTAG = "AndGate";
+
 /**
  * Control for AND gate.
  *
