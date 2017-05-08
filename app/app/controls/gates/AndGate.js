@@ -28,9 +28,11 @@ import {
     BaseControl,
     DEFAULT_STROKE_COLOR,
     DEFAULT_STROKE_WIDTH,
-    DEFAULT_FILL_COLOR
+    DEFAULT_FILL_COLOR,
+    DEBUG
 } from '../BaseControl.js'
 import {ConnectionPin} from '../ConnectionPin.js'
+
 /**
  * Control for AND gate.
  *
@@ -41,8 +43,8 @@ import {ConnectionPin} from '../ConnectionPin.js'
  * |1  |0  |0  |
  * |1  |1  |1  |
  */
-//TODO: Remove the direct dependency from raphael.
 export class AndGate extends BaseControl {
+
     /**
      * Constructor for AndGate
      * @param paper raphael paper object.

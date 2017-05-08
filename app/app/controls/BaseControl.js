@@ -31,6 +31,7 @@ export const DEFAULT_STROKE_WIDTH = 2;
 export const DEFAULT_SIGNAL_PRESENCE_COLOR = "#fa0";
 export const POWER_STATE_HIGH = 1;
 export const POWER_STATE_LOW = 0;
+export const DEBUG = true;
 
 /**
  * BaseControl is the super-class of all logic controls.
