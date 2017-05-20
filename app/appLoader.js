@@ -29,9 +29,11 @@ import {HighConstant} from 'app/controls/terminals/HighConstant.js'
 import {LowConstant} from 'app/controls/terminals/LowConstant.js'
 import {Bulb} from 'app/controls/terminals/Bulb.js'
 import {NotGate} from 'app/controls/gates/NotGate.js'
+import {BufferGate} from 'app/controls/gates/BufferGate.js'
 import {XorGate} from 'app/controls/gates/XorGate.js'
 import {SwitchButton} from 'app/controls/terminals/SwitchButton.js'
 import {PushButton} from 'app/controls/terminals/PushButton.js'
+
 
 
 let board = new Board(Raphael("board", 1280, 800));
@@ -63,6 +65,9 @@ $(document).ready(function () {
     });
     $("#btn-add-push").click(function (event) {
         board.addControl(new PushButton(board));
+    });
+    $("#btn-add-buffer").click(function (event) {
+        board.addControl(new BufferGate(board));
     });
 
 });
