@@ -111,11 +111,11 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-4.0395352e-7,-8.8275278e-4)">
+     >
     <path
        style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:2.27929544;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 29.982422,1.140625 0,47.695313 20.236328,0 c 3.87279,-0.09411 7.762864,0.222274 11.621094,-0.228516 11.769179,-0.86076 25.727887,-14.345718 20.804687,-30.216797 -3.86788,-11.4267488 -14.478353,-17.06108 -24.033203,-17.25 -9.542909,-2.4e-4 -19.085857,6e-5 -28.628906,0 z M 90.707031,19.449219 A 5.6206879,5.5509597 0 0 0 85.085938,25 5.6206879,5.5509597 0 0 0 90.707031,30.550781 5.6206879,5.5509597 0 0 0 96.326172,25 5.6206879,5.5509597 0 0 0 90.707031,19.449219 Z"
-       transform="translate(0,-1.9073487e-6)"
+       
        id="path4320"
        inkscape:connector-curvature="0" />
     <path
