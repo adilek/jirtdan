@@ -5,7 +5,6 @@
 ### Controls
 * NandGate is needed
 * Nor gate is needed
-* Buffer is needed
 * Select and delete the controls
 * Mobile support
 
