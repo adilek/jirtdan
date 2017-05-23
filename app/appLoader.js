@@ -33,7 +33,7 @@ import {BufferGate} from 'app/controls/gates/BufferGate.js'
 import {XorGate} from 'app/controls/gates/XorGate.js'
 import {SwitchButton} from 'app/controls/terminals/SwitchButton.js'
 import {PushButton} from 'app/controls/terminals/PushButton.js'
-
+import {NandGate} from './app/controls/gates/NandGate.js'
 
 
 let board = new Board(Raphael("board", 1280, 800));
@@ -69,5 +69,7 @@ $(document).ready(function () {
     $("#btn-add-buffer").click(function (event) {
         board.addControl(new BufferGate(board));
     });
-
+    $("#btn-add-nand").click(function (event) {
+        board.addControl(new NandGate(board));
+    });
 });
