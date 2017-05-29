@@ -1,6 +1,8 @@
 # TODO
 
 ## Features
+* Select several components using rectangle area
+* Select several components using ctrl button
 
 ### Controls
 * Nor gate is needed
