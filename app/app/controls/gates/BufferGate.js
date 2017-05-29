@@ -60,8 +60,8 @@ export class BufferGate extends BaseControl {
     draw() {
         super.draw();
 
-        this.componentBodyShape = this.paper.path("M 30.561946,1.9908772 76.707033,24.924195 " +
-            "30.561946,47.85626 l 0,-45.8653828 z");
+        this.componentBodyShape = this.paper.path("m 30.402093,0.99310903 0,48.01216997 " +
+            "L 78.706762,24.999194 30.402093,0.99310903 Z");
         this.componentBodyShape.attr("stroke", DEFAULT_STROKE_COLOR);
         this.componentBodyShape.attr("stroke-width", DEFAULT_STROKE_WIDTH);
         this.componentBodyShape.attr("stroke-linejoin", "round");
