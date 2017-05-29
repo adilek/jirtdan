@@ -3,7 +3,6 @@
 ## Features
 
 ### Controls
-* NandGate is needed
 * Nor gate is needed
 * Select and delete the controls
 * Mobile support
