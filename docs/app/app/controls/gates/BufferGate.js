@@ -34,17 +34,17 @@ import {
 } from '../BaseControl.js'
 import {ConnectionPin} from '../ConnectionPin.js'
 
-const LOGTAG = "NotGate";
+const LOGTAG = "BufferGate";
 
 /**
- * Control for NOT gate.
+ * Control for Buffer gate.
  *
  * Truth table:
  * |In1|Out|
- * |0  |1  |
- * |1  |0  |
+ * |0  |0  |
+ * |1  |1  |
  */
-export class NotGate extends BaseControl {
+export class BufferGate extends BaseControl {
     /**
      * Constructor for NotGate
      * @param paper raphael paper object.
@@ -60,8 +60,8 @@ export class NotGate extends BaseControl {
     draw() {
         super.draw();
 
-        this.componentBodyShape = this.paper.path("M 30.561946,1.9908772 76.707033,24.924195 " +
-            "30.561946,47.85626 l 0,-45.8653828 z");
+        this.componentBodyShape = this.paper.path("m 30.402093,0.99310903 0,48.01216997 " +
+            "L 78.706762,24.999194 30.402093,0.99310903 Z");
         this.componentBodyShape.attr("stroke", DEFAULT_STROKE_COLOR);
         this.componentBodyShape.attr("stroke-width", DEFAULT_STROKE_WIDTH);
         this.componentBodyShape.attr("stroke-linejoin", "round");
@@ -81,31 +81,7 @@ export class NotGate extends BaseControl {
         this.componentBodyShapeGradient.attr("stroke-width", 0);
         this.componentBodyShapeGradient.attr("fill", "90-#0066ff-#fff");
 
-        this.componentBodyShapeSmallCircle = this.paper.path("m 30.402093,0.99310903 0,48.01216997 " +
-            "L 78.706762,24.999194 30.402093,0.99310903 Z M 84.491132,19.448644 a 5.6206879,5.5509597 " +
-            "0 0 0 -5.620274,5.55055 5.6206879,5.5509597 0 0 0 5.620274,5.550552 5.6206879,5.5509597 " +
-            "0 0 0 5.620275,-5.550552 5.6206879,5.5509597 0 0 0 -5.620275,-5.55055 z");
-        this.componentBodyShapeSmallCircle.attr("stroke", DEFAULT_STROKE_COLOR);
-        this.componentBodyShapeSmallCircle.attr("stroke-width", DEFAULT_STROKE_WIDTH);
-        this.componentBodyShapeSmallCircle.attr("stroke-linejoin", "round");
-        this.componentBodyShapeSmallCircle.attr("stroke-miterlimit", 4);
-
-        this.componentBodyShapeSmallCircleFill = this.paper.path("m 84.451234,20.446937 c 2.563397,1.77e-4 " +
-            "4.619882,2.03115 4.620072,4.562759 -1.9e-4,2.531597 -2.056675,4.56257 -4.620072,4.562757 " +
-            "-2.563397,-1.87e-4 -4.619882,-2.03116 -4.620072,-4.562757 1.9e-4,-2.531609 2.056675,-4.562582 " +
-            "4.620072,-4.562759 z");
-        this.componentBodyShapeSmallCircleFill.attr("stroke-width", 1);
-        this.componentBodyShapeSmallCircleFill.attr("stroke", DEFAULT_FILL_COLOR);
-        this.componentBodyShapeSmallCircleFill.attr("fill", DEFAULT_FILL_COLOR);
-
-        this.componentBodyShapeSmallCircleGradient = this.paper.path("m 84.451234,20.446937 " +
-            "c -2.126299,1.48e-4 -3.884153,1.406608 -4.428633,3.328017 3.390024,0.192324 " +
-            "6.602592,1.0941 8.835772,2.538936 0.125065,-0.415574 0.212893,-0.846934 " +
-            "0.212933,-1.304194 -1.9e-4,-2.531609 -2.056675,-4.562582 -4.620072,-4.562759 z");
-        this.componentBodyShapeSmallCircleGradient.attr("stroke-width", 0);
-        this.componentBodyShapeSmallCircleGradient.attr("fill", "90-#0066ff-#fff");
-
-        this.componentOutputWire = this.paper.path("m 90.907772,24.999597 19.554188,0");
+        this.componentOutputWire = this.paper.path("m 75.907772,24.999597 19.554188,0");
         this.componentOutputWire.attr("stroke", DEFAULT_STROKE_COLOR);
         this.componentOutputWire.attr("stroke-width", DEFAULT_STROKE_WIDTH);
 
@@ -114,7 +90,7 @@ export class NotGate extends BaseControl {
         this.componentInputWire.attr("stroke-width", DEFAULT_STROKE_WIDTH);
 
         this.inputPin = new ConnectionPin(this, 5, 25, "in");
-        this.outputPin = new ConnectionPin(this, 116, 25, "out");
+        this.outputPin = new ConnectionPin(this, 101, 25, "out");
     }
 
     /**
@@ -133,10 +109,7 @@ export class NotGate extends BaseControl {
 
         this.setShapes([
             this.componentBodyShape,
-            this.componentBodyShapeSmallCircle,
             this.componentBodyShapeFill,
-            this.componentBodyShapeSmallCircleFill,
-            this.componentBodyShapeSmallCircleGradient,
             this.componentBodyShapeGradient,
             this.componentOutputWire,
             this.componentInputWire
@@ -150,6 +123,6 @@ export class NotGate extends BaseControl {
      * @returns {boolean}
      */
     getValue() {
-        return !this.inputPin1Value;
+        return this.inputPin1Value;
     }
 }

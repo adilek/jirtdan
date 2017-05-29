@@ -33,19 +33,19 @@ import {
 } from '../BaseControl.js'
 import {ConnectionPin} from '../ConnectionPin.js'
 
-const LOGTAG = "AndGate";
+const LOGTAG = "NandGate";
 
 /**
- * Control for AND gate.
+ * Control for NAND gate.
  *
  * Truth table:
  * |In1|In2|Out|
- * |0  |0  |0  |
- * |0  |1  |0  |
- * |1  |0  |0  |
- * |1  |1  |1  |
+ * |0  |0  |1  |
+ * |0  |1  |1  |
+ * |1  |0  |1  |
+ * |1  |1  |0  |
  */
-export class AndGate extends BaseControl {
+export class NandGate extends BaseControl {
 
     /**
      * Constructor for AndGate
@@ -63,10 +63,12 @@ export class AndGate extends BaseControl {
     draw() {
         super.draw();
 
-        this.componentBodyShape = this.paper.path("m 58.611201,1.1397665 c 9.55485,0.18892 20.16562,5.82395 " +
-            "24.0335,17.2506995 4.9232,15.87108 -9.03622,29.35593 -20.8054,30.21669 -3.85823,0.45079 " +
-            "-7.74776,0.13486 -11.62055,0.22897 -6.74559,0 -13.49119,0 -20.23678,0 0,-15.89882 0,-31.79764 " +
-            "0,-47.6964595 9.54305,6e-5 19.08632,-1.4e-4 28.62923,10e-5 z");
+        this.componentBodyShape = this.paper.path("m 29.982422,1.140625 0,47.695313 20.236328,0 " +
+            "c 3.87279,-0.09411 7.762864,0.222274 11.621094,-0.228516 11.769179,-0.86076 25.727887,-14.345718 " +
+            "20.804687,-30.216797 -3.86788,-11.4267488 -14.478353,-17.06108 -24.033203,-17.25 -9.542909,-2.4e-4 " +
+            "-19.085857,6e-5 -28.628906,0 z M 90.707031,19.449219 A 5.6206879,5.5509597 0 0 0 85.085938,25 " +
+            "5.6206879,5.5509597 0 0 0 90.707031,30.550781 5.6206879,5.5509597 0 0 0 96.326172,25 " +
+            "5.6206879,5.5509597 0 0 0 90.707031,19.449219 Z");
         this.componentBodyShape.attr("stroke", DEFAULT_STROKE_COLOR);
         this.componentBodyShape.attr("stroke-width", DEFAULT_STROKE_WIDTH);
         this.componentBodyShape.attr("stroke-linejoin", "round");
@@ -90,6 +92,21 @@ export class AndGate extends BaseControl {
         this.componentBodyGradient.attr("stroke-width", 0);
         this.componentBodyGradient.attr("fill", "90-#0066ff-#fff");
 
+        this.componentBodyShapeSmallCircleFill = this.paper.path("m 90.666806,20.437239 c 2.563397,1.77e-4 " +
+            "4.619883,2.03115 4.620073,4.562759 -1.9e-4,2.531597 -2.056676,4.562571 -4.620073,4.562758 " +
+            "-2.563397,-1.87e-4 -4.619882,-2.031161 -4.620072,-4.562758 1.9e-4,-2.531609 2.056675,-4.562582 " +
+            "4.620072,-4.562759 z");
+        this.componentBodyShapeSmallCircleFill.attr("stroke-width", 1);
+        this.componentBodyShapeSmallCircleFill.attr("stroke", DEFAULT_FILL_COLOR);
+        this.componentBodyShapeSmallCircleFill.attr("fill", DEFAULT_FILL_COLOR);
+
+        this.componentBodyShapeSmallCircleGradient = this.paper.path("m 90.666806,20.437239 " +
+            "c -2.126299,1.48e-4 -3.884153,1.406608 -4.428633,3.328017 3.390024,0.192324 " +
+            "6.602592,1.0941 8.835773,2.538936 0.125065,-0.415574 0.212893,-0.846934 " +
+            "0.212933,-1.304194 -1.9e-4,-2.531609 -2.056676,-4.562582 -4.620073,-4.562759 z");
+        this.componentBodyShapeSmallCircleGradient.attr("stroke-width", 0);
+        this.componentBodyShapeSmallCircleGradient.attr("fill", "90-#0066ff-#fff");
+
         this.componentInputWire1 = this.paper.path("m 10.000001,11.233446 19.55419,0");
         this.componentInputWire1.attr("stroke", DEFAULT_STROKE_COLOR);
         this.componentInputWire1.attr("stroke-width", DEFAULT_STROKE_WIDTH);
@@ -98,13 +115,13 @@ export class AndGate extends BaseControl {
         this.componentInputWire2.attr("stroke", DEFAULT_STROKE_COLOR);
         this.componentInputWire2.attr("stroke-width", DEFAULT_STROKE_WIDTH);
 
-        this.componentOutputWire = this.paper.path("m 83.523741,24.999596 19.554189,0");
+        this.componentOutputWire = this.paper.path("m 95.523741,24.999596 19.554189,0");
         this.componentOutputWire.attr("stroke", DEFAULT_STROKE_COLOR);
         this.componentOutputWire.attr("stroke-width", DEFAULT_STROKE_WIDTH);
 
         this.inputPin1 = new ConnectionPin(this, 5, 11, "in");
         this.inputPin2 = new ConnectionPin(this, 5, 39, "in");
-        this.outputPin = new ConnectionPin(this, 109, 25, "out");
+        this.outputPin = new ConnectionPin(this, 121, 25, "out");
     }
 
     /**
@@ -130,6 +147,8 @@ export class AndGate extends BaseControl {
             this.componentBodyShape,
             this.componentBodyFill,
             this.componentBodyGradient,
+            this.componentBodyShapeSmallCircleFill,
+            this.componentBodyShapeSmallCircleGradient,
             this.componentInputWire1,
             this.componentInputWire2,
             this.componentOutputWire]);
@@ -143,6 +162,6 @@ export class AndGate extends BaseControl {
      * @returns {*|number}
      */
     getValue() {
-        return this.inputPin1Value && this.inputPin2Value;
+        return !(this.inputPin1Value && this.inputPin2Value);
     }
 }

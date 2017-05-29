@@ -33,8 +33,11 @@ import {
     POWER_STATE_LOW,
     DEFAULT_FILL_COLOR,
     DEFAULT_STROKE_COLOR,
-    DEFAULT_STROKE_WIDTH
+    DEFAULT_STROKE_WIDTH,
+    DEBUG
 } from './BaseControl.js'
+
+const LOGTAG = "ConnectionPin";
 
 export class ConnectionPin {
 

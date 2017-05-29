@@ -30,8 +30,11 @@ import {
     POWER_STATE_HIGH,
     DEFAULT_SIGNAL_PRESENCE_COLOR,
     DEFAULT_FILL_COLOR,
-    DEFAULT_STROKE_COLOR
+    DEFAULT_STROKE_COLOR,
+    DEBUG
 } from './BaseControl.js'
+
+const LOGTAG = "ConnectionLine";
 
 export class ConnectionLine {
 

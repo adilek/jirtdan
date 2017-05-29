@@ -31,9 +31,12 @@ import {
     DEFAULT_SIGNAL_PRESENCE_COLOR,
     DEFAULT_STROKE_COLOR,
     DEFAULT_STROKE_WIDTH,
+    DEBUG,
     BaseControl
 } from '../BaseControl.js'
 import {ConnectionPin} from '../ConnectionPin.js'
+
+const LOGTAG = "Bulb";
 /**
  * Control for High Constant (1).
  */

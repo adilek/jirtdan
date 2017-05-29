@@ -28,9 +28,13 @@ import {
     BaseControl,
     DEFAULT_FILL_COLOR,
     DEFAULT_STROKE_WIDTH,
-    DEFAULT_STROKE_COLOR
+    DEFAULT_STROKE_COLOR,
+    DEBUG
 } from '../BaseControl.js'
 import {ConnectionPin} from '../ConnectionPin.js'
+
+const LOGTAG = "HighConstant";
+
 /**
  * Control for High Constant (1).
  */
