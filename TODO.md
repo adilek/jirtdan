@@ -8,6 +8,8 @@
 * Nor gate is needed
 * Select and delete the controls
 * Mobile support
+* Xnor gate is needed
+* API for custom control making during runtime 
 
 ### ConnectionLine
 * Better looking connection lines are needed for components(bezier curves probably)
