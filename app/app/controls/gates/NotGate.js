@@ -133,8 +133,8 @@ export class NotGate extends BaseControl {
 
         this.setShapes([
             this.componentBodyShape,
-            this.componentBodyShapeSmallCircle,
             this.componentBodyShapeFill,
+            this.componentBodyShapeSmallCircle,
             this.componentBodyShapeSmallCircleFill,
             this.componentBodyShapeSmallCircleGradient,
             this.componentBodyShapeGradient,
