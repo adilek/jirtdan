@@ -79,4 +79,7 @@ $(document).ready(function () {
     $("#btn-add-xnor").click(function (event) {
         board.addControl(new XnorGate(board));
     });
+    $("#btn-delete").click(function (event) {
+        board.deleteSelected();
+    });
 });

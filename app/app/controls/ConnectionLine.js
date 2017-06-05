@@ -27,6 +27,7 @@
 
 import {
     BaseControl,
+    POWER_STATE_LOW,
     POWER_STATE_HIGH,
     DEFAULT_SIGNAL_PRESENCE_COLOR,
     DEFAULT_FILL_COLOR,
@@ -43,7 +44,9 @@ export class ConnectionLine {
         this.paper = this.board.paper;
         this.inputPin = pin1.isInputType() ? pin1 : (pin2.isInputType() ? pin2 : null);
         this.outputPin = pin2.isOutputType() ? pin2 : (pin1.isOutputType() ? pin1 : null);
+
         this.glow = null;
+        this.isConnectionSelected = false;
 
         if (this.inputPin == null || this.outputPin == null) {
             throw new Error("Something went wrong");
@@ -53,10 +56,10 @@ export class ConnectionLine {
         this.init();
 
         const _this = this;
-        this.outputPin.addStateChangeListener(function (newState) {
-            _this.inputPin.notifyStateChange(newState);
+        this.stateChangeListener = function (newState) {
             _this.setState(newState);
-        });
+        };
+        this.outputPin.addStateChangeListener(this.stateChangeListener);
         this.inputPin.setCanConnect(false);
     }
 
@@ -80,6 +83,7 @@ export class ConnectionLine {
         const _this = this;
         const mouseDown = function () {
             _this.glow = _this.element.glow();
+            _this.isConnectionSelected = true;
         };
 
         this.element.mousedown(mouseDown);
@@ -95,7 +99,23 @@ export class ConnectionLine {
             this.glow[i] = null;
         }
         this.glow = null;
+        this.isConnectionSelected = false;
     }
+
+    disconnect() {
+        this.removeGlow();
+        this.setState(POWER_STATE_LOW);
+        this.inputPin.setCanConnect(true);
+        this.inputPin = null;
+        this.outputPin.removeStateChangeListener(this.stateChangeListener);
+        this.outputPin = null;
+        this.element.remove();
+    }
+
+    isSelected() {
+        return this.isConnectionSelected;
+    }
+
 
     /**
      * The method is used to translate the pin locations during drag-drop.
@@ -128,6 +148,7 @@ export class ConnectionLine {
      * @param state POWER_STATE_HIGH or POWER_STATE_LOW
      */
     setState(state) {
+        this.inputPin.notifyStateChange(state);
         if (state == POWER_STATE_HIGH) {
             this.element.attr("fill", DEFAULT_SIGNAL_PRESENCE_COLOR);
             this.element.attr("stroke", DEFAULT_SIGNAL_PRESENCE_COLOR);
