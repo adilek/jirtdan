@@ -43,11 +43,13 @@ export class ConnectionLine {
         this.paper = this.board.paper;
         this.inputPin = pin1.isInputType() ? pin1 : (pin2.isInputType() ? pin2 : null);
         this.outputPin = pin2.isOutputType() ? pin2 : (pin1.isOutputType() ? pin1 : null);
+        this.glow = null;
 
         if (this.inputPin == null || this.outputPin == null) {
             throw new Error("Something went wrong");
         }
 
+        this.draw();
         this.init();
 
         const _this = this;
@@ -58,25 +60,41 @@ export class ConnectionLine {
         this.inputPin.setCanConnect(false);
     }
 
+    draw() {
+        //FIXME: Clean this dirty shit
+        this.x1 = this.inputPin.element.attr("cx") + this.inputPin.element.matrix.e;
+        this.y1 = this.inputPin.element.attr("cy") + this.inputPin.element.matrix.f;
+
+        this.x2 = this.outputPin.element.attr("cx") + this.outputPin.element.matrix.e;
+        this.y2 = this.outputPin.element.attr("cy") + this.outputPin.element.matrix.f;
+
+        this.element = this.paper.path("M " + this.x1 + "," + this.y1 + " L " + this.x2 + "," + this.y2);
+        this.element.attr("stroke-width", 2);
+    }
+
     /**
      * Initialization of the components.
      * The method should not be called externally.
      */
     init() {
-        //FIXME: Clean this dirty shit
+        const _this = this;
+        const mouseDown = function () {
+            _this.glow = _this.element.glow();
+        };
 
-        const x1 = this.inputPin.element.attr("cx") + this.inputPin.element.matrix.e;
-        const y1 = this.inputPin.element.attr("cy") + this.inputPin.element.matrix.f;
+        this.element.mousedown(mouseDown);
+    }
 
-        this.start = [x1, y1];
-
-        const x2 = this.outputPin.element.attr("cx") + this.outputPin.element.matrix.e;
-        const y2 = this.outputPin.element.attr("cy") + this.outputPin.element.matrix.f;
-
-        this.end = [x2, y2];
-
-        this.element = this.paper.path("M " + x1 + "," + y1 + " L " + x2 + "," + y2);
-        this.element.attr("stroke-width", 2);
+    /**
+     * Remove glow effect of selection.
+     */
+    removeGlow() {
+        if (this.glow == null) return;
+        for (let i = 0; i < this.glow.length; i++) {
+            this.glow[i].remove();
+            this.glow[i] = null;
+        }
+        this.glow = null;
     }
 
     /**
@@ -86,6 +104,8 @@ export class ConnectionLine {
      * @param y
      */
     onPinTranslate(pin, x, y) {
+        this.removeGlow();
+
         if (pin != this.inputPin && pin != this.outputPin) return;
 
         const pathAttr = this.element.attr("path");
