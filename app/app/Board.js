@@ -91,12 +91,18 @@ export class Board {
             let item = this.connections[i];
             if (item.isSelected()) {
                 item.disconnect();
-                let delIndex = this.connections.indexOf(item);
-                if (delIndex > -1) {
-                    this.connections.splice(delIndex, 1);
-                }
+                this.connections[i] = null;
             }
         }
+
+        let newConnections = [];
+        for (let i = 0; i < this.connections.length; i++) {
+            let item = this.connections[i];
+            if (item != null) {
+                newConnections.push(item);
+            }
+        }
+        this.connections = newConnections;
 
         //TODO: Delete components
     }
