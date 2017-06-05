@@ -80,7 +80,10 @@ export class BaseControl {
     onDragStart() {
         this.oldX = 0;
         this.oldY = 0;
-        //TODO: Bring component to front.
+        // Bring to front the selected element.
+        for (let i = 0; i < this.shapes.length; i++) {
+            this.shapes[i].toFront();
+        }
     }
 
     /**
