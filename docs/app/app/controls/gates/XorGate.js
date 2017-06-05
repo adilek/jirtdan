@@ -171,9 +171,10 @@ export class XorGate extends BaseControl {
             this.componentInputWire1,
             this.componentInputWire2,
             this.componentOutputWire,
-            this.componentRearShapeGradient,
+            this.componentRearShape,
             this.componentRearShapeFill,
-            this.componentRearShape]);
+            this.componentRearShapeGradient
+            ]);
         this.addInputPins(inputPin1, inputPin2);
         this.addOutputPins(outputPin);
     }

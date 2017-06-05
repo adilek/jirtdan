@@ -187,11 +187,12 @@ export class XnorGate extends BaseControl {
             this.componentInputWire1,
             this.componentInputWire2,
             this.componentOutputWire,
-            this.componentRearShapeGradient,
+            this.componentRearShape,
             this.componentRearShapeFill,
+            this.componentRearShapeGradient,
             this.componentBodyShapeSmallCircleFill,
-            this.componentBodyShapeSmallCircleGradient,
-            this.componentRearShape]);
+            this.componentBodyShapeSmallCircleGradient
+            ]);
         this.addInputPins(inputPin1, inputPin2);
         this.addOutputPins(outputPin);
     }
