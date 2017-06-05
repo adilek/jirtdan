@@ -34,7 +34,8 @@ import {XorGate} from 'app/controls/gates/XorGate.js'
 import {SwitchButton} from 'app/controls/terminals/SwitchButton.js'
 import {PushButton} from 'app/controls/terminals/PushButton.js'
 import {NandGate} from './app/controls/gates/NandGate.js'
-
+import {NorGate} from './app/controls/gates/NorGate.js'
+import {XnorGate} from './app/controls/gates/XnorGate.js'
 
 let board = new Board(Raphael("board", 1280, 800));
 
@@ -71,5 +72,14 @@ $(document).ready(function () {
     });
     $("#btn-add-nand").click(function (event) {
         board.addControl(new NandGate(board));
+    });
+    $("#btn-add-nor").click(function (event) {
+        board.addControl(new NorGate(board));
+    });
+    $("#btn-add-xnor").click(function (event) {
+        board.addControl(new XnorGate(board));
+    });
+    $("#btn-delete").click(function (event) {
+        board.deleteSelected();
     });
 });

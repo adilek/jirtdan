@@ -27,6 +27,7 @@
 
 import {
     BaseControl,
+    POWER_STATE_LOW,
     POWER_STATE_HIGH,
     DEFAULT_SIGNAL_PRESENCE_COLOR,
     DEFAULT_FILL_COLOR,
@@ -44,18 +45,34 @@ export class ConnectionLine {
         this.inputPin = pin1.isInputType() ? pin1 : (pin2.isInputType() ? pin2 : null);
         this.outputPin = pin2.isOutputType() ? pin2 : (pin1.isOutputType() ? pin1 : null);
 
+        this.glow = null;
+        this.isConnectionSelected = false;
+
         if (this.inputPin == null || this.outputPin == null) {
             throw new Error("Something went wrong");
         }
 
+        this.draw();
         this.init();
 
         const _this = this;
-        this.outputPin.addStateChangeListener(function (newState) {
-            _this.inputPin.notifyStateChange(newState);
+        this.stateChangeListener = function (newState) {
             _this.setState(newState);
-        });
+        };
+        this.outputPin.addStateChangeListener(this.stateChangeListener);
         this.inputPin.setCanConnect(false);
+    }
+
+    draw() {
+        //FIXME: Clean this dirty shit
+        this.x1 = this.inputPin.element.attr("cx") + this.inputPin.element.matrix.e;
+        this.y1 = this.inputPin.element.attr("cy") + this.inputPin.element.matrix.f;
+
+        this.x2 = this.outputPin.element.attr("cx") + this.outputPin.element.matrix.e;
+        this.y2 = this.outputPin.element.attr("cy") + this.outputPin.element.matrix.f;
+
+        this.element = this.paper.path("M " + this.x1 + "," + this.y1 + " L " + this.x2 + "," + this.y2);
+        this.element.attr("stroke-width", 2);
     }
 
     /**
@@ -63,21 +80,42 @@ export class ConnectionLine {
      * The method should not be called externally.
      */
     init() {
-        //FIXME: Clean this dirty shit
+        const _this = this;
+        const mouseDown = function () {
+            _this.glow = _this.element.glow();
+            _this.isConnectionSelected = true;
+        };
 
-        const x1 = this.inputPin.element.attr("cx") + this.inputPin.element.matrix.e;
-        const y1 = this.inputPin.element.attr("cy") + this.inputPin.element.matrix.f;
-
-        this.start = [x1, y1];
-
-        const x2 = this.outputPin.element.attr("cx") + this.outputPin.element.matrix.e;
-        const y2 = this.outputPin.element.attr("cy") + this.outputPin.element.matrix.f;
-
-        this.end = [x2, y2];
-
-        this.element = this.paper.path("M " + x1 + "," + y1 + " L " + x2 + "," + y2);
-        this.element.attr("stroke-width", 2);
+        this.element.mousedown(mouseDown);
     }
+
+    /**
+     * Remove glow effect of selection.
+     */
+    removeGlow() {
+        if (this.glow == null) return;
+        for (let i = 0; i < this.glow.length; i++) {
+            this.glow[i].remove();
+            this.glow[i] = null;
+        }
+        this.glow = null;
+        this.isConnectionSelected = false;
+    }
+
+    disconnect() {
+        this.removeGlow();
+        this.setState(POWER_STATE_LOW);
+        this.inputPin.setCanConnect(true);
+        this.inputPin = null;
+        this.outputPin.removeStateChangeListener(this.stateChangeListener);
+        this.outputPin = null;
+        this.element.remove();
+    }
+
+    isSelected() {
+        return this.isConnectionSelected;
+    }
+
 
     /**
      * The method is used to translate the pin locations during drag-drop.
@@ -86,6 +124,8 @@ export class ConnectionLine {
      * @param y
      */
     onPinTranslate(pin, x, y) {
+        this.removeGlow();
+
         if (pin != this.inputPin && pin != this.outputPin) return;
 
         const pathAttr = this.element.attr("path");
@@ -108,6 +148,7 @@ export class ConnectionLine {
      * @param state POWER_STATE_HIGH or POWER_STATE_LOW
      */
     setState(state) {
+        this.inputPin.notifyStateChange(state);
         if (state == POWER_STATE_HIGH) {
             this.element.attr("fill", DEFAULT_SIGNAL_PRESENCE_COLOR);
             this.element.attr("stroke", DEFAULT_SIGNAL_PRESENCE_COLOR);

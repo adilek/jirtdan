@@ -82,4 +82,22 @@ export class Board {
             this.connections[i].onPinTranslate(pin, x, y);
         }
     }
+
+    /**
+     * Delete selected elements
+     */
+    deleteSelected() {
+        for (let i = 0; i < this.connections.length; i++) {
+            let item = this.connections[i];
+            if (item.isSelected()) {
+                item.disconnect();
+                let delIndex = this.connections.indexOf(item);
+                if (delIndex > -1) {
+                    this.connections.splice(delIndex, 1);
+                }
+            }
+        }
+
+        //TODO: Delete components
+    }
 }

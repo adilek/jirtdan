@@ -171,6 +171,13 @@ export class ConnectionPin {
         }
     }
 
+    removeStateChangeListener(listener) {
+        let delIndex = this.stateChangeListeners.indexOf(listener);
+        if (delIndex > -1) {
+            this.stateChangeListeners.splice(delIndex, 1);
+        }
+    }
+
     /**
      * Listener is used for input/output pins and triggered when the state is changed.
      * @param listener
