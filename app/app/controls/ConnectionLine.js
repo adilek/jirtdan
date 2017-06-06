@@ -82,6 +82,7 @@ export class ConnectionLine {
     init() {
         const _this = this;
         const mouseDown = function () {
+            if (_this.isConnectionSelected) return;
             _this.glow = _this.element.glow();
             _this.glow.toBack();
             _this.isConnectionSelected = true;
