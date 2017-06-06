@@ -5,8 +5,7 @@
 * Select several components using ctrl button
 
 ### Controls
-* Select and delete the controls
-* Mobile support
+* delete the controls
 * API for custom control making during runtime 
 
 ### ConnectionLine
