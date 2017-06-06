@@ -157,6 +157,11 @@ export class NandGate extends BaseControl {
         this.addOutputPins(this.outputPin);
     }
 
+    onSelect() {
+        this.glow = this.componentBodyShape.glow();
+        this.glow.toBack();
+    }
+
     /**
      * Get the value.
      * @returns {*|number}

@@ -84,6 +84,25 @@ export class Board {
     }
 
     /**
+     * Unselect selected elements.
+     */
+    unselect() {
+        for (let i = 0; i < this.connections.length; i++) {
+            let item = this.connections[i];
+            if (item.isSelected()) {
+                item.unselect();
+            }
+        }
+
+        for (let i = 0; i < this.controls.length; i++) {
+            let item = this.controls[i];
+            if (item.isSelected()) {
+                item.unselect();
+            }
+        }
+    }
+
+    /**
      * Delete selected elements
      */
     deleteSelected() {

@@ -51,10 +51,10 @@ export class HighConstant extends BaseControl {
     initControl() {
         super.initControl();
 
-        const componentShape = this.paper.rect(1, 1, 45, 45);
-        componentShape.attr("stroke", DEFAULT_STROKE_COLOR);
-        componentShape.attr("stroke-width", DEFAULT_STROKE_WIDTH);
-        componentShape.attr("fill", DEFAULT_FILL_COLOR);
+        this.componentShape = this.paper.rect(1, 1, 45, 45);
+        this.componentShape.attr("stroke", DEFAULT_STROKE_COLOR);
+        this.componentShape.attr("stroke-width", DEFAULT_STROKE_WIDTH);
+        this.componentShape.attr("fill", DEFAULT_FILL_COLOR);
 
         const componentShapeGradient = this.paper.path("m 1.9885,2.1222325 0,18.3451895 c 2.38846,-1.62726 4.94603,-2.93244 7.75586,-3.60465 4.13269,-0.67466 8.468022,1.0912 11.023432,4.59905 2.58172,2.80852 4.72301,6.47002 8.33594,7.89135 3.11906,0.71555 6.38197,0.40939 9.5332,0.0574 2.20797,-0.39356 4.38045,-0.94273 6.53516,-1.5617 l 0,-25.7266095 -43.183592,0 z");
         componentShapeGradient.attr("stroke", DEFAULT_FILL_COLOR);
@@ -100,7 +100,7 @@ export class HighConstant extends BaseControl {
         const outputPin = new ConnectionPin(this, 70, 23, "out");
 
         this.setShapes([
-            componentShape,
+            this.componentShape,
             componentShapeGradient,
             outputWire,
             ledBg,
@@ -113,6 +113,11 @@ export class HighConstant extends BaseControl {
             digitBgLine5
         ]);
         this.addOutputPins(outputPin);
+    }
+
+    onSelect() {
+        this.glow = this.componentShape.glow();
+        this.glow.toBack();
     }
 
     getValue() {

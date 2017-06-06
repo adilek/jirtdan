@@ -82,4 +82,7 @@ $(document).ready(function () {
     $("#btn-delete").click(function (event) {
         board.deleteSelected();
     });
+    $("#btn-unselect").click(function (event) {
+        board.unselect();
+    });
 });

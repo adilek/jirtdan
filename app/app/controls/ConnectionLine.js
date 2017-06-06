@@ -83,6 +83,7 @@ export class ConnectionLine {
         const _this = this;
         const mouseDown = function () {
             if (_this.isConnectionSelected) return;
+            _this.board.unselect();
             _this.glow = _this.element.glow();
             _this.glow.toBack();
             _this.isConnectionSelected = true;
@@ -92,20 +93,20 @@ export class ConnectionLine {
     }
 
     /**
-     * Remove glow effect of selection.
+     * Deselect the element.
      */
-    removeGlow() {
+    unselect() {
+        this.isConnectionSelected = false;
         if (this.glow == null) return;
         for (let i = 0; i < this.glow.length; i++) {
             this.glow[i].remove();
             this.glow[i] = null;
         }
         this.glow = null;
-        this.isConnectionSelected = false;
     }
 
     disconnect() {
-        this.removeGlow();
+        this.unselect();
         this.setState(POWER_STATE_LOW);
         this.inputPin.setCanConnect(true);
         this.inputPin = null;
@@ -118,7 +119,6 @@ export class ConnectionLine {
         return this.isConnectionSelected;
     }
 
-
     /**
      * The method is used to translate the pin locations during drag-drop.
      * @param pin
@@ -126,7 +126,7 @@ export class ConnectionLine {
      * @param y
      */
     onPinTranslate(pin, x, y) {
-        this.removeGlow();
+        this.unselect();
 
         if (pin != this.inputPin && pin != this.outputPin) return;
 
