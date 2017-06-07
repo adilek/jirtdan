@@ -28,6 +28,7 @@
 const DEFAULT_CONNECTION_PIN_RADIUS = 5;
 const PIN_TYPE_IN = "in";
 const PIN_TYPE_OUT = "out";
+const DELAY_BETWEEN_CLICKS = 300;
 
 import {
     POWER_STATE_LOW,
@@ -58,6 +59,7 @@ export class ConnectionPin {
         this.stateChangeListeners = [];
         this.isConnectionAllowed = true;
         this.state = POWER_STATE_LOW;
+        this.clickCount = 0;
         this.init();
     }
 
@@ -224,6 +226,26 @@ export class ConnectionPin {
     }
 
     onClick() {
+        this.clickCount++;
+        const _this = this;
+
+        if (this.clickCount == 1) {
+            setTimeout(function () {
+                if (_this.clickCount == 1) {
+                    _this.onSingleClick();
+                } else {
+                    _this.onDoubleClick();
+                }
+                _this.clickCount = 0;
+            }, DELAY_BETWEEN_CLICKS)
+        }
+    }
+
+    onSingleClick() {
         this.board.startFinishConnection(this);
+    }
+
+    onDoubleClick() {
+        this.board.detachPin(this);
     }
 }

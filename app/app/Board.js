@@ -106,11 +106,47 @@ export class Board {
      * Delete selected elements
      */
     deleteSelected() {
+        let connectionToBeDeleted = []
         for (let i = 0; i < this.connections.length; i++) {
             let item = this.connections[i];
             if (item.isSelected()) {
-                item.disconnect();
-                this.connections[i] = null;
+                connectionToBeDeleted.push(item);
+            }
+        }
+
+        this.deleteConnections(connectionToBeDeleted);
+
+        //TODO: Delete components
+    }
+
+    /**
+     * Detach pin - remove all connections of pin
+     * @param pin
+     */
+    detachPin(pin) {
+        let connectionsToBeDeleted = [];
+        for (let i = 0; i < this.connections.length; i++) {
+            let connection = this.connections[i];
+            if (connection.inputPin == pin || connection.outputPin == pin) {
+                connectionsToBeDeleted.push(connection);
+            }
+        }
+
+        this.deleteConnections(connectionsToBeDeleted);
+    }
+
+    /**
+     * Helper function.
+     * @param connectionsToBeDeleted
+     */
+    deleteConnections(connectionsToBeDeleted) {
+        for (let i = 0; i < this.connections.length; i++) {
+            for (let j = 0; j < connectionsToBeDeleted.length; j++) {
+                if (this.connections[i] == connectionsToBeDeleted[j]) {
+                    this.connections[i].disconnect();
+                    this.connections[i] = null;
+                    break;
+                }
             }
         }
 
@@ -122,7 +158,5 @@ export class Board {
             }
         }
         this.connections = newConnections;
-
-        //TODO: Delete components
     }
 }
