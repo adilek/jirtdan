@@ -106,15 +106,15 @@ export class Board {
      * Delete selected elements
      */
     deleteSelected() {
-        let connectionToBeDeleted = []
+        let connectionsToBeDeleted = []
         for (let i = 0; i < this.connections.length; i++) {
             let item = this.connections[i];
             if (item.isSelected()) {
-                connectionToBeDeleted.push(item);
+                connectionsToBeDeleted.push(item);
             }
         }
 
-        this.deleteConnections(connectionToBeDeleted);
+        this.deleteConnections(connectionsToBeDeleted);
 
         //TODO: Delete components
     }
