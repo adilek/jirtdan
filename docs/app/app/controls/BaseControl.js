@@ -54,6 +54,8 @@ export class BaseControl {
         this.shapes = [];
         this.inPins = [];
         this.outPins = [];
+        this.glow = null;
+        this.isComponentSelected = false;
         this.draw();
         this.initControl();
     }
@@ -71,6 +73,27 @@ export class BaseControl {
      */
     initControl() {
         // Empty
+    }
+
+    /**
+     * This method is fired when object is selected.
+     */
+    onSelect() {
+        console.log("Selected");
+    }
+
+    unselect() {
+        this.isConnectionSelected = false;
+        if (this.glow == null) return;
+        for (let i = 0; i < this.glow.length; i++) {
+            this.glow[i].remove();
+            this.glow[i] = null;
+        }
+        this.glow = null;
+    }
+
+    isSelected() {
+        return this.isComponentSelected;
     }
 
     /**
@@ -94,6 +117,10 @@ export class BaseControl {
     onDrag(dx, dy) {
         const x = dx - this.oldX;
         const y = dy - this.oldY;
+
+        if (this.glow != null) {
+            this.glow.translate(x, y);
+        }
 
         for (let i = 0; i < this.shapes.length; i++) {
             this.shapes[i].translate(x, y);
@@ -136,10 +163,17 @@ export class BaseControl {
 
         const _this = this;
 
-        obj.drag(function (dx, dy) {
-            _this.onDrag(dx, dy);
-        }, function () {
-            _this.onDragStart();
+        obj.drag(
+            function (dx, dy) {
+                _this.onDrag(dx, dy);
+            }, function () {
+                _this.onDragStart();
+            });
+
+        obj.mousedown(function () {
+            _this.board.unselect();
+            _this.isComponentSelected = true;
+            _this.onSelect();
         });
     }
 

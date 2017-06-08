@@ -197,6 +197,11 @@ export class XnorGate extends BaseControl {
         this.addOutputPins(outputPin);
     }
 
+    onSelect() {
+        this.glow = this.componentBodyShape.glow();
+        this.glow.toBack();
+    }
+
     getValue() {
         return !((this.inputPin1Value + this.inputPin2Value) % 2);
     }

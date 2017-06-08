@@ -221,6 +221,11 @@ export class Bulb extends BaseControl {
             });
     }
 
+    onSelect() {
+        this.glow = this.componentShapeFill.glow();
+        this.glow.toBack();
+    }
+
     /**
      * Change the binary state(LOW/HIGH) of the component.
      * @param state

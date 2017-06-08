@@ -206,6 +206,11 @@ export class SwitchButton extends BaseControl {
         this.knobHandleOn.mouseup(clickAction);
     }
 
+    onSelect() {
+        this.glow = this.componentBodyShape.glow();
+        this.glow.toBack();
+    }
+
     getValue() {
         return this.value;
     }

@@ -118,6 +118,11 @@ export class BufferGate extends BaseControl {
         this.addOutputPins(this.outputPin);
     }
 
+    onSelect() {
+        this.glow = this.componentBodyShape.glow();
+        this.glow.toBack();
+    }
+
     /**
      * Get the value of the control.
      * @returns {boolean}
