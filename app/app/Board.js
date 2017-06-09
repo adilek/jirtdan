@@ -103,15 +103,14 @@ export class Board {
     }
 
     /**
-     * Delete selected elements
+     * Delete the connection lines given in elements array.
+     * @param elements
      */
-    deleteSelected() {
-        for (let i = 0; i < this.connections.length; i++) {
-            let item = this.connections[i];
-            if (item.isSelected()) {
-                item.disconnect();
-                this.connections[i] = null;
-            }
+    deleteConnectionLines(elements) {
+        for (let i = 0; i < elements.length; i++) {
+            let item = elements[i];
+            item.disconnect();
+            this.connections[this.connections.indexOf(item)] = null;
         }
 
         let newConnections = [];
@@ -122,7 +121,26 @@ export class Board {
             }
         }
         this.connections = newConnections;
+    }
 
-        //TODO: Delete components
+    /**
+     * Delete selected elements
+     */
+    deleteSelected() {
+        // Delete connection lines
+        let linesToDelete = [];
+        for (let i = 0; i < this.connections.length; i++) {
+            let item = this.connections[i];
+            if (item.isSelected()) {
+                linesToDelete.push(item);
+            }
+        }
+
+        this.deleteConnectionLines(linesToDelete);
+
+        // Delete components
+        for (let i = 0; i < this.controls.length; i++) {
+
+        }
     }
 }
