@@ -124,7 +124,41 @@ export class Board {
     }
 
     deleteControls(elements) {
-        //TODO:
+        // First we do need to delete all connection lines
+        // which are connected to the component.
+        let pins = [];
+        for (let i = 0; i < elements.length; i++) {
+            let item = elements[i];
+            pins = pins.concat(item.getPins());
+        }
+
+        let linesToDelete = [];
+        for (let i = 0; i < this.connections.length; i++) {
+            let item = this.connections[i];
+            for (let j = 0; j < pins.length; j++) {
+                if (item.isConnectedToPin(pins[j])) {
+                    linesToDelete.push(item);
+                }
+            }
+        }
+
+        this.deleteConnectionLines(linesToDelete);
+
+        // Now we can delete the component itself
+        for (let i = 0; i < elements.length; i++) {
+            let item = elements[i];
+            item.deleteControl();
+            this.controls[this.controls.indexOf(item)] = null;
+        }
+
+        let newControls = [];
+        for (let i = 0; i < this.controls.length; i++) {
+            let item = this.controls[i];
+            if (item != null) {
+                newControls.push(item);
+            }
+        }
+        this.controls = newControls;
     }
 
     /**
