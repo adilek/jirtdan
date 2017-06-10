@@ -123,6 +123,10 @@ export class Board {
         this.connections = newConnections;
     }
 
+    deleteControls(elements) {
+        //TODO:
+    }
+
     /**
      * Delete selected elements
      */
@@ -139,8 +143,14 @@ export class Board {
         this.deleteConnectionLines(linesToDelete);
 
         // Delete components
+        let controlsToDelete = [];
         for (let i = 0; i < this.controls.length; i++) {
-
+            let item = this.controls[i];
+            if (item.isSelected()) {
+                controlsToDelete.push(item);
+            }
         }
+
+        this.deleteControls(controlsToDelete);
     }
 }
