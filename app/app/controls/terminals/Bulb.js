@@ -221,7 +221,8 @@ export class Bulb extends BaseControl {
             });
     }
 
-    onSelect() {
+    onSelect(event) {
+        super.onSelect(event);
         this.glow = this.componentShapeFill.glow();
         this.glow.toBack();
     }

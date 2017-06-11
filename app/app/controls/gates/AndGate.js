@@ -138,7 +138,8 @@ export class AndGate extends BaseControl {
         this.addOutputPins(this.outputPin);
     }
 
-    onSelect() {
+    onSelect(event) {
+        super.onSelect(event);
         this.glow = this.componentBodyShape.glow();
         this.glow.toBack();
     }
