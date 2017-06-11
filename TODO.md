@@ -2,7 +2,6 @@
 
 ## Features
 * Select several components using rectangle area
-* Select several components using ctrl button
 
 ### Controls
 * API for custom control making during runtime 

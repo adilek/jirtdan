@@ -186,7 +186,6 @@ export class Bulb extends BaseControl {
 
     initControl() {
         super.initControl();
-        
         this.bulbFill = this.componentShapeFill;
         this.bulbFillGradient = this.componentShapeGradient;
 
