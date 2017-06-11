@@ -186,11 +186,8 @@ export class Bulb extends BaseControl {
 
     initControl() {
         super.initControl();
-
-
         this.bulbFill = this.componentShapeFill;
         this.bulbFillGradient = this.componentShapeGradient;
-        this.bulbSpiral = this.bulbSpiral;
 
         const inputPin = new ConnectionPin(this, 25, 85, "in");
 
@@ -221,7 +218,8 @@ export class Bulb extends BaseControl {
             });
     }
 
-    onSelect() {
+    onSelect(event) {
+        super.onSelect(event);
         this.glow = this.componentShapeFill.glow();
         this.glow.toBack();
     }

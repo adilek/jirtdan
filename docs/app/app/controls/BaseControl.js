@@ -78,7 +78,7 @@ export class BaseControl {
     /**
      * This method is fired when object is selected.
      */
-    onSelect() {
+    onSelect(event) {
         console.log("Selected");
     }
 
@@ -170,10 +170,12 @@ export class BaseControl {
                 _this.onDragStart();
             });
 
-        obj.mousedown(function () {
-            _this.board.unselect();
+        obj.mousedown(function (event) {
+            if (!event.ctrlKey) {
+                _this.board.unselect();
+            }
             _this.isComponentSelected = true;
-            _this.onSelect();
+            _this.onSelect(event);
         });
     }
 

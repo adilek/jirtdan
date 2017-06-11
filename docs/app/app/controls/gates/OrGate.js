@@ -145,7 +145,8 @@ export class OrGate extends BaseControl {
         this.addOutputPins(outputPin);
     }
 
-    onSelect() {
+    onSelect(event) {
+        super.onSelect(event);
         this.glow = this.componentBodyShape.glow();
         this.glow.toBack();
     }
