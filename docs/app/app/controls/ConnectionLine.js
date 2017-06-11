@@ -119,6 +119,10 @@ export class ConnectionLine {
         return this.isConnectionSelected;
     }
 
+    isConnectedToPin(pin) {
+        return this.inputPin == pin || this.outputPin == pin;
+    }
+
     /**
      * The method is used to translate the pin locations during drag-drop.
      * @param pin

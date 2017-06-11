@@ -103,15 +103,14 @@ export class Board {
     }
 
     /**
-     * Delete selected elements
+     * Delete the connection lines given in elements array.
+     * @param elements
      */
-    deleteSelected() {
-        for (let i = 0; i < this.connections.length; i++) {
-            let item = this.connections[i];
-            if (item.isSelected()) {
-                item.disconnect();
-                this.connections[i] = null;
-            }
+    deleteConnectionLines(elements) {
+        for (let i = 0; i < elements.length; i++) {
+            let item = elements[i];
+            item.disconnect();
+            this.connections[this.connections.indexOf(item)] = null;
         }
 
         let newConnections = [];
@@ -122,7 +121,70 @@ export class Board {
             }
         }
         this.connections = newConnections;
+    }
 
-        //TODO: Delete components
+    deleteControls(elements) {
+        // First we do need to delete all connection lines
+        // which are connected to the component.
+        let pins = [];
+        for (let i = 0; i < elements.length; i++) {
+            let item = elements[i];
+            pins = pins.concat(item.getPins());
+        }
+
+        let linesToDelete = [];
+        for (let i = 0; i < this.connections.length; i++) {
+            let item = this.connections[i];
+            for (let j = 0; j < pins.length; j++) {
+                if (item.isConnectedToPin(pins[j])) {
+                    linesToDelete.push(item);
+                }
+            }
+        }
+
+        this.deleteConnectionLines(linesToDelete);
+
+        // Now we can delete the component itself
+        for (let i = 0; i < elements.length; i++) {
+            let item = elements[i];
+            item.deleteControl();
+            this.controls[this.controls.indexOf(item)] = null;
+        }
+
+        let newControls = [];
+        for (let i = 0; i < this.controls.length; i++) {
+            let item = this.controls[i];
+            if (item != null) {
+                newControls.push(item);
+            }
+        }
+        this.controls = newControls;
+    }
+
+    /**
+     * Delete selected elements
+     */
+    deleteSelected() {
+        // Delete connection lines
+        let linesToDelete = [];
+        for (let i = 0; i < this.connections.length; i++) {
+            let item = this.connections[i];
+            if (item.isSelected()) {
+                linesToDelete.push(item);
+            }
+        }
+
+        this.deleteConnectionLines(linesToDelete);
+
+        // Delete components
+        let controlsToDelete = [];
+        for (let i = 0; i < this.controls.length; i++) {
+            let item = this.controls[i];
+            if (item.isSelected()) {
+                controlsToDelete.push(item);
+            }
+        }
+
+        this.deleteControls(controlsToDelete);
     }
 }

@@ -83,7 +83,7 @@ export class BaseControl {
     }
 
     unselect() {
-        this.isConnectionSelected = false;
+        this.isComponentSelected = false;
         if (this.glow == null) return;
         for (let i = 0; i < this.glow.length; i++) {
             this.glow[i].remove();
@@ -195,5 +195,29 @@ export class BaseControl {
         for (let i = 0; i < arguments.length; i++) {
             this.outPins.push(arguments[i]);
         }
+    }
+
+    getPins() {
+        let pins = [];
+        pins = this.inPins.concat(this.outPins);
+        return pins;
+    }
+
+    deleteControl() {
+        this.unselect();
+        for (let i = 0; i < this.shapes.length; i++) {
+            this.shapes[i].remove();
+        }
+        this.shapes = null;
+
+        for (let i = 0; i < this.inPins.length; i++) {
+            this.inPins[i].deletePin();
+        }
+        this.inPins = null;
+
+        for (let i = 0; i < this.outPins.length; i++) {
+            this.outPins[i].deletePin();
+        }
+        this.outPins = null;
     }
 }

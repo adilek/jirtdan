@@ -226,4 +226,8 @@ export class ConnectionPin {
     onClick() {
         this.board.startFinishConnection(this);
     }
+
+    deletePin() {
+        this.element.remove();
+    }
 }
