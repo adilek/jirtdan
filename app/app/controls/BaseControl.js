@@ -171,7 +171,9 @@ export class BaseControl {
             });
 
         obj.mousedown(function (event) {
-            _this.board.unselect();
+            if (!event.ctrlKey) {
+                _this.board.unselect();
+            }
             _this.isComponentSelected = true;
             _this.onSelect(event);
         });
