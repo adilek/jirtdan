@@ -5,7 +5,6 @@
 * Select several components using ctrl button
 
 ### Controls
-* delete the controls
 * API for custom control making during runtime 
 
 ### ConnectionLine
