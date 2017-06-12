@@ -260,4 +260,21 @@ export class Board {
 
         return false;
     }
+
+    /**
+     * Select all controls within boundaries of given area.
+     * @param x1
+     * @param y1
+     * @param x2
+     * @param y2
+     */
+    selectControlsWithinArea(x1, y1, x2, y2) {
+        for (let i = 0; i < this.controls.length; i++) {
+            let item = this.controls[i];
+            if (!item.isSelected()) {
+                if (item.isWithinArea(x1, y1, x2, y2))
+                    item.onSelect(event);
+            }
+        }
+    }
 }
