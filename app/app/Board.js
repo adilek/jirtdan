@@ -213,6 +213,13 @@ export class Board {
         if (this.isDrawingSelectionArea) {
             this.isDrawingSelectionArea = false;
             this.selectionArea.remove();
+            
+            this.selectControlsWithinArea(
+                this.startXSelectionArea,
+                this.startYSelectionArea,
+                this.endXSelectionArea,
+                this.endYSelectionArea
+            );
         }
     }
 
