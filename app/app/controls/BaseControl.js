@@ -56,6 +56,7 @@ export class BaseControl {
         this.outPins = [];
         this.glow = null;
         this.isComponentSelected = false;
+        this.isDragging = false;
         this.draw();
         this.initControl();
     }
@@ -101,6 +102,8 @@ export class BaseControl {
      * Basically it is almost same as mouse-down.
      */
     onDragStart() {
+        this.isDragging = true;
+
         this.oldX = 0;
         this.oldY = 0;
         // Bring to front the selected element.
@@ -137,6 +140,8 @@ export class BaseControl {
 
         this.oldX = dx;
         this.oldY = dy;
+
+        this.isDragging = false;
     }
 
     /**
@@ -221,5 +226,13 @@ export class BaseControl {
             this.outPins[i].deletePin();
         }
         this.outPins = null;
+    }
+
+    /**
+     * Check if control is dragging.
+     * @returns {BaseControl.isDragging}
+     */
+    isDragging() {
+        return this.isDragging;
     }
 }
