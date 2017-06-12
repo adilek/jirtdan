@@ -56,6 +56,7 @@ export class BaseControl {
         this.outPins = [];
         this.glow = null;
         this.isComponentSelected = false;
+        this.componentBodyShape = this.paper.path();
         this.isDragging = false;
         this.draw();
         this.initControl();
@@ -234,5 +235,34 @@ export class BaseControl {
      */
     isDragging() {
         return this.isDragging;
+    }
+
+    /**
+     * Check if control is within the boundaries of given rectangle.
+     * @param x1
+     * @param y1
+     * @param x2
+     * @param y2
+     * @returns {boolean}
+     */
+    isWithinArea(x1, y1, x2, y2) {
+        var x = this.componentBodyShape.getBBox().x;
+        var y = this.componentBodyShape.getBBox().y;
+        var temp;
+
+        if (x1 > x2) {
+            temp = x1;
+            x1 = x2;
+            x2 = temp;
+        }
+
+        if (y1 > y2) {
+            temp = y1;
+            y1 = y2;
+            y2 = temp;
+        }
+
+        return (x > x1 && x < x2) &&
+            (y > y1 && y < y2);
     }
 }
