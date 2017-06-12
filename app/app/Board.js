@@ -187,4 +187,60 @@ export class Board {
 
         this.deleteControls(controlsToDelete);
     }
+
+    /**
+     * Initiate Selection Area drawing process.
+     * @param x
+     * @param y
+     */
+    startDrawingSelectionArea(x, y) {
+        this.isDrawingSelectionArea = true;
+
+        this.startXSelectionArea = x;
+        this.startYSelectionArea = y;
+
+        this.selectionArea = this.paper.rect(x, y, 0, 0);
+        this.selectionArea.remove();
+    }
+
+    /**
+     * End Selection Area drawing process.
+     */
+    endDrawingSelectionArea() {
+        this.isDrawingSelectionArea = false;
+        this.selectionArea.remove();
+    }
+
+    /**
+     * (Re)Draw Selection Area.
+     * @param x
+     * @param y
+     */
+    drawSelectionArea(x, y) {
+        if (this.isDrawingSelectionArea) {
+            this.endXSelectionArea = x;
+            this.endYSelectionArea = y;
+
+            var x1, x2, y1, y2;
+
+            if (this.endXSelectionArea > this.startXSelectionArea) {
+                x1 = this.startXSelectionArea;
+                x2 = this.endXSelectionArea;
+            } else {
+                x1 = this.endXSelectionArea;
+                x2 = this.startXSelectionArea;
+            }
+
+            if (this.endYSelectionArea > this.startYSelectionArea) {
+                y1 = this.startYSelectionArea;
+                y2 = this.endYSelectionArea;
+            } else {
+                y1 = this.endYSelectionArea;
+                y2 = this.startYSelectionArea;
+            }
+
+            this.selectionArea.remove();
+            this.selectionArea = this.paper.rect(x1, y1, x2 - x1, y2 - y1);
+        }
+    }
 }

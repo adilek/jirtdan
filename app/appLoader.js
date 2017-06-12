@@ -85,4 +85,16 @@ $(document).ready(function () {
     $("#btn-unselect").click(function (event) {
         board.unselect();
     });
+
+    $("#board").mousedown(function (event) {
+        board.startDrawingSelectionArea(event.offsetX, event.offsetY);
+    });
+
+    $("#board").mouseup(function (event) {
+        board.endDrawingSelectionArea();
+    });
+
+    $("#board").mousemove(function (event) {
+        board.drawSelectionArea(event.offsetX, event.offsetY);
+    });
 });
