@@ -29,3 +29,8 @@ If you have a bug or a feature to request, please create an issue ticket on [htt
 Licensed under the **MIT** (https://github.com/adilek/jirtdan/blob/master/LICENSE) license.
 
 Logo is by Ismayil Hasanli
+
+## TODO
+We decided to use Trello boards to track the TODO list.
+It is publicly available to view and can be accessed on (https://trello.com/b/gezzFCOU/jirtdan-engine).
+
