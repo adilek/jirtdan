@@ -243,4 +243,16 @@ export class Board {
             this.selectionArea = this.paper.rect(x1, y1, x2 - x1, y2 - y1);
         }
     }
+
+    /**
+     * Check if any control is currently dragging.
+     * @returns {boolean}
+     */
+    isAnyControlDragging() {
+        for (let i = 0; i < this.controls.length; i++)
+            if (this.controls[i].isDragging)
+                return true;
+
+        return false;
+    }
 }
