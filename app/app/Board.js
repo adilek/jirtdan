@@ -194,6 +194,9 @@ export class Board {
      * @param y
      */
     startDrawingSelectionArea(x, y) {
+        if (this.isAnyControlDragging())
+            return;
+
         this.isDrawingSelectionArea = true;
 
         this.startXSelectionArea = x;
@@ -207,8 +210,10 @@ export class Board {
      * End Selection Area drawing process.
      */
     endDrawingSelectionArea() {
-        this.isDrawingSelectionArea = false;
-        this.selectionArea.remove();
+        if (this.isDrawingSelectionArea) {
+            this.isDrawingSelectionArea = false;
+            this.selectionArea.remove();
+        }
     }
 
     /**
