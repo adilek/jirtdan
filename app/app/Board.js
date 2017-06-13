@@ -213,7 +213,7 @@ export class Board {
         if (this.isDrawingSelectionArea) {
             this.isDrawingSelectionArea = false;
             this.selectionArea.remove();
-            
+
             this.selectControlsWithinArea(
                 this.startXSelectionArea,
                 this.startYSelectionArea,
@@ -276,11 +276,13 @@ export class Board {
      * @param y2
      */
     selectControlsWithinArea(x1, y1, x2, y2) {
+        this.unselect();
+
         for (let i = 0; i < this.controls.length; i++) {
             let item = this.controls[i];
             if (!item.isSelected()) {
                 if (item.isWithinArea(x1, y1, x2, y2))
-                    item.onSelect(event);
+                    item.select(false);
             }
         }
     }
