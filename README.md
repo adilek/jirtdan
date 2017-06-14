@@ -17,12 +17,26 @@ You may use any http server software ([Apache HTTP Server](https://httpd.apache.
 
 Copy the contents of this repository into certain directory of web server, navigate to `http://hostname/<directory>/app/app.html`.
 
+If you have Docker installed in your machine jump to `Run via Docker` section
+
 ## Demo
 
 You can see the current demo [here](http://jirtdan.org/app/app.html).
 
 ## Bug reporting and wish-list
 If you have a bug or a feature to request, please create an issue ticket on [https://github.com/adilek/jirtdan/issues](https://github.com/adilek/jirtdan/issues).
+
+## Run via Docker
+The easiest way to run Jirtdan in your local machine is via Docker. If you have Docker installed in your machine do following:
+
+```
+$ cd jirtdan
+$ sudo docker build -t jirtdan .
+$ sudo docker run -p 8080:80 jirtdan
+```
+
+Now open `127.0.0.1:8080/app.html` in your browser to see the app running
+
 
 ## Copyright and license
 
