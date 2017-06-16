@@ -118,6 +118,10 @@ export class BufferGate extends BaseControl {
         this.addOutputPins(this.outputPin);
     }
 
+    /**
+     * An event fired when element is selected.
+     * @param event
+     */
     onSelect(event) {
         super.onSelect(event);
         this.glow = this.componentBodyShape.glow();

@@ -115,6 +115,10 @@ export class HighConstant extends BaseControl {
         this.addOutputPins(outputPin);
     }
 
+    /**
+     * An event fired when element is selected.
+     * @param event
+     */
     onSelect(event) {
         super.onSelect(event);
         this.glow = this.componentShape.glow();

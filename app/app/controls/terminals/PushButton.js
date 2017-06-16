@@ -166,6 +166,10 @@ export class PushButton extends BaseControl {
         _this.buttonGradient.mouseup(mouseUp);
     }
 
+    /**
+     * An event fired when element is selected.
+     * @param event
+     */
     onSelect(event) {
         super.onSelect(event);
         this.glow = this.componentBodyShape.glow();

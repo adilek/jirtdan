@@ -197,6 +197,10 @@ export class XnorGate extends BaseControl {
         this.addOutputPins(outputPin);
     }
 
+    /**
+     * An event fired when element is selected.
+     * @param event
+     */
     onSelect(event) {
         super.onSelect(event);
         this.glow = this.componentBodyShape.glow();

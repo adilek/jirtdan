@@ -218,6 +218,10 @@ export class Bulb extends BaseControl {
             });
     }
 
+    /**
+     * An event fired when element is selected.
+     * @param event
+     */
     onSelect(event) {
         super.onSelect(event);
         this.glow = this.componentShapeFill.glow();
