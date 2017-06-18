@@ -26,8 +26,6 @@
 /*jshint esversion: 6*/
 import {ConnectionLine} from './controls/ConnectionLine.js'
 
-//FIXME: Draft
-//TODO: Dependency from raphael needs to be removed.
 export class Board {
     constructor(paper) {
         this.paper = paper;
@@ -36,13 +34,15 @@ export class Board {
         this.isConnecting = false;
     }
 
+    /**
+     * Add the control to be controlled by current Board.
+     * @param control
+     */
     addControl(control) {
-        //TODO:
         this.controls.push(control);
     }
-
+    
     startConnection(pin) {
-        //TODO:
         this.isConnecting = true;
         this.inputPin = pin;
     }
@@ -123,6 +123,10 @@ export class Board {
         this.connections = newConnections;
     }
 
+    /**
+     * Delete elements from the Board contained in elements.
+     * @param elements
+     */
     deleteControls(elements) {
         // First we do need to delete all connection lines
         // which are connected to the component.
