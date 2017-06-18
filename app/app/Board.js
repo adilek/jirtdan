@@ -31,7 +31,6 @@ const SELECTION_BOX_START_THRESHOLD = 10;
 export class Board {
     constructor(paper) {
         this.paper = paper;
-        console.log(this.paper);
         this.connections = [];
         this.controls = [];
         this.isConnecting = false;
@@ -225,7 +224,6 @@ export class Board {
  * Selection rectangle used to select the objects
  * within specified area.
  */
-
 class SelectionBox {
     constructor(paper, x, y) {
         this.paper = paper;
@@ -235,21 +233,36 @@ class SelectionBox {
     }
 
     draw(x1, y1, x2, y2) {
-        this.isDrawing = true;
-
-        //TODO
+        let x = x1 > x2 ? x2 : x1;
+        let y = y1 > y2 ? y2 : y1;
+        let w = Math.abs(x2 - x1);
+        let h = Math.abs(y2 - y1);
+        if (this.isDrawing) {
+            let attr = this.element.attr();
+            attr.x = x;
+            attr.y = y;
+            attr.width = w;
+            attr.height = h;
+            this.element.attr(attr);
+        } else {
+            this.element = this.paper.rect(x, y, w, h);
+            this.isDrawing = true;
+        }
     }
 
     init() {
         this.isDrawing = false;
-        //TODO
     }
 
     remove() {
-        //TODO
+        this.element.remove();
     }
 
     change(x2, y2) {
-        //TODO
+        let dx = Math.abs(x2 - this.startX);
+        let dy = Math.abs(y2 - this.startY);
+        if (dx >= SELECTION_BOX_START_THRESHOLD && dy >= SELECTION_BOX_START_THRESHOLD || this.isDrawing) {
+            this.draw(this.startX, this.startY, x2, y2);
+        }
     }
 }
