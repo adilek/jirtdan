@@ -196,7 +196,11 @@ export class Board {
     }
 
     onMouseDown(event) {
+        if (this.paper.getElementByPoint(event.clientX, event.clientY) != null) {
+            return;
+        }
         if (this.selectionBox == null) {
+            this.unselect();
             let x = event.offsetX;
             let y = event.offsetY;
             this.selectionBox = new SelectionBox(this.paper, x, y);
@@ -217,7 +221,6 @@ export class Board {
             this.selectionBox.change(x, y);
         }
     }
-
 }
 
 /**
@@ -255,7 +258,9 @@ class SelectionBox {
     }
 
     remove() {
-        this.element.remove();
+        if (this.element != null) {
+            this.element.remove();
+        }
     }
 
     change(x2, y2) {
