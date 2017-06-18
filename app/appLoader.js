@@ -39,7 +39,25 @@ import {XnorGate} from './app/controls/gates/XnorGate.js'
 
 let board = new Board(Raphael("board", 1280, 800));
 
+
 $(document).ready(function () {
+
+    $("#board").mousedown(function (event) {
+        "use strict";
+        board.onMouseDown(event)
+    });
+
+    $("#board").mousemove(function (event) {
+        "use strict";
+        board.onMouseMove(event)
+    });
+
+    $("#board").mouseup(function (event) {
+        "use strict";
+        board.onMouseUp(event)
+    });
+
+
     $("#btn-add-and").click(function (event) {
         board.addControl(new AndGate(board));
     });

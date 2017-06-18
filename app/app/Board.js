@@ -31,9 +31,11 @@ const SELECTION_BOX_START_THRESHOLD = 10;
 export class Board {
     constructor(paper) {
         this.paper = paper;
+        console.log(this.paper);
         this.connections = [];
         this.controls = [];
         this.isConnecting = false;
+        this.selectionBox = null;
     }
 
     /**
@@ -43,7 +45,7 @@ export class Board {
     addControl(control) {
         this.controls.push(control);
     }
-    
+
     startConnection(pin) {
         this.isConnecting = true;
         this.inputPin = pin;
@@ -193,6 +195,30 @@ export class Board {
 
         this.deleteControls(controlsToDelete);
     }
+
+    onMouseDown(event) {
+        if (this.selectionBox == null) {
+            let x = event.offsetX;
+            let y = event.offsetY;
+            this.selectionBox = new SelectionBox(this.paper, x, y);
+        }
+    }
+
+    onMouseUp(event) {
+        if (this.selectionBox != null) {
+            this.selectionBox.remove();
+            this.selectionBox = null;
+        }
+    }
+
+    onMouseMove(event) {
+        if (this.selectionBox != null) {
+            let x = event.offsetX;
+            let y = event.offsetY;
+            this.selectionBox.change(x, y);
+        }
+    }
+
 }
 
 /**
