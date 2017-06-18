@@ -76,7 +76,8 @@ export class BaseControl {
     }
 
     /**
-     * This method is fired when object is selected.
+     * An event fired when element is selected.
+     * @param event
      */
     onSelect(event) {
         console.log("Selected");
