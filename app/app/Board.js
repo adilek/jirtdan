@@ -26,6 +26,8 @@
 /*jshint esversion: 6*/
 import {ConnectionLine} from './controls/ConnectionLine.js'
 
+const SELECTION_BOX_START_THRESHOLD = 10;
+
 export class Board {
     constructor(paper) {
         this.paper = paper;
@@ -190,5 +192,38 @@ export class Board {
         }
 
         this.deleteControls(controlsToDelete);
+    }
+}
+
+/**
+ * Selection rectangle used to select the objects
+ * within specified area.
+ */
+
+class SelectionBox {
+    constructor(paper, x, y) {
+        this.paper = paper;
+        this.startX = x;
+        this.startY = y;
+        this.init();
+    }
+
+    draw(x1, y1, x2, y2) {
+        this.isDrawing = true;
+
+        //TODO
+    }
+
+    init() {
+        this.isDrawing = false;
+        //TODO
+    }
+
+    remove() {
+        //TODO
+    }
+
+    change(x2, y2) {
+        //TODO
     }
 }
