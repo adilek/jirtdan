@@ -63,15 +63,17 @@ export class ConnectionLine {
         this.inputPin.setCanConnect(false);
     }
 
+    /**
+     * Draw the connection line.
+     */
     draw() {
-        //FIXME: Clean this dirty shit
-        this.x1 = this.inputPin.element.attr("cx") + this.inputPin.element.matrix.e;
-        this.y1 = this.inputPin.element.attr("cy") + this.inputPin.element.matrix.f;
+        let x1 = this.inputPin.element.attr("cx") + this.inputPin.element.matrix.e;
+        let y1 = this.inputPin.element.attr("cy") + this.inputPin.element.matrix.f;
 
-        this.x2 = this.outputPin.element.attr("cx") + this.outputPin.element.matrix.e;
-        this.y2 = this.outputPin.element.attr("cy") + this.outputPin.element.matrix.f;
+        let x2 = this.outputPin.element.attr("cx") + this.outputPin.element.matrix.e;
+        let y2 = this.outputPin.element.attr("cy") + this.outputPin.element.matrix.f;
 
-        this.element = this.paper.path("M " + this.x1 + "," + this.y1 + " L " + this.x2 + "," + this.y2);
+        this.element = this.paper.path("M " + x1 + "," + y1 + " L " + x2 + "," + y2);
         this.element.attr("stroke-width", 2);
     }
 
@@ -131,17 +133,14 @@ export class ConnectionLine {
      */
     onPinTranslate(pin, x, y) {
         this.unselect();
-
         if (pin != this.inputPin && pin != this.outputPin) return;
 
         const pathAttr = this.element.attr("path");
         if (pin == this.inputPin) {
-            //TODO:
             pathAttr[0][1] += x;
             pathAttr[0][2] += y;
 
         } else {
-            //TODO:
             pathAttr[1][1] += x;
             pathAttr[1][2] += y;
         }
