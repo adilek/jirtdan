@@ -232,7 +232,14 @@ class SelectionBox {
         this.paper = paper;
         this.startX = x;
         this.startY = y;
-        this.init();
+        this.isDrawing = false;
+        this.controlPoints = {
+            x1: 0, y1: 0,
+            x2: 0, y2: 0,
+            x3: 0, y3: 0,
+            x4: 0, y4: 0
+        };
+        console.log(this);
     }
 
     draw(x1, y1, x2, y2) {
@@ -253,14 +260,49 @@ class SelectionBox {
         }
     }
 
-    init() {
-        this.isDrawing = false;
-    }
-
     remove() {
         if (this.element != null) {
             this.element.remove();
         }
+    }
+
+    setControlPoints(x2, y2) {
+        let x1 = this.startX;
+        let y1 = this.startY;
+        let newX1 = x1 > x2 ? x2 : x1;
+        let newY1 = y1 > y2 ? y2 : y1;
+        let newX2 = x1 < x2 ? x2 : x1;
+        let newY2 = y1 < y2 ? y2 : y1;
+
+        this.controlPoints.x1 = newX1;
+        this.controlPoints.y1 = newY1;
+
+        this.controlPoints.x2 = newX2;
+        this.controlPoints.y2 = newY1;
+
+        this.controlPoints.x3 = newX2;
+        this.controlPoints.y3 = newY2;
+
+        this.controlPoints.x4 = newX1;
+        this.controlPoints.y4 = newY2;
+    }
+
+    /**
+     * Get the control points of rectangle.
+     *
+     * x1,y1-----------x2,y2
+     * |///////////////////|
+     * |///////////////////|
+     * |///////////////////|
+     * x4,y4-----------x3,y3
+     *
+     * @returns {{x1: number, y1: number,
+     *            x2: number, y2: number,
+     *            x3: number, y3: number,
+     *            x4: number, y4: number}|*}
+     */
+    getControlPoints() {
+        return this.controlPoints;
     }
 
     change(x2, y2) {
@@ -268,6 +310,7 @@ class SelectionBox {
         let dy = Math.abs(y2 - this.startY);
         if (dx >= SELECTION_BOX_START_THRESHOLD && dy >= SELECTION_BOX_START_THRESHOLD || this.isDrawing) {
             this.draw(this.startX, this.startY, x2, y2);
+            this.setControlPoints(x2, y2);
         }
     }
 }
