@@ -46,5 +46,5 @@ Logo is by Ismayil Hasanli
 
 ## TODO
 We decided to use Trello boards to track the TODO list.
-It is publicly available to view and can be accessed on (https://trello.com/b/gezzFCOU/jirtdan-engine).
+It is publicly available to view and can be accessed on [https://trello.com/b/gezzFCOU/jirtdan-engine](https://trello.com/b/gezzFCOU/jirtdan-engine).
 
