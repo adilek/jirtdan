@@ -191,4 +191,103 @@ export class Board {
 
         this.deleteControls(controlsToDelete);
     }
+
+    /**
+     * Initiate Selection Area drawing process.
+     * @param x
+     * @param y
+     */
+    startDrawingSelectionArea(x, y) {
+        if (this.isAnyControlDragging())
+            return;
+
+        this.isDrawingSelectionArea = true;
+
+        this.startXSelectionArea = x;
+        this.startYSelectionArea = y;
+
+        this.selectionArea = this.paper.rect(x, y, 0, 0);
+        this.selectionArea.remove();
+    }
+
+    /**
+     * End Selection Area drawing process.
+     */
+    endDrawingSelectionArea() {
+        if (this.isDrawingSelectionArea) {
+            this.isDrawingSelectionArea = false;
+            this.selectionArea.remove();
+
+            this.selectControlsWithinArea(
+                this.startXSelectionArea,
+                this.startYSelectionArea,
+                this.endXSelectionArea,
+                this.endYSelectionArea
+            );
+        }
+    }
+
+    /**
+     * (Re)Draw Selection Area.
+     * @param x
+     * @param y
+     */
+    drawSelectionArea(x, y) {
+        if (this.isDrawingSelectionArea) {
+            this.endXSelectionArea = x;
+            this.endYSelectionArea = y;
+
+            var x1, x2, y1, y2;
+
+            if (this.endXSelectionArea > this.startXSelectionArea) {
+                x1 = this.startXSelectionArea;
+                x2 = this.endXSelectionArea;
+            } else {
+                x1 = this.endXSelectionArea;
+                x2 = this.startXSelectionArea;
+            }
+
+            if (this.endYSelectionArea > this.startYSelectionArea) {
+                y1 = this.startYSelectionArea;
+                y2 = this.endYSelectionArea;
+            } else {
+                y1 = this.endYSelectionArea;
+                y2 = this.startYSelectionArea;
+            }
+
+            this.selectionArea.remove();
+            this.selectionArea = this.paper.rect(x1, y1, x2 - x1, y2 - y1);
+        }
+    }
+
+    /**
+     * Check if any control is currently dragging.
+     * @returns {boolean}
+     */
+    isAnyControlDragging() {
+        for (let i = 0; i < this.controls.length; i++)
+            if (this.controls[i].isDragging)
+                return true;
+
+        return false;
+    }
+
+    /**
+     * Select all controls within boundaries of given area.
+     * @param x1
+     * @param y1
+     * @param x2
+     * @param y2
+     */
+    selectControlsWithinArea(x1, y1, x2, y2) {
+        this.unselect();
+
+        for (let i = 0; i < this.controls.length; i++) {
+            let item = this.controls[i];
+            if (!item.isSelected()) {
+                if (item.isWithinArea(x1, y1, x2, y2))
+                    item.select(false);
+            }
+        }
+    }
 }

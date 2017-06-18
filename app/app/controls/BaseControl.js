@@ -56,6 +56,8 @@ export class BaseControl {
         this.outPins = [];
         this.glow = null;
         this.isComponentSelected = false;
+        this.componentBodyShape = this.paper.path();
+        this.isDragging = false;
         this.draw();
         this.initControl();
     }
@@ -83,6 +85,15 @@ export class BaseControl {
         console.log("Selected");
     }
 
+    select(canUnselectPrevious) {
+        if (canUnselectPrevious && !event.ctrlKey) {
+            this.board.unselect();
+        }
+
+        this.isComponentSelected = true;
+        this.onSelect(event);
+    }
+
     unselect() {
         this.isComponentSelected = false;
         if (this.glow == null) return;
@@ -102,6 +113,8 @@ export class BaseControl {
      * Basically it is almost same as mouse-down.
      */
     onDragStart() {
+        this.isDragging = true;
+
         this.oldX = 0;
         this.oldY = 0;
         // Bring to front the selected element.
@@ -138,6 +151,8 @@ export class BaseControl {
 
         this.oldX = dx;
         this.oldY = dy;
+
+        this.isDragging = false;
     }
 
     /**
@@ -172,11 +187,7 @@ export class BaseControl {
             });
 
         obj.mousedown(function (event) {
-            if (!event.ctrlKey) {
-                _this.board.unselect();
-            }
-            _this.isComponentSelected = true;
-            _this.onSelect(event);
+            _this.select(true);
         });
     }
 
@@ -222,5 +233,42 @@ export class BaseControl {
             this.outPins[i].deletePin();
         }
         this.outPins = null;
+    }
+
+    /**
+     * Check if control is dragging.
+     * @returns {BaseControl.isDragging}
+     */
+    isDragging() {
+        return this.isDragging;
+    }
+
+    /**
+     * Check if control is within the boundaries of given rectangle.
+     * @param x1
+     * @param y1
+     * @param x2
+     * @param y2
+     * @returns {boolean}
+     */
+    isWithinArea(x1, y1, x2, y2) {
+        var x = this.componentBodyShape.getBBox().x;
+        var y = this.componentBodyShape.getBBox().y;
+        var temp;
+
+        if (x1 > x2) {
+            temp = x1;
+            x1 = x2;
+            x2 = temp;
+        }
+
+        if (y1 > y2) {
+            temp = y1;
+            y1 = y2;
+            y2 = temp;
+        }
+
+        return (x > x1 && x < x2) &&
+            (y > y1 && y < y2);
     }
 }
