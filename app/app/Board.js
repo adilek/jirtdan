@@ -26,12 +26,15 @@
 /*jshint esversion: 6*/
 import {ConnectionLine} from './controls/ConnectionLine.js'
 
+const SELECTION_BOX_START_THRESHOLD = 10;
+
 export class Board {
     constructor(paper) {
         this.paper = paper;
         this.connections = [];
         this.controls = [];
         this.isConnecting = false;
+        this.selectionBox = null;
     }
 
     /**
@@ -41,7 +44,7 @@ export class Board {
     addControl(control) {
         this.controls.push(control);
     }
-    
+
     startConnection(pin) {
         this.isConnecting = true;
         this.inputPin = pin;
@@ -190,5 +193,81 @@ export class Board {
         }
 
         this.deleteControls(controlsToDelete);
+    }
+
+    onMouseDown(event) {
+        if (this.paper.getElementByPoint(event.clientX, event.clientY) != null) {
+            return;
+        }
+        if (this.selectionBox == null) {
+            this.unselect();
+            let x = event.offsetX;
+            let y = event.offsetY;
+            this.selectionBox = new SelectionBox(this.paper, x, y);
+        }
+    }
+
+    onMouseUp(event) {
+        if (this.selectionBox != null) {
+            this.selectionBox.remove();
+            this.selectionBox = null;
+        }
+    }
+
+    onMouseMove(event) {
+        if (this.selectionBox != null) {
+            let x = event.offsetX;
+            let y = event.offsetY;
+            this.selectionBox.change(x, y);
+        }
+    }
+}
+
+/**
+ * Selection rectangle used to select the objects
+ * within specified area.
+ */
+class SelectionBox {
+    constructor(paper, x, y) {
+        this.paper = paper;
+        this.startX = x;
+        this.startY = y;
+        this.init();
+    }
+
+    draw(x1, y1, x2, y2) {
+        let x = x1 > x2 ? x2 : x1;
+        let y = y1 > y2 ? y2 : y1;
+        let w = Math.abs(x2 - x1);
+        let h = Math.abs(y2 - y1);
+        if (this.isDrawing) {
+            let attr = this.element.attr();
+            attr.x = x;
+            attr.y = y;
+            attr.width = w;
+            attr.height = h;
+            this.element.attr(attr);
+        } else {
+            this.element = this.paper.rect(x, y, w, h);
+            this.isDrawing = true;
+        }
+    }
+
+    init() {
+        this.isDrawing = false;
+    }
+
+    remove() {
+        if (this.element != null) {
+            this.element.remove();
+        }
+    }
+
+    change(x2, y2) {
+        let dx = Math.abs(x2 - this.startX);
+        let dy = Math.abs(y2 - this.startY);
+        if (dx >= SELECTION_BOX_START_THRESHOLD && dy >= SELECTION_BOX_START_THRESHOLD || this.isDrawing) {
+            this.draw(this.startX, this.startY, x2, y2);
+        }
     }
 }
