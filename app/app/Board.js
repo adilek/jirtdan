@@ -26,9 +26,24 @@
 /*jshint esversion: 6*/
 import {ConnectionLine} from './controls/ConnectionLine.js'
 
+/**
+ * Minimal height/width value for selection box to be appear.
+ * The selection box will not appear unless its height and width
+ * are greater that this number.
+ * @type {number}
+ */
 const SELECTION_BOX_START_THRESHOLD = 10;
 
+/**
+ * The workspace board object where all components are placed and
+ * interact with each other.
+ */
 export class Board {
+
+    /**
+     * Constructor of the {@link Board} class.
+     * @param paper paper object of {@link Raphael} library.
+     */
     constructor(paper) {
         this.paper = paper;
         this.connections = [];
@@ -39,17 +54,28 @@ export class Board {
 
     /**
      * Add the control to be controlled by current Board.
-     * @param control
+     * @param {BaseControl} control any control
      */
     addControl(control) {
         this.controls.push(control);
     }
 
+    /**
+     * Start connection activity from {@link ConnectionPin} object.
+     * @param {ConnectionPin} pin pin where connection starts from
+     */
     startConnection(pin) {
         this.isConnecting = true;
         this.inputPin = pin;
     }
 
+    /**
+     * Decide automatically to start or finalize the connection
+     * activity depending on situation.
+     * In case of startConnection was called previously the connection
+     * will be finalized.
+     * @param {ConnectionPin} pin pin where connection goes to
+     */
     startFinishConnection(pin) {
         if (!this.isConnecting) {
             this.startConnection(pin);
@@ -58,10 +84,15 @@ export class Board {
         this.finishConnection(pin);
     }
 
+    /**
+     * Finalize the connection activity. The connection will be
+     * established with previously started connection pin and
+     * two pins will communicate.
+     * @param {ConnectionPin} pin object to be connected to
+     */
     finishConnection(pin) {
         if (!this.isConnecting) return;
         if (this.inputPin == pin) return;
-
 
         if (this.inputPin.canConnect(pin)) {
             this.createConnection(this.inputPin, pin);
@@ -71,14 +102,20 @@ export class Board {
 
     /**
      * Create new connection and add it to the list.
+     * @param {ConnectionPin} pin1 start of the connection line
+     * @param {ConnectionPin} pin2 end of the connection line.
      */
     createConnection(pin1, pin2) {
         this.connections.push(new ConnectionLine(this, pin1, pin2));
     }
 
     /**
-     * Translate all connections depending on pins they connect to.
+     * Translate the start and end points of all connections visually,
+     * depending on pins they connect to.
      * This method is fired on drag-drop of the control.
+     * @param {ConnectionPin} pin the pin that are being moved
+     * @param {number} x the coordinate on X axis
+     * @param {number} y the coordinate on Y axis.
      */
     translateConnections(pin, x, y) {
         for (var i = 0; i < this.connections.length; i++) {
@@ -87,7 +124,7 @@ export class Board {
     }
 
     /**
-     * Unselect selected elements.
+     * Un-select all selected elements on {@link Board}.
      */
     unselect() {
         for (let i = 0; i < this.connections.length; i++) {
@@ -107,7 +144,7 @@ export class Board {
 
     /**
      * Delete the connection lines given in elements array.
-     * @param elements
+     * @param {ConnectionLine[]} elements connection lines to be deleted.
      */
     deleteConnectionLines(elements) {
         for (let i = 0; i < elements.length; i++) {
@@ -128,7 +165,7 @@ export class Board {
 
     /**
      * Delete elements from the Board contained in elements.
-     * @param elements
+     * @param {BaseControl[]} elements the list of components to be deleted.
      */
     deleteControls(elements) {
         // First we do need to delete all connection lines
@@ -169,7 +206,7 @@ export class Board {
     }
 
     /**
-     * Delete selected elements
+     * Delete selected elements on the {@link Board}
      */
     deleteSelected() {
         // Delete connection lines
@@ -195,6 +232,10 @@ export class Board {
         this.deleteControls(controlsToDelete);
     }
 
+    /**
+     * Is called when onMouseDown event occur on {@link Board}.
+     * @param {Event} event event object
+     */
     onMouseDown(event) {
         if (this.paper.getElementByPoint(event.clientX, event.clientY) != null) {
             return;
@@ -207,6 +248,10 @@ export class Board {
         }
     }
 
+    /**
+     * Is called when onMouseUp event occur on {@link Board}.
+     * @param {Event} event event object
+     */
     onMouseUp(event) {
         if (this.selectionBox != null) {
             this.selectionBox.remove();
@@ -214,6 +259,10 @@ export class Board {
         }
     }
 
+    /**
+     * Is called when onMouseMove event occur on {@link Board}.
+     * @param {Event} event event object
+     */
     onMouseMove(event) {
         if (this.selectionBox != null) {
             let x = event.offsetX;
@@ -239,7 +288,6 @@ class SelectionBox {
             x3: 0, y3: 0,
             x4: 0, y4: 0
         };
-        console.log(this);
     }
 
     draw(x1, y1, x2, y2) {
