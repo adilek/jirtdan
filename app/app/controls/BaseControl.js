@@ -223,4 +223,27 @@ export class BaseControl {
         }
         this.outPins = null;
     }
+
+    /**
+     * Find out if element is within
+     * the boundaries of given area.
+     *
+     * x,y--------------x2,y
+     * |///////////////////|
+     * |///////////////////|
+     * |///////////////////|
+     * x,y2-------------x2,y2
+     */
+    isWithinArea(x, y, x2, y2) {
+        for (let i = 0; i < this.shapes.length; i++) {
+            let position = this.shapes[i].getBBox();
+
+            if ((position.x < x || position.x2 > x2) ||
+                (position.y < y || position.y2 > y2)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
