@@ -233,6 +233,27 @@ export class Board {
     }
 
     /**
+     * Select all controls within boundaries of given area.
+     *
+     * x,y--------------x2,y
+     * |///////////////////|
+     * |///////////////////|
+     * |///////////////////|
+     * x,y2-------------x2,y2
+     */
+    selectControlsWithinArea(x, y, x2, y2) {
+        this.unselect();
+
+        for (let i = 0; i < this.controls.length; i++) {
+            let item = this.controls[i];
+
+            if (item.isWithinArea(x, y, x2, y2)) {
+                item.select(false);
+            }
+        }
+    }
+    
+    /**
      * Is called when onMouseDown event occur on {@link Board}.
      * @param {Event} event event object
      */
