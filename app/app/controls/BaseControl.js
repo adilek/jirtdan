@@ -83,6 +83,18 @@ export class BaseControl {
         console.log("Selected");
     }
 
+    /**
+     * Select control
+     * @param canDismissPreviousSelection
+     */
+    select(canDismissPreviousSelection) {
+        if (!event.ctrlKey && canDismissPreviousSelection) {
+            this.board.unselect();
+        }
+        this.isComponentSelected = true;
+        this.onSelect(event);
+    }
+
     unselect() {
         this.isComponentSelected = false;
         if (this.glow == null) return;
@@ -172,11 +184,7 @@ export class BaseControl {
             });
 
         obj.mousedown(function (event) {
-            if (!event.ctrlKey) {
-                _this.board.unselect();
-            }
-            _this.isComponentSelected = true;
-            _this.onSelect(event);
+            _this.select(true);
         });
     }
 
