@@ -275,6 +275,15 @@ export class Board {
      */
     onMouseUp(event) {
         if (this.selectionBox != null) {
+            let position = this.selectionBox.getControlPoints();
+
+            this.selectControlsWithinArea(
+                position.x1,
+                position.y1,
+                position.x3,
+                position.y3
+            );
+
             this.selectionBox.remove();
             this.selectionBox = null;
         }
