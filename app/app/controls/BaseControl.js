@@ -80,7 +80,7 @@ export class BaseControl {
      * @param event
      */
     onSelect(event) {
-        console.log("Selected");
+        // Empty
     }
 
     /**
