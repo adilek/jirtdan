@@ -33,6 +33,7 @@ import {ConnectionLine} from './controls/ConnectionLine.js'
  * @type {number}
  */
 const SELECTION_BOX_START_THRESHOLD = 10;
+const SELECTION_BOX_FILL_COLOR = "#355faf";
 
 /**
  * The workspace board object where all components are placed and
@@ -252,7 +253,7 @@ export class Board {
             }
         }
     }
-    
+
     /**
      * Is called when onMouseDown event occur on {@link Board}.
      * @param {Event} event event object
@@ -334,6 +335,8 @@ class SelectionBox {
             this.element.attr(attr);
         } else {
             this.element = this.paper.rect(x, y, w, h);
+            this.element.attr("fill", SELECTION_BOX_FILL_COLOR);
+            this.element.attr("fill-opacity", 0.3);
             this.isDrawing = true;
         }
     }
