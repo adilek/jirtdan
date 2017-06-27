@@ -296,8 +296,8 @@ export class Board {
             this.selectControlsWithinArea(
                 position.x1,
                 position.y1,
-                position.x3,
-                position.y3
+                position.x2,
+                position.y2
             );
         }
     }
@@ -315,9 +315,7 @@ class SelectionBox {
         this.isDrawing = false;
         this.controlPoints = {
             x1: 0, y1: 0,
-            x2: 0, y2: 0,
-            x3: 0, y3: 0,
-            x4: 0, y4: 0
+            x2: 0, y2: 0
         };
     }
 
@@ -359,28 +357,20 @@ class SelectionBox {
         this.controlPoints.y1 = newY1;
 
         this.controlPoints.x2 = newX2;
-        this.controlPoints.y2 = newY1;
-
-        this.controlPoints.x3 = newX2;
-        this.controlPoints.y3 = newY2;
-
-        this.controlPoints.x4 = newX1;
-        this.controlPoints.y4 = newY2;
+        this.controlPoints.y2 = newY2;
     }
 
     /**
      * Get the control points of rectangle.
      *
-     * x1,y1-----------x2,y2
+     * x1,y1-----------x2,y1
      * |///////////////////|
      * |///////////////////|
      * |///////////////////|
-     * x4,y4-----------x3,y3
+     * x1,y2-----------x2,y2
      *
      * @returns {{x1: number, y1: number,
-     *            x2: number, y2: number,
-     *            x3: number, y3: number,
-     *            x4: number, y4: number}|*}
+     *            x2: number, y2: number}|*}
      */
     getControlPoints() {
         return this.controlPoints;
