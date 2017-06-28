@@ -38,7 +38,6 @@ const LOGTAG = "HighConstant";
 /**
  * Control for High Constant (1).
  */
-//TODO: Remove the direct dependency from raphael.
 export class HighConstant extends BaseControl {
     /**
      * Constructor for HighConstant

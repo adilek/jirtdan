@@ -37,7 +37,6 @@ const LOGTAG = "PushButton";
 /**
  * Control for Push Button.
  */
-//TODO: Remove the direct dependency from raphael.
 export class PushButton extends BaseControl {
     /**
      * Constructor for PushButton
