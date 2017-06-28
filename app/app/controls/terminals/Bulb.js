@@ -40,7 +40,6 @@ const LOGTAG = "Bulb";
 /**
  * Control for High Constant (1).
  */
-//TODO: Remove the direct dependency from raphael.
 export class Bulb extends BaseControl {
     /**
      * Constructor for Bulb

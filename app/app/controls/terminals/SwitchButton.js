@@ -38,7 +38,6 @@ const LOGTAG = "SwitchButton";
 /**
  * Control for Switch Button.
  */
-//TODO: Remove the direct dependency from raphael.
 export class SwitchButton extends BaseControl {
     /**
      * Constructor for SwitchButton

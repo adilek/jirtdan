@@ -37,7 +37,6 @@ const LOGTAG = "LowConstant";
 /**
  * Control for Low Constant (0).
  */
-//TODO: Remove the direct dependency from raphael.
 export class LowConstant extends BaseControl {
     /**
      * Constructor for LowConstant
