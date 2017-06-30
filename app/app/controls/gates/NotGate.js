@@ -145,6 +145,10 @@ export class NotGate extends BaseControl {
         this.addOutputPins(this.outputPin);
     }
 
+    /**
+     * Called on select event. Fired by {@link Board} object.
+     * @param event
+     */
     onSelect(event) {
         super.onSelect(event);
         this.glow = this.componentBodyShape.glow();
