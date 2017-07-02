@@ -192,7 +192,7 @@ export class XnorGate extends BaseControl {
             this.componentRearShapeGradient,
             this.componentBodyShapeSmallCircleFill,
             this.componentBodyShapeSmallCircleGradient
-            ]);
+        ]);
         this.addInputPins(inputPin1, inputPin2);
         this.addOutputPins(outputPin);
     }
@@ -207,6 +207,10 @@ export class XnorGate extends BaseControl {
         this.glow.toBack();
     }
 
+    /**
+     * Return the value of calculated expression.
+     * @returns {boolean}
+     */
     getValue() {
         return !((this.inputPin1Value + this.inputPin2Value) % 2);
     }
