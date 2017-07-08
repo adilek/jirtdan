@@ -151,6 +151,9 @@ export class SwitchButton extends BaseControl {
         this.knobHandleOn.hide();
     }
 
+    /**
+     * Initialize the control. Add the pin and set up the component.
+     */
     initControl() {
         super.initControl();
 
@@ -215,6 +218,10 @@ export class SwitchButton extends BaseControl {
         this.glow.toBack();
     }
 
+    /**
+     * Get the value of expression.
+     * @returns {number|boolean|*}
+     */
     getValue() {
         return this.value;
     }
