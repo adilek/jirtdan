@@ -112,10 +112,12 @@ export class OrGate extends BaseControl {
         this.componentBodyGradient.attr("fill", "90-#0066ff-#fff");
     }
 
+    /**
+     * Initialize the control.
+     */
     initControl() {
         super.initControl();
         const _this = this;
-
 
         const inputPin1 = new ConnectionPin(this, 5, 11, "in");
         const inputPin2 = new ConnectionPin(this, 5, 39, "in");
@@ -155,6 +157,10 @@ export class OrGate extends BaseControl {
         this.glow.toBack();
     }
 
+    /**
+     * Get the calculated value of the expression.
+     * @returns {number|*}
+     */
     getValue() {
         return this.inputPin1Value || this.inputPin2Value;
     }
