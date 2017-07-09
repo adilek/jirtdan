@@ -118,7 +118,6 @@ export class OrGate extends BaseControl {
     initControl() {
         super.initControl();
         const _this = this;
-        
         const inputPin1 = new ConnectionPin(this, 5, 11, "in");
         const inputPin2 = new ConnectionPin(this, 5, 39, "in");
         const outputPin = new ConnectionPin(this, 102, 25, "out");
