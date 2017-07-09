@@ -106,6 +106,9 @@ export class PushButton extends BaseControl {
         this.outputWire.attr("stroke-width", DEFAULT_STROKE_WIDTH);
     }
 
+    /**
+     * Initialize the control. Basically add the connection pins and set up component itself.
+     */
     initControl() {
         super.initControl();
 
@@ -175,6 +178,10 @@ export class PushButton extends BaseControl {
         this.glow.toBack();
     }
 
+    /**
+     * Get the value of the component.
+     * @returns {number}
+     */
     getValue() {
         return this.value;
     }

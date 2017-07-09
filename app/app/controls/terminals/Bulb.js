@@ -183,6 +183,9 @@ export class Bulb extends BaseControl {
         this.bulbBottomShape.attr("stroke-width", DEFAULT_STROKE_WIDTH);
     }
 
+    /**
+     * Initialize the control.
+     */
     initControl() {
         super.initControl();
         this.bulbFill = this.componentShapeFill;
