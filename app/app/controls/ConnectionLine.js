@@ -73,8 +73,18 @@ export class ConnectionLine {
         let x2 = this.outputPin.element.attr("cx") + this.outputPin.element.matrix.e;
         let y2 = this.outputPin.element.attr("cy") + this.outputPin.element.matrix.f;
 
-        this.element = this.paper.path("M " + x1 + "," + y1 + " L " + x2 + "," + y2);
+        //this.element = this.paper.path("M " + x1 + "," + y1 + " L " + x2 + "," + y2);
+        let path = "M " + x2 + "," + y2
+            + " C " + (x2 + (x1 - x2) / 2) + "," + y2 + " "
+            + (x2 + (x1 - x2) / 2) + "," + y1 + " "
+            + x1 + "," + y1;
+        this.element = this.paper.path(path);
+        console.log(path);
         this.element.attr("stroke-width", 2);
+        this.element.attr("fill", "none");
+        console.log(this);
+        console.log(x1 + "," + y1 + " " + x2 + "," + y2);
+
     }
 
     /**
@@ -136,14 +146,31 @@ export class ConnectionLine {
         if (pin != this.inputPin && pin != this.outputPin) return;
 
         const pathAttr = this.element.attr("path");
-        if (pin == this.inputPin) {
+
+        if (pin == this.outputPin) {
             pathAttr[0][1] += x;
             pathAttr[0][2] += y;
-
         } else {
-            pathAttr[1][1] += x;
-            pathAttr[1][2] += y;
+            pathAttr[1][5] += x;
+            pathAttr[1][6] += y;
         }
+
+        let x2 = pathAttr[0][1];
+        let y2 = pathAttr[0][2];
+
+        let x1 = pathAttr[1][5];
+        let y1 = pathAttr[1][6];
+
+        pathAttr[0][1] = x2;
+        pathAttr[0][2] = y2;
+
+        pathAttr[1][1] = (x2 + (x1 - x2) / 2);
+        pathAttr[1][2] = y2;
+        pathAttr[1][3] = (x2 + (x1 - x2) / 2);
+        pathAttr[1][4] = y1;//(y2 + y1 - y2);
+        pathAttr[1][5] = x1;
+        pathAttr[1][6] = y1;
+
         this.element.attr("path", pathAttr);
     }
 
@@ -155,10 +182,10 @@ export class ConnectionLine {
     setState(state) {
         this.inputPin.notifyStateChange(state);
         if (state == POWER_STATE_HIGH) {
-            this.element.attr("fill", DEFAULT_SIGNAL_PRESENCE_COLOR);
+            this.element.attr("fill", "none");
             this.element.attr("stroke", DEFAULT_SIGNAL_PRESENCE_COLOR);
         } else {
-            this.element.attr("fill", DEFAULT_FILL_COLOR);
+            this.element.attr("fill", "none");
             this.element.attr("stroke", DEFAULT_STROKE_COLOR);
         }
     }
