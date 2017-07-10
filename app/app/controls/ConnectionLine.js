@@ -73,18 +73,13 @@ export class ConnectionLine {
         let x2 = this.outputPin.element.attr("cx") + this.outputPin.element.matrix.e;
         let y2 = this.outputPin.element.attr("cy") + this.outputPin.element.matrix.f;
 
-        //this.element = this.paper.path("M " + x1 + "," + y1 + " L " + x2 + "," + y2);
         let path = "M " + x2 + "," + y2
             + " C " + (x2 + (x1 - x2) / 2) + "," + y2 + " "
             + (x2 + (x1 - x2) / 2) + "," + y1 + " "
             + x1 + "," + y1;
         this.element = this.paper.path(path);
-        console.log(path);
         this.element.attr("stroke-width", 2);
         this.element.attr("fill", "none");
-        console.log(this);
-        console.log(x1 + "," + y1 + " " + x2 + "," + y2);
-
     }
 
     /**
@@ -161,14 +156,15 @@ export class ConnectionLine {
         let x1 = pathAttr[1][5];
         let y1 = pathAttr[1][6];
 
-        pathAttr[0][1] = x2;
+        pathAttr[0][1] = x2; // Start point
         pathAttr[0][2] = y2;
 
-        pathAttr[1][1] = (x2 + (x1 - x2) / 2);
+        pathAttr[1][1] = (x2 + (x1 - x2) / 2); // Control point 1
         pathAttr[1][2] = y2;
-        pathAttr[1][3] = (x2 + (x1 - x2) / 2);
-        pathAttr[1][4] = y1;//(y2 + y1 - y2);
-        pathAttr[1][5] = x1;
+        pathAttr[1][3] = (x2 + (x1 - x2) / 2); // Control point 2
+        pathAttr[1][4] = y1;
+
+        pathAttr[1][5] = x1; // End point
         pathAttr[1][6] = y1;
 
         this.element.attr("path", pathAttr);
