@@ -63,16 +63,23 @@ export class ConnectionLine {
         this.inputPin.setCanConnect(false);
     }
 
+    /**
+     * Draw the connection line.
+     */
     draw() {
-        //FIXME: Clean this dirty shit
-        this.x1 = this.inputPin.element.attr("cx") + this.inputPin.element.matrix.e;
-        this.y1 = this.inputPin.element.attr("cy") + this.inputPin.element.matrix.f;
+        let x1 = this.inputPin.element.attr("cx") + this.inputPin.element.matrix.e;
+        let y1 = this.inputPin.element.attr("cy") + this.inputPin.element.matrix.f;
 
-        this.x2 = this.outputPin.element.attr("cx") + this.outputPin.element.matrix.e;
-        this.y2 = this.outputPin.element.attr("cy") + this.outputPin.element.matrix.f;
+        let x2 = this.outputPin.element.attr("cx") + this.outputPin.element.matrix.e;
+        let y2 = this.outputPin.element.attr("cy") + this.outputPin.element.matrix.f;
 
-        this.element = this.paper.path("M " + this.x1 + "," + this.y1 + " L " + this.x2 + "," + this.y2);
+        let path = "M " + x2 + "," + y2
+            + " C " + (x2 + (x1 - x2) / 2) + "," + y2 + " "
+            + (x2 + (x1 - x2) / 2) + "," + y1 + " "
+            + x1 + "," + y1;
+        this.element = this.paper.path(path);
         this.element.attr("stroke-width", 2);
+        this.element.attr("fill", "none");
     }
 
     /**
@@ -131,20 +138,35 @@ export class ConnectionLine {
      */
     onPinTranslate(pin, x, y) {
         this.unselect();
-
         if (pin != this.inputPin && pin != this.outputPin) return;
 
         const pathAttr = this.element.attr("path");
-        if (pin == this.inputPin) {
-            //TODO:
+
+        if (pin == this.outputPin) {
             pathAttr[0][1] += x;
             pathAttr[0][2] += y;
-
         } else {
-            //TODO:
-            pathAttr[1][1] += x;
-            pathAttr[1][2] += y;
+            pathAttr[1][5] += x;
+            pathAttr[1][6] += y;
         }
+
+        let x2 = pathAttr[0][1];
+        let y2 = pathAttr[0][2];
+
+        let x1 = pathAttr[1][5];
+        let y1 = pathAttr[1][6];
+
+        pathAttr[0][1] = x2; // Start point
+        pathAttr[0][2] = y2;
+
+        pathAttr[1][1] = (x2 + (x1 - x2) / 2); // Control point 1
+        pathAttr[1][2] = y2;
+        pathAttr[1][3] = (x2 + (x1 - x2) / 2); // Control point 2
+        pathAttr[1][4] = y1;
+
+        pathAttr[1][5] = x1; // End point
+        pathAttr[1][6] = y1;
+
         this.element.attr("path", pathAttr);
     }
 
@@ -156,10 +178,10 @@ export class ConnectionLine {
     setState(state) {
         this.inputPin.notifyStateChange(state);
         if (state == POWER_STATE_HIGH) {
-            this.element.attr("fill", DEFAULT_SIGNAL_PRESENCE_COLOR);
+            this.element.attr("fill", "none");
             this.element.attr("stroke", DEFAULT_SIGNAL_PRESENCE_COLOR);
         } else {
-            this.element.attr("fill", DEFAULT_FILL_COLOR);
+            this.element.attr("fill", "none");
             this.element.attr("stroke", DEFAULT_STROKE_COLOR);
         }
     }

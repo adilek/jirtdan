@@ -129,6 +129,9 @@ export class NorGate extends BaseControl {
         this.componentBodyGradient.attr("fill", "90-#0066ff-#fff");
     }
 
+    /**
+     * Initialize the control.
+     */
     initControl() {
         super.initControl();
         const _this = this;
@@ -163,12 +166,20 @@ export class NorGate extends BaseControl {
         this.addOutputPins(outputPin);
     }
 
+    /**
+     * An event fired when element is selected.
+     * @param event
+     */
     onSelect(event) {
         super.onSelect(event);
         this.glow = this.componentBodyShape.glow();
         this.glow.toBack();
     }
 
+    /**
+     * Get the value of expression.
+     * @returns {boolean}
+     */
     getValue() {
         return !(this.inputPin1Value || this.inputPin2Value);
     }

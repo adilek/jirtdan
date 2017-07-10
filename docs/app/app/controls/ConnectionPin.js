@@ -42,11 +42,11 @@ const LOGTAG = "ConnectionPin";
 export class ConnectionPin {
 
     /**
-     * Constructor of ConnectionPin
-     * @param parent the parent control that the pin is used for
-     * @param x the x coordinate for pin
-     * @param y the y coordinate for pin
-     * @param type either "in" or "out"
+     * Constructor of {@link ConnectionPin}
+     * @param {BaseControl} parent the parent control that the pin is used for
+     * @param {number} x the x coordinate for pin
+     * @param {number} y the y coordinate for pin
+     * @param {string} type either "in" or "out"
      */
     constructor(parent, x, y, type) {
         this.control = parent;
@@ -93,7 +93,7 @@ export class ConnectionPin {
 
     /**
      * Return the type of the current pin.
-     * @returns {null|*}
+     * @returns {string} either "in" or "out"
      */
     getType() {
         return this.type;
@@ -101,7 +101,7 @@ export class ConnectionPin {
 
     /**
      * Check if the current pin is INPUT type.
-     * @returns {boolean}
+     * @returns {boolean} true if it is input pin
      */
     isInputType() {
         return this.type === PIN_TYPE_IN;
@@ -109,7 +109,7 @@ export class ConnectionPin {
 
     /**
      * Check if the current pin is OUTPUT type
-     * @returns {boolean}
+     * @returns {boolean} true if it OUTPUT pin
      */
     isOutputType() {
         return this.type === PIN_TYPE_OUT;
@@ -117,8 +117,8 @@ export class ConnectionPin {
 
     /**
      * Check if the pin represented in argument can be connected with this pin.
-     * @param pin
-     * @returns {boolean}
+     * @param {ConnectionPin} pin pin object to check whether they can be connected.
+     * @returns {boolean} true if they can be connected
      */
     canConnect(pin) {
         if (this.control == pin.getParent()) return false;
@@ -135,7 +135,7 @@ export class ConnectionPin {
 
     /**
      * The the parent control of this pin that belongs to.
-     * @returns {*}
+     * @returns {BaseControl} the component the pin belongs to
      */
     getParent() {
         return this.control;
@@ -143,16 +143,16 @@ export class ConnectionPin {
 
     /**
      * Used to translate the element during drag-drop.
-     * @param x
-     * @param y
+     * @param {number} x
+     * @param {number} y
      */
     translate(x, y) {
         this.element.translate(x, y);
     }
 
     /**
-     * This sets the flag to mark it connectable or not.
-     * @param enable
+     * This sets the flag to mark it connectible or not.
+     * @param {boolean} enable
      */
     setCanConnect(enable) {
         this.isConnectionAllowed = enable;
