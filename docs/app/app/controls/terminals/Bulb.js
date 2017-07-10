@@ -40,7 +40,6 @@ const LOGTAG = "Bulb";
 /**
  * Control for High Constant (1).
  */
-//TODO: Remove the direct dependency from raphael.
 export class Bulb extends BaseControl {
     /**
      * Constructor for Bulb
@@ -184,6 +183,9 @@ export class Bulb extends BaseControl {
         this.bulbBottomShape.attr("stroke-width", DEFAULT_STROKE_WIDTH);
     }
 
+    /**
+     * Initialize the control.
+     */
     initControl() {
         super.initControl();
         this.bulbFill = this.componentShapeFill;
@@ -218,6 +220,10 @@ export class Bulb extends BaseControl {
             });
     }
 
+    /**
+     * An event fired when element is selected.
+     * @param event
+     */
     onSelect(event) {
         super.onSelect(event);
         this.glow = this.componentShapeFill.glow();

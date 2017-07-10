@@ -76,10 +76,23 @@ export class BaseControl {
     }
 
     /**
-     * This method is fired when object is selected.
+     * An event fired when element is selected.
+     * @param event
      */
     onSelect(event) {
-        console.log("Selected");
+        // Empty
+    }
+
+    /**
+     * Select control
+     * @param canDismissPreviousSelection
+     */
+    select(canDismissPreviousSelection) {
+        if (!event.ctrlKey && canDismissPreviousSelection) {
+            this.board.unselect();
+        }
+        this.isComponentSelected = true;
+        this.onSelect(event);
     }
 
     unselect() {
@@ -171,11 +184,7 @@ export class BaseControl {
             });
 
         obj.mousedown(function (event) {
-            if (!event.ctrlKey) {
-                _this.board.unselect();
-            }
-            _this.isComponentSelected = true;
-            _this.onSelect(event);
+            _this.select(true);
         });
     }
 
@@ -221,5 +230,28 @@ export class BaseControl {
             this.outPins[i].deletePin();
         }
         this.outPins = null;
+    }
+
+    /**
+     * Find out if element is within
+     * the boundaries of given area.
+     *
+     * x,y--------------x2,y
+     * |///////////////////|
+     * |///////////////////|
+     * |///////////////////|
+     * x,y2-------------x2,y2
+     */
+    isWithinArea(x, y, x2, y2) {
+        for (let i = 0; i < this.shapes.length; i++) {
+            let position = this.shapes[i].getBBox();
+
+            if ((position.x < x || position.x2 > x2) ||
+                (position.y < y || position.y2 > y2)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

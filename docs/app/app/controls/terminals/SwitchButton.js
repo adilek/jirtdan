@@ -38,7 +38,6 @@ const LOGTAG = "SwitchButton";
 /**
  * Control for Switch Button.
  */
-//TODO: Remove the direct dependency from raphael.
 export class SwitchButton extends BaseControl {
     /**
      * Constructor for SwitchButton
@@ -152,6 +151,9 @@ export class SwitchButton extends BaseControl {
         this.knobHandleOn.hide();
     }
 
+    /**
+     * Initialize the control. Add the pin and set up the component.
+     */
     initControl() {
         super.initControl();
 
@@ -206,12 +208,20 @@ export class SwitchButton extends BaseControl {
         this.knobHandleOn.mouseup(clickAction);
     }
 
+    /**
+     * An event fired when element is selected.
+     * @param event
+     */
     onSelect(event) {
         super.onSelect(event);
         this.glow = this.componentBodyShape.glow();
         this.glow.toBack();
     }
 
+    /**
+     * Get the value of expression.
+     * @returns {number|boolean|*}
+     */
     getValue() {
         return this.value;
     }

@@ -37,7 +37,6 @@ const LOGTAG = "PushButton";
 /**
  * Control for Push Button.
  */
-//TODO: Remove the direct dependency from raphael.
 export class PushButton extends BaseControl {
     /**
      * Constructor for PushButton
@@ -107,6 +106,9 @@ export class PushButton extends BaseControl {
         this.outputWire.attr("stroke-width", DEFAULT_STROKE_WIDTH);
     }
 
+    /**
+     * Initialize the control. Basically add the connection pins and set up component itself.
+     */
     initControl() {
         super.initControl();
 
@@ -166,12 +168,20 @@ export class PushButton extends BaseControl {
         _this.buttonGradient.mouseup(mouseUp);
     }
 
+    /**
+     * An event fired when element is selected.
+     * @param event
+     */
     onSelect(event) {
         super.onSelect(event);
         this.glow = this.componentBodyShape.glow();
         this.glow.toBack();
     }
 
+    /**
+     * Get the value of the component.
+     * @returns {number}
+     */
     getValue() {
         return this.value;
     }

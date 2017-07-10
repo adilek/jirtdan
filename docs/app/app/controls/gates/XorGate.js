@@ -143,6 +143,10 @@ export class XorGate extends BaseControl {
         this.componentRearShapeGradient.attr("fill", "90-#0066ff-#fff");
     }
 
+    /**
+     * Initialize the control.
+     * Basically adds the pins, and necessary events.
+     */
     initControl() {
         super.initControl();
 
@@ -174,17 +178,25 @@ export class XorGate extends BaseControl {
             this.componentRearShape,
             this.componentRearShapeFill,
             this.componentRearShapeGradient
-            ]);
+        ]);
         this.addInputPins(inputPin1, inputPin2);
         this.addOutputPins(outputPin);
     }
 
+    /**
+     * An event fired when element is selected.
+     * @param event
+     */
     onSelect(event) {
         super.onSelect(event);
         this.glow = this.componentBodyShape.glow();
         this.glow.toBack();
     }
 
+    /**
+     * Get the value of component.
+     * @returns {number}
+     */
     getValue() {
         return (this.inputPin1Value + this.inputPin2Value) % 2;
     }
