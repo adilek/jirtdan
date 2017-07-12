@@ -1,0 +1,1928 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">Board | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/Board.js~Board.html">Board</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">controls</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controls/BaseControl.js~BaseControl.html">BaseControl</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controls/ConnectionLine.js~ConnectionLine.html">ConnectionLine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controls/ConnectionPin.js~ConnectionPin.html">ConnectionPin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DEBUG">DEBUG</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DEFAULT_FILL_COLOR">DEFAULT_FILL_COLOR</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DEFAULT_SIGNAL_PRESENCE_COLOR">DEFAULT_SIGNAL_PRESENCE_COLOR</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DEFAULT_STROKE_COLOR">DEFAULT_STROKE_COLOR</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DEFAULT_STROKE_WIDTH">DEFAULT_STROKE_WIDTH</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-POWER_STATE_HIGH">POWER_STATE_HIGH</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-POWER_STATE_LOW">POWER_STATE_LOW</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">controls/gates</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controls/gates/AndGate.js~AndGate.html">AndGate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controls/gates/BufferGate.js~BufferGate.html">BufferGate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controls/gates/NandGate.js~NandGate.html">NandGate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controls/gates/NorGate.js~NorGate.html">NorGate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controls/gates/NotGate.js~NotGate.html">NotGate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controls/gates/OrGate.js~OrGate.html">OrGate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controls/gates/XnorGate.js~XnorGate.html">XnorGate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controls/gates/XorGate.js~XorGate.html">XorGate</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">controls/terminals</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controls/terminals/Bulb.js~Bulb.html">Bulb</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controls/terminals/HighConstant.js~HighConstant.html">HighConstant</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controls/terminals/LowConstant.js~LowConstant.html">LowConstant</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controls/terminals/PushButton.js~PushButton.html">PushButton</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/app/controls/terminals/SwitchButton.js~SwitchButton.html">SwitchButton</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><div class="header-notice">
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {Board} from &apos;<span><a href="file/app/Board.js.html#lineNumber42">./app/Board.js</a></span>&apos;</code></pre></div>
+  <span data-ice="access">public</span>
+  <span data-ice="kind">class</span>
+  
+  
+  
+  <span data-ice="source">| <span><a href="file/app/Board.js.html#lineNumber42">source</a></span></span>
+</div>
+
+<div class="self-detail detail">
+  <h1 data-ice="name">Board</h1>
+
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <div class="description" data-ice="description"><p>The workspace board object where all components are placed and
+interact with each other.</p>
+</div>
+  
+
+  
+
+  
+
+  
+
+  
+</div>
+
+
+
+<div data-ice="constructorSummary"><h2>Constructor Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Public Constructor</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="class/app/Board.js~Board.html#instance-constructor-constructor">constructor</a></span></span><span data-ice="signature">(paper: <span>*</span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Constructor of the <span><a href="class/app/Board.js~Board.html">Board</a></span> class.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+<div data-ice="memberSummary"><h2>Member Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Public Members</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="class/app/Board.js~Board.html#instance-member-connections">connections</a></span></span><span data-ice="signature">: <span><span>*</span><span>[]</span></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="class/app/Board.js~Board.html#instance-member-controls">controls</a></span></span><span data-ice="signature">: <span><span>*</span><span>[]</span></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="class/app/Board.js~Board.html#instance-member-inputPin">inputPin</a></span></span><span data-ice="signature">: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="class/app/Board.js~Board.html#instance-member-isConnecting">isConnecting</a></span></span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="class/app/Board.js~Board.html#instance-member-paper">paper</a></span></span><span data-ice="signature">: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="class/app/Board.js~Board.html#instance-member-selectionBox">selectionBox</a></span></span><span data-ice="signature">: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+<div data-ice="methodSummary"><h2>Method Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Public Methods</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="class/app/Board.js~Board.html#instance-method-addControl">addControl</a></span></span><span data-ice="signature">(control: <span><a href="class/app/controls/BaseControl.js~BaseControl.html">BaseControl</a></span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Add the control to be controlled by current Board.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="class/app/Board.js~Board.html#instance-method-createConnection">createConnection</a></span></span><span data-ice="signature">(pin1: <span><a href="class/app/controls/ConnectionPin.js~ConnectionPin.html">ConnectionPin</a></span>, pin2: <span><a href="class/app/controls/ConnectionPin.js~ConnectionPin.html">ConnectionPin</a></span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Create new connection and add it to the list.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="class/app/Board.js~Board.html#instance-method-deleteConnectionLines">deleteConnectionLines</a></span></span><span data-ice="signature">(elements: <span><span><a href="class/app/controls/ConnectionLine.js~ConnectionLine.html">ConnectionLine</a></span><span>[]</span></span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Delete the connection lines given in elements array.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="class/app/Board.js~Board.html#instance-method-deleteControls">deleteControls</a></span></span><span data-ice="signature">(elements: <span><span><a href="class/app/controls/BaseControl.js~BaseControl.html">BaseControl</a></span><span>[]</span></span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Delete elements from the Board contained in elements.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="class/app/Board.js~Board.html#instance-method-deleteSelected">deleteSelected</a></span></span><span data-ice="signature">()</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Delete selected elements on the <span><a href="class/app/Board.js~Board.html">Board</a></span></p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="class/app/Board.js~Board.html#instance-method-finishConnection">finishConnection</a></span></span><span data-ice="signature">(pin: <span><a href="class/app/controls/ConnectionPin.js~ConnectionPin.html">ConnectionPin</a></span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Finalize the connection activity.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="class/app/Board.js~Board.html#instance-method-onMouseDown">onMouseDown</a></span></span><span data-ice="signature">(event: <span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a></span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Is called when onMouseDown event occur on <span><a href="class/app/Board.js~Board.html">Board</a></span>.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="class/app/Board.js~Board.html#instance-method-onMouseMove">onMouseMove</a></span></span><span data-ice="signature">(event: <span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a></span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Is called when onMouseMove event occur on <span><a href="class/app/Board.js~Board.html">Board</a></span>.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="class/app/Board.js~Board.html#instance-method-onMouseUp">onMouseUp</a></span></span><span data-ice="signature">(event: <span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a></span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Is called when onMouseUp event occur on <span><a href="class/app/Board.js~Board.html">Board</a></span>.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="class/app/Board.js~Board.html#instance-method-selectControlsWithinArea">selectControlsWithinArea</a></span></span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, x2: <span>*</span>, y2: <span>*</span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Select all controls within boundaries of given area.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="class/app/Board.js~Board.html#instance-method-startConnection">startConnection</a></span></span><span data-ice="signature">(pin: <span><a href="class/app/controls/ConnectionPin.js~ConnectionPin.html">ConnectionPin</a></span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Start connection activity from <span><a href="class/app/controls/ConnectionPin.js~ConnectionPin.html">ConnectionPin</a></span> object.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="class/app/Board.js~Board.html#instance-method-startFinishConnection">startFinishConnection</a></span></span><span data-ice="signature">(pin: <span><a href="class/app/controls/ConnectionPin.js~ConnectionPin.html">ConnectionPin</a></span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Decide automatically to start or finalize the connection
+activity depending on situation.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="class/app/Board.js~Board.html#instance-method-translateConnections">translateConnections</a></span></span><span data-ice="signature">(pin: <span><a href="class/app/controls/ConnectionPin.js~ConnectionPin.html">ConnectionPin</a></span>, x: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, y: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Translate the start and end points of all connections visually,
+depending on pins they connect to.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          <span data-ice="name"><span><a href="class/app/Board.js~Board.html#instance-method-unselect">unselect</a></span></span><span data-ice="signature">()</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Un-select all selected elements on <span><a href="class/app/Board.js~Board.html">Board</a></span>.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+
+
+
+
+<div data-ice="constructorDetails"><h2 data-ice="title">Public Constructors</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-constructor-constructor">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">constructor</span><span data-ice="signature">(paper: <span>*</span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/app/Board.js.html#lineNumber48">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Constructor of the <span><a href="class/app/Board.js~Board.html">Board</a></span> class.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">paper</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>paper object of <span>Raphael</span> library.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
+<div data-ice="memberDetails"><h2 data-ice="title">Public Members</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-member-connections">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">connections</span><span data-ice="signature">: <span><span>*</span><span>[]</span></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/app/Board.js.html#lineNumber50">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-member-controls">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">controls</span><span data-ice="signature">: <span><span>*</span><span>[]</span></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/app/Board.js.html#lineNumber51">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-member-inputPin">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">inputPin</span><span data-ice="signature">: <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/app/Board.js.html#lineNumber70">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-member-isConnecting">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">isConnecting</span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/app/Board.js.html#lineNumber52">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-member-paper">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">paper</span><span data-ice="signature">: <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/app/Board.js.html#lineNumber49">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-member-selectionBox">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">selectionBox</span><span data-ice="signature">: <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/app/Board.js.html#lineNumber53">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
+<div data-ice="methodDetails"><h2 data-ice="title">Public Methods</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-addControl">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">addControl</span><span data-ice="signature">(control: <span><a href="class/app/controls/BaseControl.js~BaseControl.html">BaseControl</a></span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/app/Board.js.html#lineNumber60">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Add the control to be controlled by current Board.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">control</td>
+      <td data-ice="type"><span><a href="class/app/controls/BaseControl.js~BaseControl.html">BaseControl</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>any control</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-createConnection">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">createConnection</span><span data-ice="signature">(pin1: <span><a href="class/app/controls/ConnectionPin.js~ConnectionPin.html">ConnectionPin</a></span>, pin2: <span><a href="class/app/controls/ConnectionPin.js~ConnectionPin.html">ConnectionPin</a></span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/app/Board.js.html#lineNumber109">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Create new connection and add it to the list.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">pin1</td>
+      <td data-ice="type"><span><a href="class/app/controls/ConnectionPin.js~ConnectionPin.html">ConnectionPin</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>start of the connection line</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">pin2</td>
+      <td data-ice="type"><span><a href="class/app/controls/ConnectionPin.js~ConnectionPin.html">ConnectionPin</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>end of the connection line.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-deleteConnectionLines">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">deleteConnectionLines</span><span data-ice="signature">(elements: <span><span><a href="class/app/controls/ConnectionLine.js~ConnectionLine.html">ConnectionLine</a></span><span>[]</span></span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/app/Board.js.html#lineNumber150">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Delete the connection lines given in elements array.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">elements</td>
+      <td data-ice="type"><span><span><a href="class/app/controls/ConnectionLine.js~ConnectionLine.html">ConnectionLine</a></span><span>[]</span></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>connection lines to be deleted.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-deleteControls">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">deleteControls</span><span data-ice="signature">(elements: <span><span><a href="class/app/controls/BaseControl.js~BaseControl.html">BaseControl</a></span><span>[]</span></span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/app/Board.js.html#lineNumber171">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Delete elements from the Board contained in elements.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">elements</td>
+      <td data-ice="type"><span><span><a href="class/app/controls/BaseControl.js~BaseControl.html">BaseControl</a></span><span>[]</span></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>the list of components to be deleted.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-deleteSelected">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">deleteSelected</span><span data-ice="signature">()</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/app/Board.js.html#lineNumber212">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Delete selected elements on the <span><a href="class/app/Board.js~Board.html">Board</a></span></p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-finishConnection">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">finishConnection</span><span data-ice="signature">(pin: <span><a href="class/app/controls/ConnectionPin.js~ConnectionPin.html">ConnectionPin</a></span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/app/Board.js.html#lineNumber94">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Finalize the connection activity. The connection will be
+established with previously started connection pin and
+two pins will communicate.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">pin</td>
+      <td data-ice="type"><span><a href="class/app/controls/ConnectionPin.js~ConnectionPin.html">ConnectionPin</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>object to be connected to</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-onMouseDown">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">onMouseDown</span><span data-ice="signature">(event: <span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a></span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/app/Board.js.html#lineNumber261">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Is called when onMouseDown event occur on <span><a href="class/app/Board.js~Board.html">Board</a></span>.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">event</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>event object</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-onMouseMove">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">onMouseMove</span><span data-ice="signature">(event: <span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a></span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/app/Board.js.html#lineNumber288">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Is called when onMouseMove event occur on <span><a href="class/app/Board.js~Board.html">Board</a></span>.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">event</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>event object</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-onMouseUp">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">onMouseUp</span><span data-ice="signature">(event: <span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a></span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/app/Board.js.html#lineNumber277">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Is called when onMouseUp event occur on <span><a href="class/app/Board.js~Board.html">Board</a></span>.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">event</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>event object</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-selectControlsWithinArea">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">selectControlsWithinArea</span><span data-ice="signature">(x: <span>*</span>, y: <span>*</span>, x2: <span>*</span>, y2: <span>*</span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/app/Board.js.html#lineNumber245">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Select all controls within boundaries of given area.</p>
+<p>x,y--------------x2,y
+|///////////////////|
+|///////////////////|
+|///////////////////|
+x,y2-------------x2,y2</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">x</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">y</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">x2</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">y2</td>
+      <td data-ice="type"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-startConnection">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">startConnection</span><span data-ice="signature">(pin: <span><a href="class/app/controls/ConnectionPin.js~ConnectionPin.html">ConnectionPin</a></span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/app/Board.js.html#lineNumber68">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Start connection activity from <span><a href="class/app/controls/ConnectionPin.js~ConnectionPin.html">ConnectionPin</a></span> object.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">pin</td>
+      <td data-ice="type"><span><a href="class/app/controls/ConnectionPin.js~ConnectionPin.html">ConnectionPin</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>pin where connection starts from</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-startFinishConnection">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">startFinishConnection</span><span data-ice="signature">(pin: <span><a href="class/app/controls/ConnectionPin.js~ConnectionPin.html">ConnectionPin</a></span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/app/Board.js.html#lineNumber80">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Decide automatically to start or finalize the connection
+activity depending on situation.
+In case of startConnection was called previously the connection
+will be finalized.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">pin</td>
+      <td data-ice="type"><span><a href="class/app/controls/ConnectionPin.js~ConnectionPin.html">ConnectionPin</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>pin where connection goes to</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-translateConnections">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">translateConnections</span><span data-ice="signature">(pin: <span><a href="class/app/controls/ConnectionPin.js~ConnectionPin.html">ConnectionPin</a></span>, x: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, y: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/app/Board.js.html#lineNumber121">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Translate the start and end points of all connections visually,
+depending on pins they connect to.
+This method is fired on drag-drop of the control.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">pin</td>
+      <td data-ice="type"><span><a href="class/app/controls/ConnectionPin.js~ConnectionPin.html">ConnectionPin</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>the pin that are being moved</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">x</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>the coordinate on X axis</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">y</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>the coordinate on Y axis.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-unselect">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span data-ice="name">unselect</span><span data-ice="signature">()</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/app/Board.js.html#lineNumber130">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Un-select all selected elements on <span><a href="class/app/Board.js~Board.html">Board</a></span>.</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.5.2)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
