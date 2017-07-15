@@ -236,11 +236,13 @@ export class Board {
     /**
      * Select all controls within boundaries of given area.
      *
+     * <pre>
      * x,y--------------x2,y
      * |///////////////////|
      * |///////////////////|
      * |///////////////////|
      * x,y2-------------x2,y2
+     * </pre>
      */
     selectControlsWithinArea(x, y, x2, y2) {
         this.unselect();
@@ -363,11 +365,13 @@ class SelectionBox {
     /**
      * Get the control points of rectangle.
      *
+     * <pre>
      * x1,y1-----------x2,y1
      * |///////////////////|
      * |///////////////////|
      * |///////////////////|
      * x1,y2-----------x2,y2
+     * </pre>
      *
      * @returns {{x1: number, y1: number,
      *            x2: number, y2: number}|*}
