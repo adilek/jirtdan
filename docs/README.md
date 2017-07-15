@@ -1,10 +1,14 @@
-# Demo
+## Demo
 
 Click on the link to access the [demo](http://jirtdan.org/app/app.html).
 
-# Source
+## Source
 
 To get the sources please visit our main GitHub repo [https://github.com/adilek/jirtdan/](https://github.com/adilek/jirtdan/)
+
+## API Reference
+
+You can access the API reference documentation at [API docs page](http://jirtdan.org/api)
 
 ## Bug reporting and wish-list
 If you have a bug or a feature to request, please create an issue ticket on [https://github.com/adilek/jirtdan/issues](https://github.com/adilek/jirtdan/issues).
