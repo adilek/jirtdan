@@ -19,7 +19,7 @@
   <a href="identifiers.html">Reference</a>
   <a href="source.html">Source</a>
   
-  
+  <a data-ice="repoURL" href="https://github.com/adilek/jirtdan" class="repo-url-github">Repository</a>
   <div class="search-box">
   <span>
     <img src="./image/search.png">
@@ -299,11 +299,13 @@ export class Board {
     /**
      * Select all controls within boundaries of given area.
      *
+     * &lt;pre&gt;
      * x,y--------------x2,y
      * |///////////////////|
      * |///////////////////|
      * |///////////////////|
      * x,y2-------------x2,y2
+     * &lt;/pre&gt;
      */
     selectControlsWithinArea(x, y, x2, y2) {
         this.unselect();
@@ -426,11 +428,13 @@ class SelectionBox {
     /**
      * Get the control points of rectangle.
      *
+     * &lt;pre&gt;
      * x1,y1-----------x2,y1
      * |///////////////////|
      * |///////////////////|
      * |///////////////////|
      * x1,y2-----------x2,y2
+     * &lt;/pre&gt;
      *
      * @returns {{x1: number, y1: number,
      *            x2: number, y2: number}|*}
