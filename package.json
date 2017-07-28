@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "esdoc": "node node_modules/.bin/esdoc"
+    "esdoc": "node node_modules/.bin/esdoc",
+    "lint": "node node_modules/.bin/eslint app/app/"
   },
   "repository": {
     "type": "git",
