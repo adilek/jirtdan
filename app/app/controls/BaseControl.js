@@ -22,18 +22,18 @@
 
  */
 
-"use strict";
-/*jshint esversion: 6*/
+'use strict';
+/* jshint esversion: 6*/
 
-export const DEFAULT_STROKE_COLOR = "#000";
-export const DEFAULT_FILL_COLOR = "#0000ff";
+export const DEFAULT_STROKE_COLOR = '#000';
+export const DEFAULT_FILL_COLOR = '#0000ff';
 export const DEFAULT_STROKE_WIDTH = 2;
-export const DEFAULT_SIGNAL_PRESENCE_COLOR = "#fa0";
+export const DEFAULT_SIGNAL_PRESENCE_COLOR = '#fa0';
 export const POWER_STATE_HIGH = 1;
 export const POWER_STATE_LOW = 0;
 export const DEBUG = true;
 
-const LOGTAG = "BaseControl";
+const LOGTAG = 'BaseControl';
 /**
  * BaseControl is the super-class of all logic controls.
  * The BaseControl class provides basic functionality that all
@@ -45,9 +45,8 @@ const LOGTAG = "BaseControl";
  * All classes that extends BaseControl should override the initControl()
  * method.
  */
-//TODO: remove the direct dependency from raphael
+// TODO: remove the direct dependency from raphael
 export class BaseControl {
-
     constructor(board) {
         this.board = board;
         this.paper = board.paper;
@@ -160,8 +159,8 @@ export class BaseControl {
      */
     changeGradient(obj, newGradient) {
         const tr = obj.transform();
-        obj.transform("");
-        obj.attr("fill", newGradient);
+        obj.transform('');
+        obj.attr('fill', newGradient);
         obj.transform(tr);
     }
 
@@ -177,13 +176,13 @@ export class BaseControl {
         const _this = this;
 
         obj.drag(
-            function (dx, dy) {
+            function(dx, dy) {
                 _this.onDrag(dx, dy);
-            }, function () {
+            }, function() {
                 _this.onDragStart();
             });
 
-        obj.mousedown(function (event) {
+        obj.mousedown(function(event) {
             _this.select(true);
         });
     }
