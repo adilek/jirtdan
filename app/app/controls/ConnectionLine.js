@@ -22,8 +22,8 @@
 
  */
 
-"use strict";
-/*jshint esversion: 6*/
+'use strict';
+/* jshint esversion: 6*/
 
 import {
     BaseControl,
@@ -32,13 +32,12 @@ import {
     DEFAULT_SIGNAL_PRESENCE_COLOR,
     DEFAULT_FILL_COLOR,
     DEFAULT_STROKE_COLOR,
-    DEBUG
-} from './BaseControl.js'
+    DEBUG,
+} from './BaseControl.js';
 
-const LOGTAG = "ConnectionLine";
+const LOGTAG = 'ConnectionLine';
 
 export class ConnectionLine {
-
     constructor(board, pin1, pin2) {
         this.board = board;
         this.paper = this.board.paper;
@@ -49,14 +48,14 @@ export class ConnectionLine {
         this.isConnectionSelected = false;
 
         if (this.inputPin == null || this.outputPin == null) {
-            throw new Error("Something went wrong");
+            throw new Error('Something went wrong');
         }
 
         this.draw();
         this.init();
 
         const _this = this;
-        this.stateChangeListener = function (newState) {
+        this.stateChangeListener = function(newState) {
             _this.setState(newState);
         };
         this.outputPin.addStateChangeListener(this.stateChangeListener);
@@ -67,19 +66,19 @@ export class ConnectionLine {
      * Draw the connection line.
      */
     draw() {
-        let x1 = this.inputPin.element.attr("cx") + this.inputPin.element.matrix.e;
-        let y1 = this.inputPin.element.attr("cy") + this.inputPin.element.matrix.f;
+        let x1 = this.inputPin.element.attr('cx') + this.inputPin.element.matrix.e;
+        let y1 = this.inputPin.element.attr('cy') + this.inputPin.element.matrix.f;
 
-        let x2 = this.outputPin.element.attr("cx") + this.outputPin.element.matrix.e;
-        let y2 = this.outputPin.element.attr("cy") + this.outputPin.element.matrix.f;
+        let x2 = this.outputPin.element.attr('cx') + this.outputPin.element.matrix.e;
+        let y2 = this.outputPin.element.attr('cy') + this.outputPin.element.matrix.f;
 
-        let path = "M " + x2 + "," + y2
-            + " C " + (x2 + (x1 - x2) / 2) + "," + y2 + " "
-            + (x2 + (x1 - x2) / 2) + "," + y1 + " "
-            + x1 + "," + y1;
+        let path = 'M ' + x2 + ',' + y2
+            + ' C ' + (x2 + (x1 - x2) / 2) + ',' + y2 + ' '
+            + (x2 + (x1 - x2) / 2) + ',' + y1 + ' '
+            + x1 + ',' + y1;
         this.element = this.paper.path(path);
-        this.element.attr("stroke-width", 2);
-        this.element.attr("fill", "none");
+        this.element.attr('stroke-width', 2);
+        this.element.attr('fill', 'none');
     }
 
     /**
@@ -88,7 +87,7 @@ export class ConnectionLine {
      */
     init() {
         const _this = this;
-        const mouseDown = function () {
+        const mouseDown = function() {
             if (_this.isConnectionSelected) return;
             _this.board.unselect();
             _this.glow = _this.element.glow();
@@ -140,7 +139,7 @@ export class ConnectionLine {
         this.unselect();
         if (pin != this.inputPin && pin != this.outputPin) return;
 
-        const pathAttr = this.element.attr("path");
+        const pathAttr = this.element.attr('path');
 
         if (pin == this.outputPin) {
             pathAttr[0][1] += x;
@@ -167,7 +166,7 @@ export class ConnectionLine {
         pathAttr[1][5] = x1; // End point
         pathAttr[1][6] = y1;
 
-        this.element.attr("path", pathAttr);
+        this.element.attr('path', pathAttr);
     }
 
     /**
@@ -178,11 +177,11 @@ export class ConnectionLine {
     setState(state) {
         this.inputPin.notifyStateChange(state);
         if (state == POWER_STATE_HIGH) {
-            this.element.attr("fill", "none");
-            this.element.attr("stroke", DEFAULT_SIGNAL_PRESENCE_COLOR);
+            this.element.attr('fill', 'none');
+            this.element.attr('stroke', DEFAULT_SIGNAL_PRESENCE_COLOR);
         } else {
-            this.element.attr("fill", "none");
-            this.element.attr("stroke", DEFAULT_STROKE_COLOR);
+            this.element.attr('fill', 'none');
+            this.element.attr('stroke', DEFAULT_STROKE_COLOR);
         }
     }
 }
