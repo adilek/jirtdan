@@ -23,3 +23,6 @@ http.createServer(function (req, res) {
         return res.end();
     });
 }).listen(8080);
+
+console.log("Web server is running...");
+console.log("URL to access the app: http://localhost:8080/app.html");
