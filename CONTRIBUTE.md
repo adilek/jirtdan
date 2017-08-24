@@ -1,5 +1,6 @@
 ## Coding style and conventions
-TBD
+* JavaScript: https://google.github.io/styleguide/jsguide.html
+* JSDoc reference: https://esdoc.org/manual/tags.html
 
 ## Tasks and issues
 We use Trello boards for project management. It is publicly available on [https://trello.com/b/gezzFCOU/jirtdan-engine](https://trello.com/b/gezzFCOU/jirtdan-engine).
