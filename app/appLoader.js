@@ -45,14 +45,10 @@ $(document).ready(function () {
     $("#board").mousedown(function (event) {
         "use strict";
         board.onMouseDown(event)
-    });
-
-    $("#board").mousemove(function (event) {
+    }).mousemove(function (event) {
         "use strict";
         board.onMouseMove(event)
-    });
-
-    $("#board").mouseup(function (event) {
+    }).mouseup(function (event) {
         "use strict";
         board.onMouseUp(event)
     });
