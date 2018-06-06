@@ -98,7 +98,7 @@ $(document).ready(function () {
     });
     $(window).keydown(function (event) {
         if(event.keyCode == 46)
-           board.deleteSlected();
+           board.deleteSelected();
     });
     $("#btn-unselect").click(function (event) {
         board.unselect();
