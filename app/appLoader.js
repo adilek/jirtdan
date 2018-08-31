@@ -96,6 +96,13 @@ $(document).ready(function() {
 	$('#btn-delete').click(function(event) {
 		board.deleteSelected();
 	});
+	$('body').on('keyup', function(event) {
+		// delete selected item
+		// when user clicks 'del' button on keyboard
+		if (event.keyCode === 46) {
+			board.deleteSelected();
+		}
+	});
 	$('#btn-unselect').click(function(event) {
 		board.unselect();
 	});
