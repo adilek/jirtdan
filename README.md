@@ -1,6 +1,6 @@
 ![Logo](logo.png)
 
-[![License](https://img.shields.io/github/license/adilek/jirtdan.svg)](https://github.com/adilek/jirtdan/blob/master/LICENSE) [![Build Status](https://travis-ci.org/adilek/jirtdan.svg?branch=master)](https://travis-ci.org/adilek/jirtdan) [![SonarQube Quality Gate](https://sonarqube.com/api/badges/gate?key=adilek:jirtdan)](https://sonarqube.com/dashboard?id=adilek:jirtdan) [![SonarQube Tech Debt](https://sonarqube.com/api/badges/measure?key=adilek:jirtdan&metric=sqale_debt_ratio)](https://sonarqube.com/dashboard?id=adilek:jirtdan)
+[![License](https://img.shields.io/github/license/adilek/jirtdan.svg)](https://github.com/adilek/jirtdan/blob/master/LICENSE) [![Build Status](https://travis-ci.org/adilek/jirtdan.svg?branch=master)](https://travis-ci.org/adilek/jirtdan) 
 ======
 
 
