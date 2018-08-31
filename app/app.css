@@ -21,9 +21,34 @@
  SOFTWARE.
 
  */
+* {
+    padding: 0;
+    margin: 0;
+}
+
 body {
     box-sizing: border-box;
     font-family: 'Ubuntu', sans-serif;
+}
+
+.navbar {
+    padding: 10px 16px;
+    background: #2980b9;
+}
+
+.navbar__logo {
+    height: 35px;
+    display: inline-block;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.navbar__title {
+    color: #fff;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 12px;
+    margin-top: 3px;
 }
 
 #board {
