@@ -21,6 +21,10 @@
  SOFTWARE.
 
  */
+body {
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
 
 #board {
     height: 800px;
