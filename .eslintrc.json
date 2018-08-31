@@ -8,6 +8,8 @@
     }
   },
   "rules": {
-    "semi": 2
+    "semi": 2,
+    "linebreak-style": 0,
+    "comma-dangle": "off"
   }
 }
