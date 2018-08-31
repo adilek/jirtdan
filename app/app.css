@@ -51,6 +51,22 @@ body {
     margin-top: 3px;
 }
 
+.btn {
+    padding: 5px 8px;
+    cursor: pointer;
+    border: 1px solid #2980b9;
+    color: #2980b9;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.btn:hover,
+.btn:active {
+    outline: none;
+    color: #fff;
+    background-color: #2980b9;
+}
+
 #board {
     height: 800px;
     margin: 0 auto;
