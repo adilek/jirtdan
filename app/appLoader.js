@@ -22,6 +22,8 @@
 
  */
 
+import * as $ from 'jquery';
+
 import { Board } from './app/Board.js';
 import { AndGate } from './app/controls/gates/AndGate.js';
 import { OrGate } from './app/controls/gates/OrGate.js';
