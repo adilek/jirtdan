@@ -77,6 +77,7 @@ body {
     color: #2980b9;
     background-color: #fff;
     border-radius: 5px;
+    outline: none;
 }
 
 .btn:hover,
