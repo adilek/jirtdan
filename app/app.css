@@ -32,7 +32,7 @@ body {
 }
 
 .navbar {
-    padding: 10px 16px;
+    padding: 8px 16px;
     background: #2980b9;
 }
 
@@ -49,6 +49,25 @@ body {
     vertical-align: middle;
     margin-left: 12px;
     margin-top: 3px;
+}
+
+.toolbar {
+    padding: 5px 10px;
+    border-bottom: 1px solid #2980b9;
+}
+
+.toolbar::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.toolbar__left {
+    float: left;
+}
+
+.toolbar__right {
+    float: right;
 }
 
 .btn {
