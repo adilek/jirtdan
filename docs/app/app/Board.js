@@ -22,9 +22,9 @@
 
  */
 
-"use strict";
-/*jshint esversion: 6*/
-import {ConnectionLine} from './controls/ConnectionLine.js'
+'use strict';
+/* jshint esversion: 6*/
+import {ConnectionLine} from './controls/ConnectionLine.js';
 
 /**
  * Minimal height/width value for selection box to be appear.
@@ -33,14 +33,13 @@ import {ConnectionLine} from './controls/ConnectionLine.js'
  * @type {number}
  */
 const SELECTION_BOX_START_THRESHOLD = 10;
-const SELECTION_BOX_FILL_COLOR = "#355faf";
+const SELECTION_BOX_FILL_COLOR = '#355faf';
 
 /**
  * The workspace board object where all components are placed and
  * interact with each other.
  */
 export class Board {
-
     /**
      * Constructor of the {@link Board} class.
      * @param paper paper object of {@link Raphael} library.
@@ -119,7 +118,7 @@ export class Board {
      * @param {number} y the coordinate on Y axis.
      */
     translateConnections(pin, x, y) {
-        for (var i = 0; i < this.connections.length; i++) {
+        for (let i = 0; i < this.connections.length; i++) {
             this.connections[i].onPinTranslate(pin, x, y);
         }
     }
@@ -236,11 +235,13 @@ export class Board {
     /**
      * Select all controls within boundaries of given area.
      *
+     * <pre>
      * x,y--------------x2,y
      * |///////////////////|
      * |///////////////////|
      * |///////////////////|
      * x,y2-------------x2,y2
+     * </pre>
      */
     selectControlsWithinArea(x, y, x2, y2) {
         this.unselect();
@@ -315,7 +316,7 @@ class SelectionBox {
         this.isDrawing = false;
         this.controlPoints = {
             x1: 0, y1: 0,
-            x2: 0, y2: 0
+            x2: 0, y2: 0,
         };
     }
 
@@ -333,8 +334,8 @@ class SelectionBox {
             this.element.attr(attr);
         } else {
             this.element = this.paper.rect(x, y, w, h);
-            this.element.attr("fill", SELECTION_BOX_FILL_COLOR);
-            this.element.attr("fill-opacity", 0.3);
+            this.element.attr('fill', SELECTION_BOX_FILL_COLOR);
+            this.element.attr('fill-opacity', 0.3);
             this.isDrawing = true;
         }
     }
@@ -363,11 +364,13 @@ class SelectionBox {
     /**
      * Get the control points of rectangle.
      *
+     * <pre>
      * x1,y1-----------x2,y1
      * |///////////////////|
      * |///////////////////|
      * |///////////////////|
      * x1,y2-----------x2,y2
+     * </pre>
      *
      * @returns {{x1: number, y1: number,
      *            x2: number, y2: number}|*}

@@ -21,12 +21,83 @@
  SOFTWARE.
 
  */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.navbar {
+    padding: 8px 16px;
+    background: #2980b9;
+}
+
+.navbar__logo {
+    height: 35px;
+    display: inline-block;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.navbar__title {
+    color: #fff;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 12px;
+    margin-top: 3px;
+}
+
+.toolbar {
+    padding: 5px 10px;
+    border-bottom: 1px solid #2980b9;
+}
+
+.toolbar::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.toolbar__left {
+    float: left;
+}
+
+.toolbar__right {
+    float: right;
+}
+
+.btn {
+    padding: 5px 8px;
+    cursor: pointer;
+    border: 1px solid #2980b9;
+    color: #2980b9;
+    background-color: #fff;
+    border-radius: 5px;
+    outline: none;
+}
+
+.btn:hover,
+.btn:active {
+    outline: none;
+    color: #fff;
+    background-color: #2980b9;
+}
+
+main {
+    padding: 10px;
+    width: 100%;
+    box-sizing: inherit;
+}
 
 #board {
-    height: 800px;
+    height: 100vh;
     margin: 0 auto;
-    width: 1280px;
+    width: 100%;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
-    border: solid 1px #333;
+    border: solid 1px #2980b9;
 }
