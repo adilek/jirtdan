@@ -22,25 +22,24 @@
 
  */
 
-"use strict";
-/*jshint esversion: 6*/
+'use strict';
+/* jshint esversion: 6*/
 
 const DEFAULT_CONNECTION_PIN_RADIUS = 5;
-const PIN_TYPE_IN = "in";
-const PIN_TYPE_OUT = "out";
+const PIN_TYPE_IN = 'in';
+const PIN_TYPE_OUT = 'out';
 
 import {
     POWER_STATE_LOW,
     DEFAULT_FILL_COLOR,
     DEFAULT_STROKE_COLOR,
     DEFAULT_STROKE_WIDTH,
-    DEBUG
-} from './BaseControl.js'
+    DEBUG,
+} from './BaseControl.js';
 
-const LOGTAG = "ConnectionPin";
+const LOGTAG = 'ConnectionPin';
 
 export class ConnectionPin {
-
     /**
      * Constructor of {@link ConnectionPin}
      * @param {BaseControl} parent the parent control that the pin is used for
@@ -65,28 +64,28 @@ export class ConnectionPin {
      * The method that initializes the pin object.
      * This method should not be called from outside.
      */
-    /**@hide*/
+    /** @hide*/
     init() {
         this.element = this.paper.circle(this.x, this.y, DEFAULT_CONNECTION_PIN_RADIUS);
-        this.element.attr("stroke", DEFAULT_STROKE_COLOR);
-        this.element.attr("stroke-width", DEFAULT_STROKE_WIDTH);
-        this.element.attr("fill", "#fff");
+        this.element.attr('stroke', DEFAULT_STROKE_COLOR);
+        this.element.attr('stroke-width', DEFAULT_STROKE_WIDTH);
+        this.element.attr('fill', '#fff');
 
         // Assign event handlers.
         const _this = this;
-        this.element.mousedown(function () {
+        this.element.mousedown(function() {
             _this.onActionDown();
         });
-        this.element.mouseup(function () {
+        this.element.mouseup(function() {
             _this.onActionUp();
         });
-        this.element.mouseover(function () {
+        this.element.mouseover(function() {
             _this.onHoverIn();
         });
-        this.element.mouseout(function () {
+        this.element.mouseout(function() {
             _this.onHoverOut();
         });
-        this.element.click(function () {
+        this.element.click(function() {
             _this.onClick();
         });
     }
@@ -127,7 +126,7 @@ export class ConnectionPin {
 
         const inputPin = this.isInputType() ? this : pin;
 
-        //noinspection RedundantIfStatementJS
+        // noinspection RedundantIfStatementJS
         if (!inputPin.isConnectionAllowed) return false;
 
         return true;
@@ -183,7 +182,6 @@ export class ConnectionPin {
      * @param listener
      */
     addStateChangeListener(listener) {
-
         this.stateChangeListeners.push(listener);
 
         if (this.isOutputType()) {
@@ -195,32 +193,32 @@ export class ConnectionPin {
      * Event for input-pin down action.
      */
     onActionDown() {
-        this.element.attr("stroke", "#00f");
-        this.element.attr("fill", "#0f0");
+        this.element.attr('stroke', '#00f');
+        this.element.attr('fill', '#0f0');
     }
 
     /**
      * Event for input-up action.
      */
     onActionUp() {
-        this.element.attr("stroke", "#f00");
-        this.element.attr("fill", "#fff");
+        this.element.attr('stroke', '#f00');
+        this.element.attr('fill', '#fff');
     }
 
     /**
      * Event for hover-in action.
      */
     onHoverIn() {
-        this.element.attr("r", 7);
-        this.element.attr("stroke", "#f00");
+        this.element.attr('r', 7);
+        this.element.attr('stroke', '#f00');
     }
 
     /**
      * Event for hover-out action.
      */
     onHoverOut() {
-        this.element.attr("r", 5);
-        this.element.attr("stroke", DEFAULT_STROKE_COLOR);
+        this.element.attr('r', 5);
+        this.element.attr('stroke', DEFAULT_STROKE_COLOR);
     }
 
     onClick() {

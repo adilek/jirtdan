@@ -1,38 +1,52 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Jirtdan</title>
-    <link rel="stylesheet" href="app.css" type="text/css" media="screen"/>
-    <script src="third_party/raphael/raphael.js" type="text/javascript" charset="utf-8"></script>
-    <script src="third_party/jquery/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
-    <script src="third_party/traceur/traceur.js" type="text/javascript" charset="utf-8"></script>
-    <script src="third_party/traceur/BrowserSystem.js" type="text/javascript" charset="utf-8"></script>
-</head>
-<body>
-<button id="btn-add-and">AND</button>
-<button id="btn-add-or">OR</button>
-<button id="btn-add-one">1</button>
-<button id="btn-add-zero">0</button>
-<button id="btn-add-bulb">Bulb</button>
-<button id="btn-add-not">NOT</button>
-<button id="btn-add-xor">XOR</button>
-<button id="btn-add-switch">Switch</button>
-<button id="btn-add-push">Push</button>
-<button id="btn-add-buffer">Buffer</button>
-<button id="btn-add-nand">Nand</button>
-<button id="btn-add-nor">Nor</button>
-<button id="btn-add-xnor">XNor</button>
-<br/>
-<button id="btn-delete">DELETE</button>
-<button id="btn-unselect">UNSELECT</button>
-<div id="board"></div>
 
-<script type="text/javascript">
-    System.import('./appLoader.js').catch(function (ex) {
-        console.error('Internal Error ', ex.stack || ex);
-    });
-</script>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Jirtdan</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" href="app.css" type="text/css" media="screen" />
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="navbar__brand">
+                <img class="navbar__logo" src="./logo.png" alt="Jirtdan - logo">
+                <h4 class="navbar__title">Logic gates simulator</h4>
+            </div>
+        </div>
+        <div class="toolbar">
+            <div class="toolbar__left">
+                <button class="btn btn--default" id="btn-add-and">AND</button>
+                <button class="btn btn--default" id="btn-add-or">OR</button>
+                <button class="btn btn--default" id="btn-add-one">1</button>
+                <button class="btn btn--default" id="btn-add-zero">0</button>
+                <button class="btn btn--default" id="btn-add-bulb">Bulb</button>
+                <button class="btn btn--default" id="btn-add-not">NOT</button>
+                <button class="btn btn--default" id="btn-add-xor">XOR</button>
+                <button class="btn btn--default" id="btn-add-switch">Switch</button>
+                <button class="btn btn--default" id="btn-add-push">Push</button>
+                <button class="btn btn--default" id="btn-add-buffer">Buffer</button>
+                <button class="btn btn--default" id="btn-add-nand">Nand</button>
+                <button class="btn btn--default" id="btn-add-nor">Nor</button>
+                <button class="btn btn--default" id="btn-add-xnor">XNor</button>
+            </div>
+            <div class="toolbar__right">
+                <button class="btn btn--danger" id="btn-delete">DELETE</button>
+                <button class="btn btn--default" id="btn-unselect">UNSELECT</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div id="board"></div>
+    </main>
+
+    <script src="third_party/raphael/raphael.js"></script>
+    <script src="compiled/bundle.js"></script>
 
 </body>
+
 </html>
